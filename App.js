@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation';
 
 import HomeScreen from './screens/homescreen';
 import EntryScreen from './screens/entryscreen';
+import DiagnosingScreen from './screens/diagnosingscreen';
 
 
 class DetailsScreen extends React.Component {
@@ -25,6 +26,7 @@ const RootStack = createStackNavigator(
         Home: HomeScreen,
         Details: DetailsScreen,
         EntryGuideline: EntryScreen,
+        Diagnosing: DiagnosingScreen
     },
     {
         initialRouteName: 'Home',
