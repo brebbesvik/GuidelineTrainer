@@ -1,49 +1,100 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React from 'react';
+import { Button, View, Text, Alert } from 'react-native';
+import { ButtonGroup, Card, List, ListItem } from "react-native-elements";
+import { createStackNavigator } from 'react-navigation';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
-  }
+const list = [
+    {
+        title: 'Entry points',
+        page: 'EntryGuideline'
+    },
+    {
+        title: 'Diagnosing',
+        page: 'Diagnosing'
+    },
+    {
+        title: 'Treatment',
+        page: 'Details'
+    }
+];
+class HomeScreen extends React.Component {
+    static navigationOptions = {
+        title: 'GuidelineTrainer',
+    };
+    render() {
+        return (
+            <View>
+                <List>
+                    {
+                        list.map((item) => (
+                            <ListItem
+                            key={item.title}
+                            title={item.title}
+                            onPress={() => this.props.navigation.navigate(item.page)}
+                            />
+                        ))
+                    }
+                </List>
+            </View>
+        );
+    }
+}
+class EntryScreen extends React.Component {
+    static navigationOptions = {
+        title: 'Entry point for a guideline',
+    };
+    constructor () {
+        super()
+        this.state = {
+            selectedIndex: -1
+        }
+        this.updateIndex = this.updateIndex.bind(this)
+    }
+    updateIndex (selectedIndex) {
+        this.setState({selectedIndex})
+        if (selectedIndex == 1) Alert.alert('Correct!');
+        else Alert.alert('Wrong!');
+    }
+    render() {
+        const buttons = ['Asthma', 'Severe asthma', 'Tuberkolosis']
+        const { selectedIndex } = this.state
+        return (
+            <View>
+                <Card>
+                    <Text style={{fontSize: 18}}>A child enters the hospital with a wheeze and has difficulty breathing. What is the first you examine the child for?</Text>
+                </Card>
+                <ButtonGroup onPress={this.updateIndex} selectedIndex={selectedIndex} buttons={buttons}/>
+            </View>
+        );
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
+class DetailsScreen extends React.Component {
+    render() {
+        return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Text>Details Screen</Text>
+                <Button
+                    title="Go to Home"
+                    onPress={() => this.props.navigation.navigate('Home')}
+                />
+            </View>
+        );
+    }
+}
+const RootStack = createStackNavigator(
+    {
+        Home: HomeScreen,
+        Details: DetailsScreen,
+        EntryGuideline: EntryScreen,
+    },
+    {
+        initialRouteName: 'Home',
+    }
+);
+export default class App extends React.Component {
+    render() {
+        return <RootStack />;
+    }
+}
