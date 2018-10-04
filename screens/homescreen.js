@@ -4,15 +4,15 @@ import {List, ListItem} from "react-native-elements";
 
 const list = [
     {
-        title: 'Entry points',
+        title: 'Examine for a diagnosis',
         page: 'EntryGuideline'
     },
     {
-        title: 'Diagnosing',
+        title: 'Examine for a treatment',
         page: 'Diagnosing'
     },
     {
-        title: 'Treatment',
+        title: 'Picking a guideline',
         page: 'Details'
     }
 ];

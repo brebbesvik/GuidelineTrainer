@@ -4,7 +4,7 @@ import {ButtonGroup, Card} from "react-native-elements";
 
 class EntryScreen extends React.Component {
     static navigationOptions = {
-        title: 'Entry point for a guideline',
+        title: 'Examine for a diagnosis',
     };
     constructor () {
         super()
@@ -19,7 +19,7 @@ class EntryScreen extends React.Component {
         else Alert.alert('Wrong!');
     }
     render() {
-        const buttons = ['Asthma', 'Severe asthma', 'Tuberkolosis']
+        const buttons = ['Mild asthma', 'Severe asthma', 'Tuberkolosis']
         const { selectedIndex } = this.state
         return (
             <View>

@@ -4,7 +4,7 @@ import {Card, ButtonGroup} from "react-native-elements";
 
 class DiagnosingScreen extends React.Component {
     static navigationOptions = {
-        title: 'Set a diagnosis',
+        title: 'Examine for a treatment',
     };
     constructor () {
         super();
