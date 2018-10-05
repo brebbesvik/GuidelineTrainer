@@ -22,11 +22,11 @@ class TreatmentScreen extends React.Component {
         const buttons = ['Possible asthma', 'Tuberculosis', 'Chronic cough'];
         const { selectedIndex } = this.state;
         return (
-            <View style={{height: 300}}>
+            <View style={{height: 400}}>
                 <WebView
                          javaScriptEnabled={true}
                          domStorageEnabled={true}
-                         source={{uri: 'https://www.youtube.com/watch?v=uGMSnytbmA8' }}/>
+                         source={{uri: 'https://www.youtube.com/watch?v=uGMSnytbmA8?disablekb=1&loop=1&modestbranding=1' }}/>
                 <Card>
                 <Text style={{fontSize: 18}}>What will you examine the baseball player for?</Text>
                 </Card>
