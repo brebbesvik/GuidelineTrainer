@@ -1,0 +1,164 @@
+{
+	"entity-model" : {
+		"vertex": [
+			{"name": "Patient"},
+			{"name": "Diagnosis"},
+			{"name": "Treatment"},
+			{"name": "Age"}, 
+			{"name": "Weight"}, 
+			{"name": "History"}, 
+			{"name": "Breathing-Condition"}, 
+			{"name": "Diagnosis-Name"}, 
+			{"name": "Severity"}, 
+			{"name": "Treatment-Type"}, 
+			{"name": "Medication-Name"}, 
+			{"name": "Dose"}, 
+			{"name": "Route"}
+		],
+		"edges": [
+			{"name": "e1", "src": "Patient", "trg": "Age"},
+			{"name": "e2", "src": "Patient", "trg": "Weight"},
+			{"name": "e3", "src": "Patient", "trg": "History"},
+			{"name": "e4", "src": "Patient", "trg": "Breathing-Condition"},
+			{"name": "e5", "src": "Diagnosis", "trg": "Diagnosis-Name"},
+			{"name": "e6", "src": "Diagnosis", "trg": "Severity"},
+			{"name": "e7", "src": "Treatment", "trg": "Treatment-Type"},
+			{"name": "e8", "src": "Treatment", "trg": "Medication-Name"},
+			{"name": "e9", "src": "Treatment", "trg": "Dose"},
+			{"name": "e10", "src": "Treatment", "trg": "Route"},
+			{"name": "hasDiagnosis", "src": "Patient", "trg": "Diagnosis"},
+			{"name": "receives", "src": "Patient", "trg": "Treatment"},			
+			{"name": "hasTreatment", "src": "Diagnosis", "trg": "Treatment"}
+		]
+	},
+	
+	"entity-instance1" : {
+		"vertex": [
+			{"name": "p1", "type": "Patient"},
+			{"name": "18 months", "type": "Age"},
+			{"name": "11 kg", "type": "Weight"},
+			{"name": "Wheeze", "type": "History"},
+			{"name": "Difficulty breathing", "type": "Breathing-Condition"},
+			{"name": "d1", "type": "Diagnosis"},
+			{"name": "Asthma", "type": "Diagnosis-Name"},
+			{"name": "Severe", "type": "Severity"}
+    ],
+    "edges": [
+        {"name": "r1", "src": "p1", "trg": "18 months", "type": "e1"},        
+        {"name": "r2", "src": "p1", "trg": "11 kg", "type": "e2"},
+		{"name": "r3", "src": "p1", "trg": "Wheeze", "type": "e3"},
+		{"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},
+		{"name": "r5", "src": "d1", "trg": "Asthma", "type": "e5"},
+		{"name": "r6", "src": "d1", "trg": "Severe", "type": "e6"},
+		{"name": ":hasDiagnosis", "src": "p1", "trg": "d1", "type": "hasDiagnosis"}
+		]
+	},
+	
+	
+	"entity-instance2" : {
+		"vertex": [
+			{"name": "p1", "type": "Patient"},
+			{"name": "18 months", "type": "Age"},
+			{"name": "11 kg", "type": "Weight"},
+			{"name": "Wheeze", "type": "History"},
+			{"name": "Difficulty breathing", "type": "Breathing-Condition"},
+			{"name": "d1", "type": "Diagnosis"},
+			{"name": "Asthma", "type": "Diagnosis-Name"},
+			{"name": "Severe", "type": "Severity"},
+			{"name": "t1", "type": "Treatment"},
+			{"name": "Medication", "type": "Treatment-Type"},
+			{"name": "Salbutamol", "type": "Medication-Name", "constraint": "[Q]"},
+			{"name": "2.5 mg", "type": "Dose", "constraint": "[Q]"},
+			{"name": "Inhaled", "type": "Route", "constraint": "[Q]"}
+		],
+    "edges": [
+        {"name": "r1", "src": "p1", "trg": "18 months", "type": "e1"},        
+        {"name": "r2", "src": "p1", "trg": "11 kg", "type": "e2"},
+		{"name": "r3", "src": "p1", "trg": "Wheeze", "type": "e3"},
+		{"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},
+		{"name": "r5", "src": "d1", "trg": "Asthma", "type": "e5"},
+		{"name": "r6", "src": "d1", "trg": "Severe", "type": "e6"},
+		{"name": ":hasDiagnosis", "src": "p1", "trg": "d1", "type": "hasDiagnosis"},
+		{"name": "r7", "src": "t1", "trg": "Medication", "type": "e7"},
+		{"name": "r8", "src": "t1", "trg": "Salbutamol", "type": "e8"},
+		{"name": "r9", "src": "t1", "trg": "2.5 mg", "type": "e9"},
+		{"name": "r10", "src": "t1", "trg": "Inhaled", "type": "e10"},
+		{"name": ":hasTreatment", "src": "d1", "trg": "t1", "type": "hasTreatment"},
+		{"name": ":receives", "src": "p1", "trg": "t1", "type": "receives"}
+		]
+	},
+
+	
+	"entity-instance3" : {
+		"vertex": [
+			{"name": "p1", "type": "Patient"},
+			{"name": "18 months", "type": "Age"},
+			{"name": "11 kg", "type": "Weight"},
+			{"name": "Wheeze", "type": "History"},
+			{"name": "Difficulty breathing", "type": "Breathing-Condition"},
+			{"name": "d1", "type": "Diagnosis"},
+			{"name": "Asthma", "type": "Diagnosis-Name"},
+			{"name": "Severe", "type": "Severity"},
+			{"name": "t1", "type": "Treatment"},
+			{"name": "Medication", "type": "Treatment-Type"},
+			{"name": "Salbutamol", "type": "Medication-Name"},
+			{"name": "2.5 mg", "type": "Dose", "constraint": "[Q]"},
+			{"name": "Inhaled", "type": "Route", "constraint": "[Q]"}
+		],
+    "edges": [
+        {"name": "r1", "src": "p1", "trg": "18 months", "type": "e1"},        
+        {"name": "r2", "src": "p1", "trg": "11 kg", "type": "e2"},
+		{"name": "r3", "src": "p1", "trg": "Wheeze", "type": "e3"},
+		{"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},
+		{"name": "r5", "src": "d1", "trg": "Asthma", "type": "e5"},
+		{"name": "r6", "src": "d1", "trg": "Severe", "type": "e6"},
+		{"name": ":hasDiagnosis", "src": "p1", "trg": "d1", "type": "hasDiagnosis"},
+		{"name": "r7", "src": "t1", "trg": "Medication", "type": "e7"},
+		{"name": "r8", "src": "t1", "trg": "Salbutamol", "type": "e8"},
+		{"name": "r9", "src": "t1", "trg": "2.5 mg", "type": "e9"},
+		{"name": "r10", "src": "t1", "trg": "Inhaled", "type": "e10"},
+		{"name": ":hasTreatment", "src": "d1", "trg": "t1", "type": "hasTreatment"},
+		{"name": ":receives", "src": "p1", "trg": "t1", "type": "receives"}
+		]
+	},
+	
+	"workflow-model" : {
+		"Task": [
+			{"name": "Init"},
+			{"name": "Treat"},
+			{"name": "Observe"}
+		],
+		"Flow": [
+			{"name": "f1", "src": "Init", "trg": "Treat"},
+			{"name": "f2", "src": "Init", "trg": "Observe"}
+		]
+	},
+	
+	"workflow-instance1" : {
+		"Task": [
+			{"name": "18 months old child weighing 11 kg, with history of wheeze and difficulty breathing", "type": "Init"}
+		],
+    "Flow": []
+	},
+	
+	"workflow-instance2" : {
+		"Task": [
+			{"id": "1", "name": "Initial-Diagnosis", "type": "Init"},
+			{"id": "2", "name": "Treatment", "type": "Treat"}
+		],
+    "Flow": [
+        {"name": ":f1", "src": "1", "trg": "2", "type": "f1"}
+		]
+	},
+
+	"training-flow1": [
+		{ "module-id": "1", "WI": "workflow-instance1", "EI": "entity-instance1"},
+		{ "module-id": "2", "WI": "workflow-instance2", "EI": "entity-instance2"}
+	],
+	
+	"training-flow2": [
+		{ "module-id": "1", "WI": "workflow-instance1", "EI": "entity-instance1"},
+		{ "module-id": "2", "WI": "workflow-instance2", "EI": "entity-instance3"}
+	]
+		
+}
