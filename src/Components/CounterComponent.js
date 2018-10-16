@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    Button,
-    Alert
-} from 'react-native';
+import { StyleSheet, Text, View, Button, Alert} from 'react-native';
 
 export default class CounterApp extends Component {
-
     constructor(props) {
         super(props)
     }
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                     <View style={styles.textContainer}>
                         <Text style={styles.description}>An adult comes to the hospital with a child. The child has difficulty breating. You immediatley spots the childs blue finger nails</Text>
                         <Text style={styles.question}>What diagnosis would you suggest?</Text>
@@ -50,10 +43,11 @@ export default class CounterApp extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
     textContainer: {
-        flex: 0,
         backgroundColor: 'white',
-        width: 375,
         margin: 20,
     },
     description: {
@@ -69,11 +63,9 @@ const styles = StyleSheet.create({
     },
     button:{
       width: '40%',
-      height: '40',
     },
     scoreContainer: {
         backgroundColor: 'white',
-        width: 375,
         margin: 20,
     },
     score: {
