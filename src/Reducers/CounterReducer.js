@@ -1,6 +1,14 @@
 import * as Actions from '../Actions/ActionTypes'
+import * as Asthma from '../getting_data_from_json'
 
-const CounterReducer = (state = {count: 0}, action) => {
+const initialState = {
+    count: 5,
+    problem: Asthma.get_description()
+};
+const CounterReducer = (state, action) => {
+    if (typeof state === 'undefined') {
+        return initialState;
+    }
     switch (action.type) {
         case Actions.COUNTER_INCREMENT:
             return Object.assign({}, state, {

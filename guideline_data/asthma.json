@@ -42,16 +42,16 @@
 			{"name": "d1", "type": "Diagnosis"},
 			{"name": "Asthma", "type": "Diagnosis-Name"},
 			{"name": "Severe", "type": "Severity"}
-    ],
-    "edges": [
-        {"name": "r1", "src": "p1", "trg": "18 months", "type": "e1"},        
-        {"name": "r2", "src": "p1", "trg": "11 kg", "type": "e2"},
-		{"name": "r3", "src": "p1", "trg": "Wheeze", "type": "e3"},
-		{"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},
-		{"name": "r5", "src": "d1", "trg": "Asthma", "type": "e5"},
-		{"name": "r6", "src": "d1", "trg": "Severe", "type": "e6"},
-		{"name": ":hasDiagnosis", "src": "p1", "trg": "d1", "type": "hasDiagnosis"}
-		]
+        ],
+        "edges": [
+            {"name": "r1", "src": "p1", "trg": "18 months", "type": "e1"},
+            {"name": "r2", "src": "p1", "trg": "11 kg", "type": "e2"},
+            {"name": "r3", "src": "p1", "trg": "Wheeze", "type": "e3"},
+            {"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},
+            {"name": "r5", "src": "d1", "trg": "Asthma", "type": "e5"},
+            {"name": "r6", "src": "d1", "trg": "Severe", "type": "e6"},
+            {"name": ":hasDiagnosis", "src": "p1", "trg": "d1", "type": "hasDiagnosis"}
+        ]
 	},
 	
 	
@@ -71,20 +71,20 @@
 			{"name": "2.5 mg", "type": "Dose", "constraint": "[Q]"},
 			{"name": "Inhaled", "type": "Route", "constraint": "[Q]"}
 		],
-    "edges": [
-        {"name": "r1", "src": "p1", "trg": "18 months", "type": "e1"},        
-        {"name": "r2", "src": "p1", "trg": "11 kg", "type": "e2"},
-		{"name": "r3", "src": "p1", "trg": "Wheeze", "type": "e3"},
-		{"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},
-		{"name": "r5", "src": "d1", "trg": "Asthma", "type": "e5"},
-		{"name": "r6", "src": "d1", "trg": "Severe", "type": "e6"},
-		{"name": ":hasDiagnosis", "src": "p1", "trg": "d1", "type": "hasDiagnosis"},
-		{"name": "r7", "src": "t1", "trg": "Medication", "type": "e7"},
-		{"name": "r8", "src": "t1", "trg": "Salbutamol", "type": "e8"},
-		{"name": "r9", "src": "t1", "trg": "2.5 mg", "type": "e9"},
-		{"name": "r10", "src": "t1", "trg": "Inhaled", "type": "e10"},
-		{"name": ":hasTreatment", "src": "d1", "trg": "t1", "type": "hasTreatment"},
-		{"name": ":receives", "src": "p1", "trg": "t1", "type": "receives"}
+        "edges": [
+            {"name": "r1", "src": "p1", "trg": "18 months", "type": "e1"},
+            {"name": "r2", "src": "p1", "trg": "11 kg", "type": "e2"},
+            {"name": "r3", "src": "p1", "trg": "Wheeze", "type": "e3"},
+            {"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},
+            {"name": "r5", "src": "d1", "trg": "Asthma", "type": "e5"},
+            {"name": "r6", "src": "d1", "trg": "Severe", "type": "e6"},
+            {"name": ":hasDiagnosis", "src": "p1", "trg": "d1", "type": "hasDiagnosis"},
+            {"name": "r7", "src": "t1", "trg": "Medication", "type": "e7"},
+            {"name": "r8", "src": "t1", "trg": "Salbutamol", "type": "e8"},
+            {"name": "r9", "src": "t1", "trg": "2.5 mg", "type": "e9"},
+            {"name": "r10", "src": "t1", "trg": "Inhaled", "type": "e10"},
+            {"name": ":hasTreatment", "src": "d1", "trg": "t1", "type": "hasTreatment"},
+            {"name": ":receives", "src": "p1", "trg": "t1", "type": "receives"}
 		]
 	},
 
@@ -105,20 +105,41 @@
 			{"name": "2.5 mg", "type": "Dose", "constraint": "[Q]"},
 			{"name": "Inhaled", "type": "Route", "constraint": "[Q]"}
 		],
-    "edges": [
-        {"name": "r1", "src": "p1", "trg": "18 months", "type": "e1"},        
-        {"name": "r2", "src": "p1", "trg": "11 kg", "type": "e2"},
-		{"name": "r3", "src": "p1", "trg": "Wheeze", "type": "e3"},
-		{"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},
-		{"name": "r5", "src": "d1", "trg": "Asthma", "type": "e5"},
-		{"name": "r6", "src": "d1", "trg": "Severe", "type": "e6"},
-		{"name": ":hasDiagnosis", "src": "p1", "trg": "d1", "type": "hasDiagnosis"},
-		{"name": "r7", "src": "t1", "trg": "Medication", "type": "e7"},
-		{"name": "r8", "src": "t1", "trg": "Salbutamol", "type": "e8"},
-		{"name": "r9", "src": "t1", "trg": "2.5 mg", "type": "e9"},
-		{"name": "r10", "src": "t1", "trg": "Inhaled", "type": "e10"},
-		{"name": ":hasTreatment", "src": "d1", "trg": "t1", "type": "hasTreatment"},
-		{"name": ":receives", "src": "p1", "trg": "t1", "type": "receives"}
+        "edges": [
+            {"name": "r1", "src": "p1", "trg": "18 months", "type": "e1"},
+            {"name": "r2", "src": "p1", "trg": "11 kg", "type": "e2"},
+            {"name": "r3", "src": "p1", "trg": "Wheeze", "type": "e3"},
+            {"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},
+            {"name": "r5", "src": "d1", "trg": "Asthma", "type": "e5"},
+            {"name": "r6", "src": "d1", "trg": "Severe", "type": "e6"},
+            {"name": ":hasDiagnosis", "src": "p1", "trg": "d1", "type": "hasDiagnosis"},
+            {"name": "r7", "src": "t1", "trg": "Medication", "type": "e7"},
+            {"name": "r8", "src": "t1", "trg": "Salbutamol", "type": "e8"},
+            {"name": "r9", "src": "t1", "trg": "2.5 mg", "type": "e9"},
+            {"name": "r10", "src": "t1", "trg": "Inhaled", "type": "e10"},
+            {"name": ":hasTreatment", "src": "d1", "trg": "t1", "type": "hasTreatment"},
+            {"name": ":receives", "src": "p1", "trg": "t1", "type": "receives"}
+		]
+	},
+	"entity-instance4" : {
+		"vertex": [
+			{"name": "p1", "type": "Patient"},
+			{"name": "Difficulty breathing", "type": "Breathing-Condition"},
+			{"name": "d1", "type": "Diagnosis"},
+            {"name": "True", "type": "Central cyanosis"},
+            {"name": "True", "type": "Lower chest wall indrawing"},
+            {"name": "85%", "type": "Oxygen saturation"},
+			{"name": "Asthma", "type": "Diagnosis-Name", "constraint": "[Q]"},
+			{"name": "Severe", "type": "Severity", "constraint": "[Q]"},
+            {"name": "Asthma", "type": "Diagnosis-Name", "constraint": "[A1]"},
+            {"name": "Moderate", "type": "Severity", "constraint": "[A1]"},
+            {"name": "Tuberculosis", "type": "Diagnosis-Name", "constraint": "[A2]"}
+		],
+		"edges": [
+			{"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},
+			{"name": "r5", "src": "d1", "trg": "Asthma", "type": "e5"},
+			{"name": "r6", "src": "d1", "trg": "Severe", "type": "e6"},
+			{"name": ":hasDiagnosis", "src": "p1", "trg": "d1", "type": "hasDiagnosis"}
 		]
 	},
 	

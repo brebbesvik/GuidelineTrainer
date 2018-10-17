@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Alert} from 'react-native';
 
+/*
+TODO
+Need to use modal instead of alert. Then i can display much more content like
+infobuttons, images, videos, url to proof and original CPGs
+ */
 export default class CounterApp extends Component {
     constructor(props) {
         super(props)
@@ -9,8 +14,7 @@ export default class CounterApp extends Component {
         return (
             <View style={styles.container}>
                     <View style={styles.textContainer}>
-                        <Text style={styles.description}>An adult comes to the hospital with a child. The child has difficulty breating. You immediatley spots the childs blue finger nails</Text>
-                        <Text style={styles.question}>What diagnosis would you suggest?</Text>
+                        <Text style={styles.description}>{this.props.problem}</Text>
                     </View>
 
                 <View style={styles.buttonContainer}>
@@ -53,9 +57,6 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 18,
     },
-    question: {
-      fontSize: 18,
-    },
     buttonContainer: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -70,15 +71,5 @@ const styles = StyleSheet.create({
     },
     score: {
       fontSize: 18,
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
     },
 });
