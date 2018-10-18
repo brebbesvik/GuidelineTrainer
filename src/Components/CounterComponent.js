@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, Alert} from 'react-native';
+import { StyleSheet, Text, View, Button, Alert, Modal} from 'react-native';
 
-/*
-TODO
-Need to use modal instead of alert. Then i can display much more content like
-infobuttons, images, videos, url to proof and original CPGs
- */
+
 export default class CounterApp extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            modalVisible: false,
+        };
     }
+    setModalVisible = (visible) => {
+        this.setState({modalVisible: visible});
+    };
     render() {
         var props = this.props;
-        const buttonList =
-            this.props.alternatives.map((line, index) => {
-
+        const buttonList = this.props.alternatives.map((line, index) => {
             return <Button
                 key={index}
                 title={line[0] + " " + line[1]}
                 onPress={() => {
-                    Alert.alert(line[2]);
-                    if(line[2]=='Correct!')
+                    //Alert.alert(line[2]);
+                    this.setModalVisible(true)
+                    if(line[2]==='Correct!')
                         this.props.increment();
                     else
                         this.props.decrement();
@@ -42,12 +44,45 @@ export default class CounterApp extends Component {
                 <View style={styles.scoreContainer}>
                     <Text style={styles.score}>Score: {this.props.count}</Text>
                 </View>
+
+                <Modal
+                    animationType="fade"
+                    transparent={true}
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => {}}>
+                    <View style={styles.modalviewparent}>
+                        <View style={styles.modalview}>
+                            <Text style={{fontSize: 30, color:"#00FF00"}}>Correct!</Text>
+                            <Text style={{fontSize: 18}}>Difficulty breathing and lower chest wall indrawing are all symptoms on asthma. However, in this case central cyanosis is what indicates that the asthma is severe.</Text>
+                            <View style={styles.buttonContainer}>
+                                <Button title={"Evidence"} onPress={() => {}}/>
+                                <Button title={"Guideline"} onPress={() => {}}/>
+                                <Button title={"Close"} onPress={this.setModalVisible.bind(this, false)}/>
+                            </View>
+                        </View>
+                    </View>
+                </Modal>
+
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    modalviewparent: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    modalview: {
+        height: 300,
+        width: 300,
+        backgroundColor: '#FFFFFF',
+        borderColor: '#000000',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        padding: 5,
+    },
     container: {
         flex: 1,
     },
