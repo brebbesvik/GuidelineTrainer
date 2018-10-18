@@ -133,7 +133,8 @@
 			{"name": "Severe", "type": "Severity", "constraint": "[Q]"},
             {"name": "Asthma", "type": "Diagnosis-Name", "constraint": "[A1]"},
             {"name": "Moderate", "type": "Severity", "constraint": "[A1]"},
-            {"name": "Tuberculosis", "type": "Diagnosis-Name", "constraint": "[A2]"}
+            {"name": "Tuberculosis", "type": "Diagnosis-Name", "constraint": "[A2]"},
+            {"name": "", "type": "Severity", "constraint": "[A2]"}
 		],
 		"edges": [
 			{"name": "r4", "src": "p1", "trg": "Difficulty breathing", "type": "e4"},

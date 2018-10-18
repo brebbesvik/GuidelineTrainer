@@ -5,7 +5,8 @@ import CounterComponent from '../Components/CounterComponent';
 
 const mapStateToProps = (state) => ({
     count: state.counterReducer.count,
-    problem: state.counterReducer.problem
+    problem: state.counterReducer.problem,
+    alternatives: state.counterReducer.alternatives
 });
 
 const mapDispatchToProps = (dispatch) => ({

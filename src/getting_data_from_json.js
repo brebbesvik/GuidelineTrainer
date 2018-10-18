@@ -43,7 +43,7 @@ export const get_description = function(){
     return description;
 };
 
-const get_answers = function() {
+export const get_alternatives = function() {
     let patient = json["entity-instance4"];
     let answers = new Array(3);
     answers[0] = ['','',''];
@@ -76,3 +76,8 @@ const get_answers = function() {
     return answers;
 };
 
+/*let alternatives = get_alternatives();
+
+alternatives.map(function(line) {
+     console.log(line[0] + " " + line[1] + " " + line[2])
+});*/

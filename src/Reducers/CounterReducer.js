@@ -3,7 +3,8 @@ import * as Asthma from '../getting_data_from_json'
 
 const initialState = {
     count: 5,
-    problem: Asthma.get_description()
+    problem: Asthma.get_description(),
+    alternatives: Asthma.get_alternatives()
 };
 const CounterReducer = (state, action) => {
     if (typeof state === 'undefined') {

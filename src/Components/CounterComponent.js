@@ -8,9 +8,27 @@ infobuttons, images, videos, url to proof and original CPGs
  */
 export default class CounterApp extends Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
     render() {
+        var props = this.props;
+        const buttonList =
+            this.props.alternatives.map((line, index) => {
+
+            return <Button
+                key={index}
+                title={line[0] + " " + line[1]}
+                onPress={() => {
+                    Alert.alert(line[2]);
+                    if(line[2]=='Correct!')
+                        this.props.increment();
+                    else
+                        this.props.decrement();
+                }}
+                accessibilityLabel="Moderate asthma"
+                style={styles.button}
+            />
+        });
         return (
             <View style={styles.container}>
                     <View style={styles.textContainer}>
@@ -18,24 +36,7 @@ export default class CounterApp extends Component {
                     </View>
 
                 <View style={styles.buttonContainer}>
-                     <Button
-                         title="Moderate asthma"
-                         onPress={() => {Alert.alert('Wrong!'); this.props.decrement()}}
-                         accessibilityLabel="Moderate asthma"
-                         style={styles.button}
-                     />
-                     <Button
-                         title="Tuberculosis"
-                         onPress={() => {Alert.alert('Wrong!'); this.props.decrement()}}
-                         accessibilityLabel="Moderate asthma"
-                         style={styles.button}
-                     />
-                     <Button
-                         title="Severe asthma"
-                         onPress={() => {Alert.alert('Correct!'); this.props.increment()}}
-                         accessibilityLabel="Severe asthma"
-                         style={styles.button}
-                     />
+                    {buttonList}
                 </View>
 
                 <View style={styles.scoreContainer}>
