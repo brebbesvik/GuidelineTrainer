@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
 import store from './Reducers/index';
-import CounterAction from './Actions/CounterAction';
+import CounterComponent from './Components/CounterComponent';
 
 export default class App extends Component {
     constructor(props){
@@ -12,7 +12,7 @@ export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <CounterAction />
+                <CounterComponent />
             </Provider>
         );
     }

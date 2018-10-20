@@ -1,15 +1,6 @@
-import { connect } from 'react-redux';
-
 import * as Actions from './ActionTypes';
-import AnswerKeyComponent from '../Components/AnswerKeyComponent';
+export const showAnswerKey = () => ({ type: Actions.SHOW_ANSWER_KEY });
+export const hideAnswerKey = () => ({ type: Actions.HIDE_ANSWER_KEY });
 
-const mapStateToProps = (state) => ({
-    answerKey: state.answerKeyReducer.answerKey
-});
 
-const mapDispatchToProps = (dispatch) => ({
-    showAnswerKey: () => dispatch({type: Actions.SHOW_ANSWER_KEY}),
-    hideAnswerKey: () => dispatch({type: Actions.HIDE_ANSWER_KEY}),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(AnswerKeyComponent);

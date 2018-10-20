@@ -1,8 +1,19 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Modal} from 'react-native';
 
+import {showAnswerKey, hideAnswerKey} from "../Actions/AnswerKeyAction";
 
-export default class AnswerKeyComponent extends Component{
+const mapStateToProps = (state) => ({
+    answerKey: state.answerKeyReducer.answerKey
+});
+
+const mapDispatchToProps = {
+    showAnswerKey,
+    hideAnswerKey,
+};
+
+class AnswerKeyComponent extends Component{
     constructor(props) {
         super(props);
     };
@@ -59,3 +70,5 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
 });
+
+export default connect(mapStateToProps, mapDispatchToProps)(AnswerKeyComponent);

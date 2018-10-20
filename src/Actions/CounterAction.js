@@ -1,17 +1,8 @@
-import { connect } from 'react-redux';
-
 import * as Actions from './ActionTypes';
-import CounterComponent from '../Components/CounterComponent';
 
-const mapStateToProps = (state) => ({
-    count: state.counterReducer.count,
-    problem: state.counterReducer.problem,
-    alternatives: state.counterReducer.alternatives
-});
 
-const mapDispatchToProps = (dispatch) => ({
-    increment: () => dispatch({type: Actions.COUNTER_INCREMENT}),
-    decrement: () => dispatch({type: Actions.COUNTER_DECREMENT}),
-});
+export const increment = () => ({type: Actions.COUNTER_INCREMENT});
+export const decrement = () => ({type: Actions.COUNTER_DECREMENT});
 
-export default connect(mapStateToProps, mapDispatchToProps)(CounterComponent);
+
+

@@ -1,15 +1,30 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, Alert, Modal} from 'react-native';
-import AnswerKeyAction from '../Actions/AnswerKeyAction';
-import { Provider } from 'react-redux';
+import { StyleSheet, Text, View, Button} from 'react-native';
 
-import store from '../Reducers/index';
+import AnswerKeyComponent from '../Components/AnswerKeyComponent';
 
-export default class CounterApp extends Component {
+import {increment, decrement} from "../Actions/CounterAction";
+import {showAnswerKey} from "../Actions/AnswerKeyAction";
+
+const mapStateToProps = (state) => ({
+    count: state.counterReducer.count,
+    problem: state.counterReducer.problem,
+    alternatives: state.counterReducer.alternatives
+});
+
+const mapDispatchToProps = {
+    increment,
+    decrement,
+    showAnswerKey,
+};
+
+
+
+
+class CounterComponent extends Component {
     constructor(props) {
         super(props);
-
-
     };
     render() {
         var props = this.props;
@@ -18,8 +33,7 @@ export default class CounterApp extends Component {
                 key={index}
                 title={line[0] + " " + line[1]}
                 onPress={() => {
-                    //Alert.alert(line[2]);
-                    AnswerKeyAction.props.showAnswerKey();
+                    this.props.showAnswerKey();
                     if(line[2]==='Correct!')
                         this.props.increment();
                     else
@@ -42,9 +56,9 @@ export default class CounterApp extends Component {
                 <View style={styles.scoreContainer}>
                     <Text style={styles.score}>Score: {this.props.count}</Text>
                 </View>
-                <Provider store={store}>
-                    <AnswerKeyAction />
-                </Provider>
+
+                <AnswerKeyComponent />
+
             </View>
         );
     }
@@ -77,3 +91,5 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
 });
+
+export default connect(mapStateToProps, mapDispatchToProps)(CounterComponent);
