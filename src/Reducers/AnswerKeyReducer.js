@@ -1,7 +1,8 @@
 import * as Actions from '../Actions/ActionTypes'
 
 const initialState = {
-    answerKey: true
+    answerKey: true,
+    isAnswerCorrect: false
 };
 const AnswerKeyReducer = (state, action) => {
     if (typeof state === 'undefined') {
@@ -15,6 +16,14 @@ const AnswerKeyReducer = (state, action) => {
         case Actions.HIDE_ANSWER_KEY:
             return Object.assign({}, state, {
                 answerKey: false
+            });
+        case Actions.CORRECT_ANSWER:
+            return Object.assign({}, state, {
+                isAnswerCorrect: true
+            });
+        case Actions.WRONG_ANSWER:
+            return Object.assign({}, state, {
+                isAnswerCorrect: false
             });
         default:
             return state;

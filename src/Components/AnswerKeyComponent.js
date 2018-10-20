@@ -5,7 +5,8 @@ import { StyleSheet, Text, View, Button, Modal} from 'react-native';
 import {showAnswerKey, hideAnswerKey} from "../Actions/AnswerKeyAction";
 
 const mapStateToProps = (state) => ({
-    answerKey: state.answerKeyReducer.answerKey
+    answerKey: state.answerKeyReducer.answerKey,
+    isAnswerCorrect: state.answerKeyReducer.isAnswerCorrect,
 });
 
 const mapDispatchToProps = {
@@ -18,7 +19,14 @@ class AnswerKeyComponent extends Component{
         super(props);
     };
     render() {
+        const isAnswerCorrect = () => {
+          if(this.props.isAnswerCorrect)
+              return <Text style={{fontSize: 30, color: "#00FF00"}}>Correct!</Text>;
+          else
+              return <Text style={{fontSize: 30, color: "#FF0000"}}>Wrong!</Text>;
+        };
         return (
+
             <Modal
                 animationType="fade"
                 transparent={true}
@@ -28,7 +36,7 @@ class AnswerKeyComponent extends Component{
                 <View style={styles.modalViewParent}>
                     <View style={styles.modalView}>
                         <View style={styles.textContainer}>
-                            <Text style={{fontSize: 30, color: "#00FF00"}}>Correct!</Text>
+                            {isAnswerCorrect()}
                             <Text style={{fontSize: 18}}>Difficulty breathing and lower chest wall indrawing are all
                                 symptoms on asthma. However, in this case central cyanosis is what indicates that the
                                 asthma is severe.</Text>

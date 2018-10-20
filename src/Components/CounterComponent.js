@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 import AnswerKeyComponent from '../Components/AnswerKeyComponent';
 
 import {increment, decrement} from "../Actions/CounterAction";
-import {showAnswerKey} from "../Actions/AnswerKeyAction";
+import {showAnswerKey, setAnswerCorrect, setAnswerWrong} from "../Actions/AnswerKeyAction";
 
 const mapStateToProps = (state) => ({
     count: state.counterReducer.count,
@@ -17,10 +17,9 @@ const mapDispatchToProps = {
     increment,
     decrement,
     showAnswerKey,
+    setAnswerCorrect,
+    setAnswerWrong,
 };
-
-
-
 
 class CounterComponent extends Component {
     constructor(props) {
@@ -33,11 +32,15 @@ class CounterComponent extends Component {
                 key={index}
                 title={line[0] + " " + line[1]}
                 onPress={() => {
-                    this.props.showAnswerKey();
-                    if(line[2]==='Correct!')
+                    if(line[2]==='Correct!') {
                         this.props.increment();
-                    else
+                        this.props.setAnswerCorrect();
+                    }
+                    else {
                         this.props.decrement();
+                        this.props.setAnswerWrong();
+                    }
+                    this.props.showAnswerKey();
                 }}
                 accessibilityLabel="Moderate asthma"
                 style={styles.button}
