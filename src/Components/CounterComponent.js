@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Alert, Modal} from 'react-native';
+import AnswerKeyAction from '../Actions/AnswerKeyAction';
+import { Provider } from 'react-redux';
 
+import store from '../Reducers/index';
 
 export default class CounterApp extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            modalVisible: false,
-        };
-    }
-    setModalVisible = (visible) => {
-        this.setState({modalVisible: visible});
+
     };
     render() {
         var props = this.props;
@@ -21,7 +19,7 @@ export default class CounterApp extends Component {
                 title={line[0] + " " + line[1]}
                 onPress={() => {
                     //Alert.alert(line[2]);
-                    this.setModalVisible(true);
+                    AnswerKeyAction.props.showAnswerKey();
                     if(line[2]==='Correct!')
                         this.props.increment();
                     else
@@ -33,9 +31,9 @@ export default class CounterApp extends Component {
         });
         return (
             <View style={styles.container}>
-                    <View style={styles.textContainer}>
-                        <Text style={styles.description}>{this.props.problem}</Text>
-                    </View>
+                <View style={styles.textContainer}>
+                    <Text style={styles.description}>{this.props.problem}</Text>
+                </View>
 
                 <View style={styles.buttonContainer}>
                     {buttonList}
@@ -44,46 +42,15 @@ export default class CounterApp extends Component {
                 <View style={styles.scoreContainer}>
                     <Text style={styles.score}>Score: {this.props.count}</Text>
                 </View>
-
-                <Modal
-                    animationType="fade"
-                    transparent={true}
-                    visible={this.state.modalVisible}
-                    onRequestClose={() => {}}>
-                    <View style={styles.modalviewparent}>
-                        <View style={styles.modalview}>
-                                <View style={styles.textContainer}>
-                                <Text style={{fontSize: 30, color:"#00FF00"}}>Correct!</Text>
-                                <Text style={{fontSize: 18}}>Difficulty breathing and lower chest wall indrawing are all symptoms on asthma. However, in this case central cyanosis is what indicates that the asthma is severe.</Text>
-                             </View>
-                            <View style={styles.buttonContainer}>
-                                <Button title={"Evidence"} onPress={() => {}}/>
-                                <Button title={"Guideline"} onPress={() => {}}/>
-                                <Button title={"Close"} onPress={this.setModalVisible.bind(this, false)}/>
-                            </View>
-                        </View>
-                    </View>
-                </Modal>
-
+                <Provider store={store}>
+                    <AnswerKeyAction />
+                </Provider>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    modalviewparent: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    modalview: {
-        height: '80%',
-        width: '80%',
-        backgroundColor: '#FFFFFF',
-        borderColor: '#000000',
-        borderStyle: 'solid',
-        borderWidth: 1,
-    },
     container: {
         flex: 1,
     },
@@ -95,18 +62,18 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     buttonContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-around',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
     },
     button:{
-      width: '40%',
+        width: '40%',
     },
     scoreContainer: {
         backgroundColor: 'white',
         margin: 20,
     },
     score: {
-      fontSize: 18,
+        fontSize: 18,
     },
 });

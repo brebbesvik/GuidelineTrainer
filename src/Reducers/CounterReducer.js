@@ -22,6 +22,6 @@ const CounterReducer = (state, action) => {
         default:
             return state;
     }
-}
+};
 
 export default CounterReducer;
