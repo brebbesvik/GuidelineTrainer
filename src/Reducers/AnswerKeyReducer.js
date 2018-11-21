@@ -1,7 +1,7 @@
 import * as Actions from '../Actions/ActionTypes'
 
 const initialState = {
-    answerKey: true,
+    answerKey: false,
     isAnswerCorrect: false
 };
 const AnswerKeyReducer = (state, action) => {

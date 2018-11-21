@@ -4,18 +4,16 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 
 import AnswerKeyComponent from '../Components/AnswerKeyComponent';
 
-import {increment, decrement} from "../Actions/CounterAction";
 import {showAnswerKey, setAnswerCorrect, setAnswerWrong} from "../Actions/AnswerKeyAction";
 
 const mapStateToProps = (state) => ({
     count: state.counterReducer.count,
     problem: state.counterReducer.problem,
-    alternatives: state.counterReducer.alternatives
+    alternatives: state.counterReducer.alternatives,
+    correctAlternative: state.counterReducer.correctAlternative
 });
 
 const mapDispatchToProps = {
-    increment,
-    decrement,
     showAnswerKey,
     setAnswerCorrect,
     setAnswerWrong,
@@ -30,14 +28,12 @@ class CounterComponent extends Component {
         const buttonList = this.props.alternatives.map((line, index) => {
             return <Button
                 key={index}
-                title={line[0] + " " + line[1]}
+                title={line}
                 onPress={() => {
-                    if(line[2]==='Correct!') {
-                        this.props.increment();
+                    if(index === this.props.correctAlternative) {
                         this.props.setAnswerCorrect();
                     }
                     else {
-                        this.props.decrement();
                         this.props.setAnswerWrong();
                     }
                     this.props.showAnswerKey();
@@ -58,6 +54,8 @@ class CounterComponent extends Component {
 
                 <View style={styles.scoreContainer}>
                     <Text style={styles.score}>Score: {this.props.count}</Text>
+                    <Text style={styles.score}>Correct: {this.props.correctAlternative}</Text>
+                    <Text style={styles.score}>Alternatives: {this.props.alternatives}</Text>
                 </View>
 
                 <AnswerKeyComponent />

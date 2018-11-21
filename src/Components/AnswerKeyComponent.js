@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Modal} from 'react-native';
 
-import {showAnswerKey, hideAnswerKey} from "../Actions/AnswerKeyAction";
+import {hideAnswerKey} from "../Actions/AnswerKeyAction";
+import {increment, decrement, nextQuestion} from "../Actions/CounterAction";
 
 const mapStateToProps = (state) => ({
     answerKey: state.answerKeyReducer.answerKey,
@@ -10,8 +11,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    showAnswerKey,
     hideAnswerKey,
+    increment,
+    decrement,
+    nextQuestion,
 };
 
 class AnswerKeyComponent extends Component{
@@ -19,11 +22,20 @@ class AnswerKeyComponent extends Component{
         super(props);
     };
     render() {
-        const isAnswerCorrect = () => {
+        const setTitle = () => {
           if(this.props.isAnswerCorrect)
               return <Text style={{fontSize: 30, color: "#00FF00"}}>Correct!</Text>;
           else
               return <Text style={{fontSize: 30, color: "#FF0000"}}>Wrong!</Text>;
+        };
+        const updateScoreAndQuestion = () => {
+            if (this.props.isAnswerCorrect) {
+                this.props.increment();
+                this.props.nextQuestion();
+            }
+            else {
+                this.props.decrement();
+            }
         };
         return (
 
@@ -36,7 +48,7 @@ class AnswerKeyComponent extends Component{
                 <View style={styles.modalViewParent}>
                     <View style={styles.modalView}>
                         <View style={styles.textContainer}>
-                            {isAnswerCorrect()}
+                            {setTitle()}
                             <Text style={{fontSize: 18}}>Difficulty breathing and lower chest wall indrawing are all
                                 symptoms on asthma. However, in this case central cyanosis is what indicates that the
                                 asthma is severe.</Text>
@@ -46,7 +58,9 @@ class AnswerKeyComponent extends Component{
                             }}/>
                             <Button title={"Guideline"} onPress={() => {
                             }}/>
-                            <Button title={"Close"} onPress={() => {this.props.hideAnswerKey();}}/>
+                            <Button title={"Close"} onPress={() => {
+                                {updateScoreAndQuestion()}
+                                this.props.hideAnswerKey();}}/>
                         </View>
                     </View>
                 </View>
