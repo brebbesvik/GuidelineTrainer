@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import { StyleSheet, Text, View, Button} from 'react-native';
 
 import AnswerKeyComponent from '../Components/AnswerKeyComponent';
 
 import {showAnswerKey, setAnswerCorrect, setAnswerWrong} from "../Actions/AnswerKeyAction";
-import PropTypes from "prop-types";
+
 
 const mapStateToProps = (state) => ({
     count: state.counterReducer.count,
