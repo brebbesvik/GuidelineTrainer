@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, Button} from 'react-native';
+import {Text, View} from 'react-native';
 
 class SummaryComponent extends Component{
     constructor(props) {
@@ -9,7 +9,6 @@ class SummaryComponent extends Component{
         return (
             <View>
                 <Text>This is a short summary</Text>
-                <Button title={"Redo"} onPress={}/>
             </View>
         );
     }

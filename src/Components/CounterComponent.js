@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 import AnswerKeyComponent from '../Components/AnswerKeyComponent';
 
 import {showAnswerKey, setAnswerCorrect, setAnswerWrong} from "../Actions/AnswerKeyAction";
+import PropTypes from "prop-types";
 
 const mapStateToProps = (state) => ({
     count: state.counterReducer.count,
@@ -22,6 +23,9 @@ const mapDispatchToProps = {
 class CounterComponent extends Component {
     constructor(props) {
         super(props);
+    };
+    static propTypes = {
+        componentId: PropTypes.string
     };
     render() {
         var props = this.props;
@@ -56,9 +60,10 @@ class CounterComponent extends Component {
                     <Text style={styles.score}>Score: {this.props.count}</Text>
                     <Text style={styles.score}>Correct: {this.props.correctAlternative}</Text>
                     <Text style={styles.score}>Alternatives: {this.props.alternatives}</Text>
+                    <Text style={styles.score}>ComponentID: {this.props.componentId}</Text>
                 </View>
 
-                <AnswerKeyComponent />
+                <AnswerKeyComponent component={this.props.componentId} />
 
             </View>
         );

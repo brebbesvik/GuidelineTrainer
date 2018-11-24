@@ -1,6 +1,7 @@
 import * as Actions from '../Actions/ActionTypes'
 import * as Asthma from '../getting_data_from_json'
 import QuestionMocks from '../MockingData/QuestionMocks';
+import PropTypes from 'prop-types';
 
 const questionMocks = new QuestionMocks();
 questionMocks.generate();
@@ -15,7 +16,9 @@ const initialState = {
     count: 5,
     problem: questionMocks.getQuestion(),
     alternatives: questionMocks.getAlternatives(),
-    correctAlternative: questionMocks.getAnswerKey()
+    correctAlternative: questionMocks.getAnswerKey(),
+    questionNumber: questionMocks.getQuestionNumber(),
+    numberOfQuestions: questionMocks.getNumberOfQuestions()
 };
 
 const CounterReducer = (state, action) => {
@@ -36,7 +39,8 @@ const CounterReducer = (state, action) => {
             return Object.assign({}, state, {
                 problem: questionMocks.getQuestion(),
                 alternatives: questionMocks.getAlternatives(),
-                correctAlternative: questionMocks.getAnswerKey()
+                correctAlternative: questionMocks.getAnswerKey(),
+                questionNumber: questionMocks.getQuestionNumber()
             });
         default:
             return state;

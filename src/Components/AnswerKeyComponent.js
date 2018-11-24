@@ -4,10 +4,13 @@ import { StyleSheet, Text, View, Button, Modal} from 'react-native';
 
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
 import {increment, decrement, nextQuestion} from "../Actions/CounterAction";
+import {Navigation} from "react-native-navigation";
 
 const mapStateToProps = (state) => ({
     answerKey: state.answerKeyReducer.answerKey,
     isAnswerCorrect: state.answerKeyReducer.isAnswerCorrect,
+    questionNumber: state.counterReducer.questionNumber,
+    numberOfQuestions: state.counterReducer.numberOfQuestions
 });
 
 const mapDispatchToProps = {
@@ -31,11 +34,29 @@ class AnswerKeyComponent extends Component{
         const updateScoreAndQuestion = () => {
             if (this.props.isAnswerCorrect) {
                 this.props.increment();
-                this.props.nextQuestion();
+                if (this.props.questionNumber+1 < this.props.numberOfQuestions)
+                    this.props.nextQuestion();
+                else goToSummary();
             }
             else {
                 this.props.decrement();
             }
+        };
+        const goToSummary = () => {
+            Navigation.push(this.props.component, {
+                component: {
+                    name: 'game.QuizSummary',
+                    passProps: {
+                    },
+                    options: {
+                        topBar: {
+                            title: {
+                                text: 'Summaryur'
+                            }
+                        }
+                    }
+                }
+            });
         };
         return (
 

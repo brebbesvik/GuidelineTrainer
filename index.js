@@ -1,13 +1,27 @@
-/** @format */
-/*
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+import {Navigation} from 'react-native-navigation';
+import {registerScreens} from './src/App';
 
-AppRegistry.registerComponent(appName, () => App);
-*/
-import {AppRegistry} from 'react-native';
-import App from './src/App';
-import {name as appName} from './app.json';
+registerScreens();
 
-AppRegistry.registerComponent(appName, () => App);
+Navigation.events().registerAppLaunchedListener(() => {
+    Navigation.setRoot({
+        root: {
+            stack: {
+                children: [
+                    {
+                        component: {
+                            name: 'game.Quiz',
+                            options: {
+                                topBar: {
+                                    title: {
+                                        text: 'Quizur'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+            }
+        }
+    });
+});
