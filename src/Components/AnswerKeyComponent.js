@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button, Modal} from 'react-native';
 
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
 import {increment, decrement, nextQuestion} from "../Actions/CounterAction";
+import {showSummary} from "../Actions/SummaryAction";
 import {Navigation} from "react-native-navigation";
 
 const mapStateToProps = (state) => ({
@@ -18,6 +19,7 @@ const mapDispatchToProps = {
     increment,
     decrement,
     nextQuestion,
+    showSummary,
 };
 
 class AnswerKeyComponent extends Component{
@@ -43,7 +45,9 @@ class AnswerKeyComponent extends Component{
             }
         };
         const goToSummary = () => {
-            Navigation.push(this.props.component, {
+            this.props.hideAnswerKey();
+            this.props.showSummary();
+            /*Navigation.push(this.props.component, {
                 component: {
                     name: 'game.QuizSummary',
                     passProps: {
@@ -56,7 +60,7 @@ class AnswerKeyComponent extends Component{
                         }
                     }
                 }
-            });
+            });*/
         };
         return (
 
@@ -91,7 +95,7 @@ class AnswerKeyComponent extends Component{
 }
 const styles = StyleSheet.create({
     modalViewParent: {
-        flex: 1,
+    flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },

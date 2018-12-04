@@ -5,3 +5,5 @@ export const HIDE_ANSWER_KEY = 'hide_answer_key';
 export const CORRECT_ANSWER = 'correct_answer';
 export const WRONG_ANSWER = 'wrong_answer';
 export const NEXT_QUESTION = 'next_question';
+export const SHOW_SUMMARY = 'show_summary';
+export const HIDE_SUMMARY = 'hide_summary';

@@ -6,6 +6,7 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 import AnswerKeyComponent from '../Components/AnswerKeyComponent';
 
 import {showAnswerKey, setAnswerCorrect, setAnswerWrong} from "../Actions/AnswerKeyAction";
+import SummaryComponent from "./SummaryComponent";
 
 
 const mapStateToProps = (state) => ({
@@ -63,6 +64,7 @@ class CounterComponent extends Component {
                 </View>
 
                 <AnswerKeyComponent component={this.props.componentId} />
+                <SummaryComponent component={this.props.componentId} />
 
             </View>
         );

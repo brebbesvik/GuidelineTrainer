@@ -2,10 +2,12 @@ import { combineReducers, createStore } from 'redux';
 
 import counterReducer from './CounterReducer'
 import answerKeyReducer from './AnswerKeyReducer'
+import summaryReducer from './SummaryReducer'
 
 const AppReducers = combineReducers({
     counterReducer,
-    answerKeyReducer
+    answerKeyReducer,
+    summaryReducer
 });
 
 const rootReducer = (state, action) => {
