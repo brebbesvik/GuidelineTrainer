@@ -31,9 +31,10 @@ class CounterComponent extends Component {
     render() {
         var props = this.props;
         const buttonList = this.props.alternatives.map((line, index) => {
-            return <Button
+            return <View style={styles.singleButtonContainer} key={index}><Button
                 key={index}
                 title={line}
+                color="#841584"
                 onPress={() => {
                     if(index === this.props.correctAlternative) {
                         this.props.setAnswerCorrect();
@@ -45,7 +46,7 @@ class CounterComponent extends Component {
                 }}
                 accessibilityLabel="Moderate asthma"
                 style={styles.button}
-            />
+            /></View>
         });
         return (
             <View style={styles.container}>
@@ -59,9 +60,6 @@ class CounterComponent extends Component {
 
                 <View style={styles.scoreContainer}>
                     <Text style={styles.score}>Score: {this.props.count}</Text>
-                    <Text style={styles.score}>Correct: {this.props.correctAlternative}</Text>
-                    <Text style={styles.score}>Alternatives: {this.props.alternatives}</Text>
-                    <Text style={styles.score}>ComponentID: {this.props.componentId}</Text>
                 </View>
 
                 <AnswerKeyComponent component={this.props.componentId} />
@@ -83,16 +81,22 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     buttonContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
         justifyContent: 'space-around',
     },
     button:{
         width: '40%',
     },
+    singleButtonContainer: {
+        marginLeft: 20,
+        marginBottom: 10,
+    },
     scoreContainer: {
         backgroundColor: 'white',
-        margin: 20,
+        marginTop: 10,
+        marginLeft: 20,
+        marginRight: 20,
     },
     score: {
         fontSize: 18,

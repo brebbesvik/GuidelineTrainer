@@ -27,7 +27,7 @@ class AnswerKeyComponent extends Component{
     render() {
         const setTitle = () => {
           if(this.props.isAnswerCorrect)
-              return <Text style={{fontSize: 30, color: "#00FF00"}}>Correct!</Text>;
+              return <Text style={{fontSize: 30, color: "#228B22"}}>Correct!</Text>;
           else
               return <Text style={{fontSize: 30, color: "#FF0000"}}>Wrong!</Text>;
         };
@@ -51,7 +51,7 @@ class AnswerKeyComponent extends Component{
                     options: {
                         topBar: {
                             title: {
-                                text: 'Summaryur'
+                                text: 'Summary'
                             }
                         }
                     }
@@ -75,11 +75,11 @@ class AnswerKeyComponent extends Component{
                                 asthma is severe.</Text>
                         </View>
                         <View style={styles.buttonContainer}>
-                            <Button title={"Evidence"} onPress={() => {
+                            <Button title={"Evidence"} color="#841584" onPress={() => {
                             }}/>
-                            <Button title={"Guideline"} onPress={() => {
+                            <Button title={"Guideline"} color="#841584" onPress={() => {
                             }}/>
-                            <Button title={"Close"} onPress={() => {
+                            <Button title={"Close"} color="#841584" onPress={() => {
                                 {updateScoreAndQuestion()}
                                 this.props.hideAnswerKey();}}/>
                         </View>

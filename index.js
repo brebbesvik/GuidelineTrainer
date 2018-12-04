@@ -14,7 +14,11 @@ Navigation.events().registerAppLaunchedListener(() => {
                             options: {
                                 topBar: {
                                     title: {
-                                        text: 'Quizur'
+                                        text: 'Quiz',
+                                        color: '#FFFFFF'
+                                    },
+                                    background: {
+                                        color: '#841584'
                                     }
                                 }
                             }
