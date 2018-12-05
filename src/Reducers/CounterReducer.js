@@ -42,6 +42,9 @@ const CounterReducer = (state, action) => {
                 correctAlternative: questionMocks.getAnswerKey(),
                 questionNumber: questionMocks.getQuestionNumber()
             });
+        case Actions.RESET_QUIZ:
+            questionMocks.reset();
+            return initialState;
         default:
             return state;
     }

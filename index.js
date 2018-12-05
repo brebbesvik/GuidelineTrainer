@@ -10,11 +10,11 @@ Navigation.events().registerAppLaunchedListener(() => {
                 children: [
                     {
                         component: {
-                            name: 'game.Quiz',
+                            name: 'game.MainMenu',
                             options: {
                                 topBar: {
                                     title: {
-                                        text: 'Quiz',
+                                        text: 'GuidelineTrainer',
                                         color: '#FFFFFF'
                                     },
                                     background: {

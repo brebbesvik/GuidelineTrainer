@@ -29,6 +29,10 @@ export function registerScreens() {
         Provider,
         store
         );
+    Navigation.registerComponent(
+        'game.MainMenu',
+        () => require('./Components/MainMenuComponent').default
+    );
 /*    Navigation.registerComponentWithRedux(
         'game.QuizSummary',
         () => require('./Components/SummaryComponent.js').default,

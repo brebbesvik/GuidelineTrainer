@@ -44,5 +44,8 @@ class QuestionMocks {
     increaseQuestionNumber() {
         this.questionNumber++;
     }
+    reset() {
+        this.questionNumber = 0;
+    }
 }
 export default QuestionMocks;
