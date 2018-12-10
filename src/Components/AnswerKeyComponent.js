@@ -48,20 +48,6 @@ class AnswerKeyComponent extends Component{
         const goToSummary = () => {
             this.props.hideAnswerKey();
             this.props.showSummary();
-            /*Navigation.push(this.props.component, {
-                component: {
-                    name: 'game.QuizSummary',
-                    passProps: {
-                    },
-                    options: {
-                        topBar: {
-                            title: {
-                                text: 'Summary'
-                            }
-                        }
-                    }
-                }
-            });*/
         };
         return (
 

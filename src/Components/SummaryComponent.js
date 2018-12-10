@@ -41,6 +41,9 @@ class SummaryComponent extends Component{
 
                         <View style={styles.scoreContainer}>
                             <Text style={styles.score}>Score: {this.props.count}</Text>
+                            <Text style={styles.score}>To pass the quiz you need a score of 10 or higher</Text>
+                        </View>
+                        <View style={styles.scoreContainer}>
                             <Text style={styles.score}>Number of questions: {this.props.numberOfQuestions}</Text>
                             <Text style={styles.score}>Average score per question: {scorePerQuestion()}</Text>
                         </View>

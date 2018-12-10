@@ -16,7 +16,7 @@ class LevelsComponent extends Component{
                     options: {
                         topBar: {
                             title: {
-                                text: 'Quiz',
+                                text: 'Asthma Quiz Level 1',
                                 color: '#FFFFFF'
                             },
                             background: {

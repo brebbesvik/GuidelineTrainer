@@ -17,7 +17,7 @@ class MainMenuComponent extends Component{
                         topBar: {
 
                             title: {
-                                text: 'Levels',
+                                text: 'Asthma Quiz',
                                 color: '#FFFFFF'
                             },
                             background: {
@@ -41,10 +41,10 @@ class MainMenuComponent extends Component{
                     <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
                         <Text style={{fontSize: 18}}>Asthma</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
                         <Text style={{fontSize: 18}}>Tuberculosis</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
                         <Text style={{fontSize: 18}}>Malaria</Text>
                     </TouchableOpacity>
                 </View>
@@ -60,6 +60,12 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         backgroundColor: '#DDDDDD',
+        padding: 20,
+        margin: 10,
+    },
+    buttonDisabled: {
+        alignItems: 'center',
+        backgroundColor: '#f5f5f5',
         padding: 20,
         margin: 10,
     },
