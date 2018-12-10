@@ -11,7 +11,8 @@ const mapStateToProps = (state) => ({
     answerKey: state.answerKeyReducer.answerKey,
     isAnswerCorrect: state.answerKeyReducer.isAnswerCorrect,
     questionNumber: state.counterReducer.questionNumber,
-    numberOfQuestions: state.counterReducer.numberOfQuestions
+    numberOfQuestions: state.counterReducer.numberOfQuestions,
+    answerKeyExplanation: state.counterReducer.answerKeyExplanation
 });
 
 const mapDispatchToProps = {
@@ -74,9 +75,7 @@ class AnswerKeyComponent extends Component{
                     <View style={styles.modalView}>
                         <View style={styles.textContainer}>
                             {setTitle()}
-                            <Text style={{fontSize: 18}}>Difficulty breathing and lower chest wall indrawing are all
-                                symptoms on asthma. However, in this case central cyanosis is what indicates that the
-                                asthma is severe.</Text>
+                            <Text style={{fontSize: 18}}>{this.props.answerKeyExplanation}</Text>
                         </View>
                         <View style={styles.buttonContainer}>
                             <Button title={"Evidence"} color="#841584" onPress={() => {

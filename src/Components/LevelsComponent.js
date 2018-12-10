@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Button, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Navigation} from "react-native-navigation";
 
-class MainMenuComponent extends Component{
+class LevelsComponent extends Component{
     constructor(props) {
         super(props);
     };
@@ -10,14 +10,13 @@ class MainMenuComponent extends Component{
         const navigateTo = () => {
             Navigation.push(this.props.componentId, {
                 component: {
-                    name: 'game.LevelsMenu',
+                    name: 'game.Quiz',
                     passProps: {
                     },
                     options: {
                         topBar: {
-
                             title: {
-                                text: 'Levels',
+                                text: 'Quiz',
                                 color: '#FFFFFF'
                             },
                             background: {
@@ -34,18 +33,18 @@ class MainMenuComponent extends Component{
         return (
             <View>
                 <View>
-                    <Text style={{fontSize: 30, margin:10}}>Modules</Text>
+                    <Text style={{fontSize: 30, margin:10}}>Levels</Text>
                 </View>
 
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
-                        <Text style={{fontSize: 18}}>Asthma</Text>
+                        <Text style={{fontSize: 18}}>1</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
-                        <Text style={{fontSize: 18}}>Tuberculosis</Text>
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
+                        <Text style={{fontSize: 18}}>2</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
-                        <Text style={{fontSize: 18}}>Malaria</Text>
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
+                        <Text style={{fontSize: 18}}>3</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -63,6 +62,12 @@ const styles = StyleSheet.create({
         padding: 20,
         margin: 10,
     },
+    buttonDisabled: {
+        alignItems: 'center',
+        backgroundColor: '#f5f5f5',
+        padding: 20,
+        margin: 10,
+    },
     buttonContainer: {
         flexDirection: 'row'
     },
@@ -70,4 +75,4 @@ const styles = StyleSheet.create({
 
 
 
-export default MainMenuComponent;
+export default LevelsComponent;

@@ -18,7 +18,8 @@ const initialState = {
     alternatives: questionMocks.getAlternatives(),
     correctAlternative: questionMocks.getAnswerKey(),
     questionNumber: questionMocks.getQuestionNumber(),
-    numberOfQuestions: questionMocks.getNumberOfQuestions()
+    numberOfQuestions: questionMocks.getNumberOfQuestions(),
+    answerKeyExplanation: questionMocks.getAnswerKeyExplanation()
 };
 
 const CounterReducer = (state, action) => {
@@ -40,7 +41,8 @@ const CounterReducer = (state, action) => {
                 problem: questionMocks.getQuestion(),
                 alternatives: questionMocks.getAlternatives(),
                 correctAlternative: questionMocks.getAnswerKey(),
-                questionNumber: questionMocks.getQuestionNumber()
+                questionNumber: questionMocks.getQuestionNumber(),
+                answerKeyExplanation: questionMocks.getAnswerKeyExplanation()
             });
         case Actions.RESET_QUIZ:
             questionMocks.reset();
