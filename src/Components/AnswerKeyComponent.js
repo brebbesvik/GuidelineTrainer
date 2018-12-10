@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, Modal} from 'react-native';
+import { StyleSheet, Text, View, Button, Modal, ScrollView} from 'react-native';
 
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
 import {increment, decrement, nextQuestion} from "../Actions/CounterAction";
@@ -59,19 +59,21 @@ class AnswerKeyComponent extends Component{
                 }}>
                 <View style={styles.modalViewParent}>
                     <View style={styles.modalView}>
-                        <View style={styles.textContainer}>
-                            {setTitle()}
-                            <Text style={{fontSize: 18}}>{this.props.answerKeyExplanation}</Text>
-                        </View>
-                        <View style={styles.buttonContainer}>
-                            <Button title={"Evidence"} color="#841584" onPress={() => {
-                            }}/>
-                            <Button title={"Guideline"} color="#841584" onPress={() => {
-                            }}/>
-                            <Button title={"Close"} color="#841584" onPress={() => {
-                                {updateScoreAndQuestion()}
-                                this.props.hideAnswerKey();}}/>
-                        </View>
+                        <ScrollView>
+                            <View style={styles.textContainer}>
+                                {setTitle()}
+                                <Text style={{fontSize: 18}}>{this.props.answerKeyExplanation}</Text>
+                            </View>
+                            <View style={styles.buttonContainer}>
+                                <Button title={"Evidence"} color="#841584" onPress={() => {
+                                }}/>
+                                <Button title={"Guideline"} color="#841584" onPress={() => {
+                                }}/>
+                                <Button title={"Close"} color="#841584" onPress={() => {
+                                    {updateScoreAndQuestion()}
+                                    this.props.hideAnswerKey();}}/>
+                            </View>
+                        </ScrollView>
                     </View>
                 </View>
             </Modal>
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     modalView: {
-        height: '80%',
+        height: '60%',
         width: '80%',
         backgroundColor: '#FFFFFF',
         borderColor: '#000000',

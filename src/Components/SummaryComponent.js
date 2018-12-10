@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Modal, StyleSheet, Text, View} from 'react-native';
+import {Button, Modal, StyleSheet, Text, View, ScrollView} from 'react-native';
 import { connect } from 'react-redux';
 import {Navigation} from "react-native-navigation";
 
@@ -35,24 +35,26 @@ class SummaryComponent extends Component{
             }}>
                 <View style={styles.modalViewParent}>
                     <View style={styles.modalView}>
-                        <View style={styles.textContainer}>
-                            <Text style={{fontSize: 30}}>Quiz summary</Text>
-                        </View>
+                        <ScrollView>
+                            <View style={styles.textContainer}>
+                                <Text style={{fontSize: 30}}>Quiz summary</Text>
+                            </View>
 
-                        <View style={styles.scoreContainer}>
-                            <Text style={styles.score}>Score: {this.props.count}</Text>
-                            <Text style={styles.score}>To pass the quiz you need a score of 10 or higher</Text>
-                        </View>
-                        <View style={styles.scoreContainer}>
-                            <Text style={styles.score}>Number of questions: {this.props.numberOfQuestions}</Text>
-                            <Text style={styles.score}>Average score per question: {scorePerQuestion()}</Text>
-                        </View>
-                        <View style={styles.buttonContainer}>
-                            <Button title={"Back to menu"} color="#841584" onPress={() => {
-                                this.props.resetQuiz();
-                                this.props.hideSummary();
-                                Navigation.popToRoot(this.props.component);}}/>
-                        </View>
+                            <View style={styles.scoreContainer}>
+                                <Text style={styles.score}>Score: {this.props.count}</Text>
+                                <Text style={styles.score}>To pass the quiz you need a score of 10 or higher</Text>
+                            </View>
+                            <View style={styles.scoreContainer}>
+                                <Text style={styles.score}>Number of questions: {this.props.numberOfQuestions}</Text>
+                                <Text style={styles.score}>Average score per question: {scorePerQuestion()}</Text>
+                            </View>
+                            <View style={styles.buttonContainer}>
+                                <Button title={"Back to menu"} color="#841584" onPress={() => {
+                                    this.props.resetQuiz();
+                                    this.props.hideSummary();
+                                    Navigation.popToRoot(this.props.component);}}/>
+                            </View>
+                        </ScrollView>
                     </View>
                 </View>
             </Modal>
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     modalView: {
-        height: '80%',
+        height: '60%',
         width: '80%',
         backgroundColor: '#FFFFFF',
         borderColor: '#000000',
