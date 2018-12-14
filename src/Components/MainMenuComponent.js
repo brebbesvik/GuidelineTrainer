@@ -17,7 +17,7 @@ class MainMenuComponent extends Component{
                         topBar: {
 
                             title: {
-                                text: 'Asthma Quiz',
+                                text: 'Asthma Quiz Difficulties',
                                 color: '#FFFFFF'
                             },
                             background: {

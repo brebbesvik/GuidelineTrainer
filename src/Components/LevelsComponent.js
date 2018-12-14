@@ -33,7 +33,52 @@ class LevelsComponent extends Component{
         return (
             <View>
                 <View>
-                    <Text style={{fontSize: 30, margin:10}}>Levels</Text>
+                    <Text style={{fontSize: 30, margin:10}}>Choosing medical tests</Text>
+                </View>
+
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
+                        <Text style={{fontSize: 18}}>1</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
+                        <Text style={{fontSize: 18}}>2</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
+                        <Text style={{fontSize: 18}}>3</Text>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    <Text style={{fontSize: 30, margin:10}}>Diagnosis</Text>
+                </View>
+
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
+                        <Text style={{fontSize: 18}}>1</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
+                        <Text style={{fontSize: 18}}>2</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
+                        <Text style={{fontSize: 18}}>3</Text>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    <Text style={{fontSize: 30, margin:10}}>Treatment</Text>
+                </View>
+
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
+                        <Text style={{fontSize: 18}}>1</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
+                        <Text style={{fontSize: 18}}>2</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
+                        <Text style={{fontSize: 18}}>3</Text>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    <Text style={{fontSize: 30, margin:10}}>Evaluation</Text>
                 </View>
 
                 <View style={styles.buttonContainer}>
