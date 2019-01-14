@@ -3,8 +3,9 @@ import QuizDAO from '../DAO/QuizDAO';
 
 const disciplines = QuizDAO.getDisciplines("Asthma");
 const allLevels = [];
-for (let i=0; i<disciplines.length; i++)
+for (let i=0; i<disciplines.length; i++) {
     allLevels.push(QuizDAO.getLevels("Asthma", disciplines[i]));
+}
 
 const initialState = {
     disciplines: disciplines,

@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import {Button, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Navigation} from "react-native-navigation";
 
+import LevelComponent from './LevelComponent';
+
 const mapStateToProps = (state) => ({
     disciplines: state.disciplineReducer.disciplines,
     allLevels: state.disciplineReducer.allLevels,
@@ -38,7 +40,10 @@ class DisciplineComponent extends Component{
             });
         };
         const disciplineList = this.props.disciplines.map((discipline, index) => {
-            return <View key={index}><Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text></View>
+            if (this.props.allLevels[index].length === 0)
+                return <View key={index}><Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text></View>;
+            else
+                return <View key={index}><Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text><LevelComponent discipline={index}/></View>
         });
 
         return (
