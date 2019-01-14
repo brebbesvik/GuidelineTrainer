@@ -1,8 +1,15 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import {Button, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Navigation} from "react-native-navigation";
 
-class LevelsComponent extends Component{
+const mapStateToProps = (state) => ({
+    disciplines: state.disciplineReducer.disciplines,
+    allLevels: state.disciplineReducer.allLevels,
+    unlockedLevels: state.disciplineReducer.unlockedLevels
+});
+
+class DisciplineComponent extends Component{
     constructor(props) {
         super(props);
     };
@@ -30,8 +37,14 @@ class LevelsComponent extends Component{
                 }
             });
         };
+        const disciplineList = this.props.disciplines.map((discipline, index) => {
+            return <View key={index}><Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text></View>
+        });
+
         return (
             <View>
+                {disciplineList}
+                {/*
                 <View>
                     <Text style={{fontSize: 30, margin:10}}>Choosing medical tests</Text>
                 </View>
@@ -91,7 +104,7 @@ class LevelsComponent extends Component{
                     <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
                         <Text style={{fontSize: 18}}>3</Text>
                     </TouchableOpacity>
-                </View>
+                </View>*/}
             </View>
         );
     }
@@ -120,4 +133,4 @@ const styles = StyleSheet.create({
 
 
 
-export default LevelsComponent;
+export default connect(mapStateToProps)(DisciplineComponent);

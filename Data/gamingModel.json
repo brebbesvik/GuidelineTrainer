@@ -1,0 +1,89 @@
+{"categories":[
+  {
+    "category": "Asthma",
+    "disciplines": [{
+        "discipline": "Diagnosing",
+        "levels": []
+      },
+       {
+        "discipline": "Investigation",
+        "levels": []
+      },
+      {
+        "discipline": "Examination",
+        "levels": [
+          {
+            "level": 1,
+            "passingCondition": 5,
+            "requiredMinSkill": 0,
+            "questions": [
+              {
+
+                  "narrative": "<%Patient%> visits the hospital with a <%Patient.underGoesExamination.Wheeze%>. What condition do you want to examine for?",
+                  "entityInstance": "entity-instance",
+                  "answerKey": "<%Patient.hasDiagnosis.Asthma%>",
+                  "answerAlternatives": [
+                    {
+                      "alternative": "Asthma",
+                      "reward": 10,
+                      "correct": "true"
+                    },
+                    {
+                      "alternative": "Tuberculosis",
+                      "reward": 0,
+                      "correct": "false"
+                    },
+                    {
+                      "alternative": "Malaria",
+                      "reward": -10,
+                      "correct": "false"
+                    }
+                  ],
+                  "explanation": "Cough is one of the symptoms of asthma or tuberculosis. However, what answer we are looking for in this setting is asthma.",
+                  "evidence": "http://www.foskning.no",
+                  "guideline": "http://www.nice.org.uk"
+
+              },
+              {
+
+                  "narrative": "<%Patient%> arrives at the emergency room. She <%Patient.underGoesExamination.Wheeze%>. You do some quick tests and observations and find that <%Patient%> <%Patient.underGoesExamination.Consciousness%> and <%Patient.underGoesExamination.Pulse-Rate%>",
+                  "entityInstance": "entity-instance",
+                  "answerKey": "<%Patient.hasDiagnosis.Asthma.hasSeverity.Severity%>",
+                  "answerAlternatives": [
+                    {
+                      "alternative": "Mild",
+                      "reward": 0,
+                      "correct": "false"
+                    },
+                    {
+                      "alternative": "Severe",
+                      "reward": 10,
+                      "correct": "true"
+                    },
+                    {
+                      "alternative": "Moderate",
+                      "reward": -10,
+                      "correct": "false"
+                    }
+                  ],
+                  "explanation": "Wheeze and breathing condition are symptoms on asthma. If the patient is not alert, we categorize it as severe asthma.",
+                  "evidence": "http://www.asthma.no/alvorlighetsgrad",
+                  "guideline": "http://www.nice.org.uk/asthma/severity"
+
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Treating",
+        "levels": []
+      },
+      {
+        "discipline": "Advising",
+        "levels": []
+      }
+      ]
+
+  }
+]}

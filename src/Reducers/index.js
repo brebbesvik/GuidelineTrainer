@@ -3,11 +3,13 @@ import { combineReducers, createStore } from 'redux';
 import counterReducer from './CounterReducer'
 import answerKeyReducer from './AnswerKeyReducer'
 import summaryReducer from './SummaryReducer'
+import disciplineReducer from './DisciplineReducer'
 
 const AppReducers = combineReducers({
     counterReducer,
     answerKeyReducer,
-    summaryReducer
+    summaryReducer,
+    disciplineReducer
 });
 
 const rootReducer = (state, action) => {

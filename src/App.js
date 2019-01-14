@@ -33,9 +33,11 @@ export function registerScreens() {
         'game.MainMenu',
         () => require('./Components/MainMenuComponent').default
     );
-    Navigation.registerComponent(
+    Navigation.registerComponentWithRedux(
         'game.LevelsMenu',
-        () => require('./Components/LevelsComponent').default
+        () => require('./Components/DisciplineComponent').default,
+        Provider,
+        store
     );
 /*    Navigation.registerComponentWithRedux(
         'game.QuizSummary',
