@@ -7,7 +7,7 @@ quiz.setCategory("Asthma");
 quiz.addQuestions(QuestionDAO.getQuestions("Asthma", "Examination", 1));
 
 const initialState = {
-    count: 5,
+    score: 5,
     problem: quiz.getQuestion().getNarrative(),
     alternatives: quiz.getQuestion().getAnswerAlternatives(),
     correctAlternative: quiz.getQuestion().getAnswerKeyIndex(),
@@ -27,7 +27,7 @@ const CounterReducer = (state, action) => {
             });
         case Actions.UPDATE_SCORE:
             return Object.assign({}, state, {
-                count: state.count + state.reward
+                score: state.score + state.reward
             });
         case Actions.NEXT_QUESTION:
             quiz.increaseQuestionNumber();

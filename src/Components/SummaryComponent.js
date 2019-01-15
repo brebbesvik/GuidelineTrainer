@@ -8,7 +8,7 @@ import {hideSummary} from "../Actions/SummaryAction";
 
 const mapStateToProps = (state) => ({
     summary: state.summaryReducer.summary,
-    count: state.counterReducer.count,
+    score: state.counterReducer.score,
     numberOfQuestions: state.counterReducer.numberOfQuestions
 });
 
@@ -23,7 +23,7 @@ class SummaryComponent extends Component{
     };
     render() {
         const scorePerQuestion = () => {
-            let average = this.props.count / this.props.numberOfQuestions;
+            let average = this.props.score / this.props.numberOfQuestions;
             return average.toFixed(2);
         };
         return (
@@ -41,7 +41,7 @@ class SummaryComponent extends Component{
                             </View>
 
                             <View style={styles.scoreContainer}>
-                                <Text style={styles.score}>Score: {this.props.count}</Text>
+                                <Text style={styles.score}>Score: {this.props.score}</Text>
                                 <Text style={styles.score}>To pass the quiz you need a score of 10 or higher</Text>
                             </View>
                             <View style={styles.scoreContainer}>
