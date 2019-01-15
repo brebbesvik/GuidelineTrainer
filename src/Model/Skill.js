@@ -1,4 +1,4 @@
-class Skills {
+class Skill {
     constructor() {
         this._discipline = "";
         this._score = 0;
@@ -16,4 +16,4 @@ class Skills {
         return this._score;
     }
 }
-module.exports = Skills;
+module.exports = Skill;
