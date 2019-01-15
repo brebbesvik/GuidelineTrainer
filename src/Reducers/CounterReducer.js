@@ -44,6 +44,14 @@ const CounterReducer = (state, action) => {
             return Object.assign({}, state, {
                 count: state.count - 1
             });
+        case Actions.SET_REWARD:
+            return Object.assign({}, state, {
+                reward: action.reward
+            });
+        case Actions.UPDATE_SCORE:
+            return Object.assign({}, state, {
+                count: state.count + state.reward
+            });
         case Actions.NEXT_QUESTION:
             quiz.increaseQuestionNumber();
             return Object.assign({}, state, {

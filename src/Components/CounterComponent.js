@@ -6,6 +6,7 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 import AnswerKeyComponent from '../Components/AnswerKeyComponent';
 
 import {showAnswerKey, setAnswerCorrect, setAnswerWrong} from "../Actions/AnswerKeyAction";
+import {setReward} from "../Actions/CounterAction";
 import SummaryComponent from "./SummaryComponent";
 
 
@@ -20,6 +21,7 @@ const mapDispatchToProps = {
     showAnswerKey,
     setAnswerCorrect,
     setAnswerWrong,
+    setReward
 };
 
 class CounterComponent extends Component {
@@ -37,6 +39,7 @@ class CounterComponent extends Component {
                 title={line.getAlternative()}
                 color="#841584"
                 onPress={() => {
+                    this.props.setReward(line.getReward());
                     if(index === this.props.correctAlternative) {
                         this.props.setAnswerCorrect();
                     }

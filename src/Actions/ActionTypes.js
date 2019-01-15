@@ -1,5 +1,7 @@
 export const COUNTER_INCREMENT = 'counter_increment';
 export const COUNTER_DECREMENT = 'counter_decrement';
+export const SET_REWARD = 'set_reward';
+export const UPDATE_SCORE = 'update_score';
 export const NEXT_QUESTION = 'next_question';
 export const RESET_QUIZ = 'reset_quiz';
 export const SHOW_ANSWER_KEY = 'show_answer_key';
