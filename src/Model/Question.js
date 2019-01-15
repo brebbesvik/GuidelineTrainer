@@ -40,6 +40,13 @@ class Question {
     getAnswerKey() {
         return this._answerKey;
     }
+    getAnswerKeyIndex() {
+        for(let i=0; i<this._answerAlternatives.length; i++) {
+            if(this._answerAlternatives[i].getAlternative() === this._answerKey)
+                return i;
+        }
+        return -1;
+    }
     setAnswerAlternatives(answerAlternatives) {
         this._answerAlternatives = answerAlternatives;
     }

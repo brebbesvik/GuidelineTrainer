@@ -34,7 +34,7 @@ class CounterComponent extends Component {
         const buttonList = this.props.alternatives.map((line, index) => {
             return <View style={styles.singleButtonContainer} key={index}><Button
                 key={index}
-                title={line}
+                title={line.getAlternative()}
                 color="#841584"
                 onPress={() => {
                     if(index === this.props.correctAlternative) {

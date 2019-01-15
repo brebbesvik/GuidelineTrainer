@@ -15,10 +15,10 @@ class Quiz {
         this._questions = questions;
     }
     addQuestions(questions) {
-        this.questions = this._questions.concat(questions);
+        this._questions = this._questions.concat(questions);
     }
     getQuestion() {
-        return this.questions[this._questionNumber];
+        return this._questions[this._questionNumber];
     }
     getNumberOfQuestions() {
         return this._questions.length;

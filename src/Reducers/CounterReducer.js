@@ -1,25 +1,34 @@
-import * as Actions from '../Actions/ActionTypes'
-import * as Asthma from '../getting_data_from_json'
+import * as Actions from '../Actions/ActionTypes';
 import QuestionMocks from '../MockingData/QuestionMocks';
-import PropTypes from 'prop-types';
+//import QuizDAO from '../DAO/QuizDAO';
+import QuestionDAO from '../DAO/QuestionDAO';
+import Quiz from '../Model/Quiz';
 
+const quiz = new Quiz();
+quiz.setCategory("Asthma");
+quiz.addQuestions(QuestionDAO.getQuestions("Asthma", "Examination", 1));
+
+/*const initialState = {
+  count: 5,
+  problem: quiz.getQuestion().getNarrative(),
+  alternatives: ["LOL", "ROFL", "LMAO"],
+  correctAlternative: quiz.getQuestion().getAnswerKey(),
+  questionNumber: quiz.getQuestionNumber(),
+  numberOfQuestions: quiz.getNumberOfQuestions(),
+  answerKeyExplanation: quiz.getQuestion().getAnswerExplanation()
+};
+*/
 const questionMocks = new QuestionMocks();
 questionMocks.generate();
 
-/*const initialState = {
-    count: 5,
-    problem: Asthma.get_description(),
-    alternatives: Asthma.get_alternatives()
-};*/
-
 const initialState = {
     count: 5,
-    problem: questionMocks.getQuestion(),
-    alternatives: questionMocks.getAlternatives(),
-    correctAlternative: questionMocks.getAnswerKey(),
-    questionNumber: questionMocks.getQuestionNumber(),
-    numberOfQuestions: questionMocks.getNumberOfQuestions(),
-    answerKeyExplanation: questionMocks.getAnswerKeyExplanation()
+    problem: quiz.getQuestion().getNarrative(),
+    alternatives: quiz.getQuestion().getAnswerAlternatives(),
+    correctAlternative: quiz.getQuestion().getAnswerKeyIndex(),
+    questionNumber: quiz.getQuestionNumber(),
+    numberOfQuestions: quiz.getNumberOfQuestions(),
+    answerKeyExplanation: quiz.getQuestion().getAnswerExplanation()
 };
 
 const CounterReducer = (state, action) => {
@@ -36,16 +45,16 @@ const CounterReducer = (state, action) => {
                 count: state.count - 1
             });
         case Actions.NEXT_QUESTION:
-            questionMocks.increaseQuestionNumber();
+            quiz.increaseQuestionNumber();
             return Object.assign({}, state, {
-                problem: questionMocks.getQuestion(),
-                alternatives: questionMocks.getAlternatives(),
-                correctAlternative: questionMocks.getAnswerKey(),
-                questionNumber: questionMocks.getQuestionNumber(),
-                answerKeyExplanation: questionMocks.getAnswerKeyExplanation()
+                problem: quiz.getQuestion().getNarrative(),
+                alternatives: quiz.getQuestion().getAnswerAlternatives(),
+                correctAlternative: quiz.getQuestion().getAnswerKeyIndex(),
+                questionNumber: quiz.getQuestionNumber(),
+                answerKeyExplanation: quiz.getQuestion().getAnswerExplanation()
             });
         case Actions.RESET_QUIZ:
-            questionMocks.reset();
+            quiz.reset();
             return initialState;
         default:
             return state;
