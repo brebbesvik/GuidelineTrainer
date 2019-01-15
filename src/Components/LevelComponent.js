@@ -39,7 +39,7 @@ class LevelComponent extends Component{
             return <View key={index}><TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}><Text key={index} style={{fontSize: 18}}>{level}</Text></TouchableOpacity></View>
         });
         return (
-        <View>
+        <View style={styles.buttonContainer}>
             {levelList}
         </View>
         );

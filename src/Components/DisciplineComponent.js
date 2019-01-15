@@ -47,7 +47,7 @@ class DisciplineComponent extends Component{
             if (this.props.allLevels[index].length === 0)
                 return <View key={index}><Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text></View>;
             else
-                return <View key={index}><Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text><View style={styles.buttonContainer}><LevelComponent discipline={index} component={this.props.componentId}/></View></View>
+                return <View key={index}><Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text><LevelComponent discipline={index} component={this.props.componentId}/></View>
         });
 
         return (
