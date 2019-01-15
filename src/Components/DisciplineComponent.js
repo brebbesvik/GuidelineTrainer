@@ -29,7 +29,7 @@ class DisciplineComponent extends Component{
                     options: {
                         topBar: {
                             title: {
-                                text: 'Asthma Quiz Level 1',
+                                text: 'Asthma Quiz',
                                 color: '#FFFFFF'
                             },
                             background: {
