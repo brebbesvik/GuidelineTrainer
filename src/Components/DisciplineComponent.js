@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import {Button, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {Navigation} from "react-native-navigation";
+import {StyleSheet, Text, View} from 'react-native';
 import PropTypes from "prop-types";
 
 import LevelComponent from './LevelComponent';
