@@ -52,6 +52,7 @@ const CounterReducer = (state, action) => {
         case Actions.NEXT_QUESTION:
             quiz.increaseQuestionNumber();
             return Object.assign({}, state, {
+                discipline: quiz.getQuestion().getDiscipline(),
                 problem: quiz.getQuestion().getNarrative(),
                 alternatives: quiz.getQuestion().getAnswerAlternatives(),
                 correctAlternative: quiz.getQuestion().getAnswerKeyIndex(),
