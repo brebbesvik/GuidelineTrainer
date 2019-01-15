@@ -1,13 +1,26 @@
 import * as Actions from '../Actions/ActionTypes';
+import QuizDAO from '../DAO/QuizDAO';
 import QuestionDAO from '../DAO/QuestionDAO';
 import Quiz from '../Model/Quiz';
+import Skill from '../Model/Skill';
 
 const quiz = new Quiz();
 quiz.setCategory("Asthma");
+
+const disciplines = QuizDAO.getDisciplines("Asthma");
+
 quiz.addQuestions(QuestionDAO.getQuestions("Asthma", "Examination", 1));
 
+const scores = [];
+disciplines.map((discipline)=> {
+    let score = new Skill();
+    score.setDiscipline(discipline);
+    scores.push(score);
+});
+
 const initialState = {
-    score: 5,
+    scores: scores,
+    discipline: quiz.getQuestion().getDiscipline(),
     problem: quiz.getQuestion().getNarrative(),
     alternatives: quiz.getQuestion().getAnswerAlternatives(),
     correctAlternative: quiz.getQuestion().getAnswerKeyIndex(),
@@ -26,8 +39,15 @@ const CounterReducer = (state, action) => {
                 reward: action.reward
             });
         case Actions.UPDATE_SCORE:
+            let index = -1;
+            for (let i=0; i<state.scores.length; i++) {
+                if (state.scores[i].getDiscipline() === action.discipline)
+                    index = i;
+            }
+
+            state.scores[index].addReward(state.reward);
             return Object.assign({}, state, {
-                score: state.score + state.reward
+                scores: state.scores
             });
         case Actions.NEXT_QUESTION:
             quiz.increaseQuestionNumber();
@@ -39,6 +59,9 @@ const CounterReducer = (state, action) => {
                 answerKeyExplanation: quiz.getQuestion().getAnswerExplanation()
             });
         case Actions.RESET_QUIZ:
+            state.scores.map((score)=> {
+                score.setScore(0);
+            });
             quiz.reset();
             return initialState;
         default:

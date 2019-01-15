@@ -15,5 +15,8 @@ class Skill {
     getScore() {
         return this._score;
     }
+    addReward(reward) {
+        this._score += reward;
+    }
 }
 module.exports = Skill;

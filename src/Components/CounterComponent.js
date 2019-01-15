@@ -11,7 +11,7 @@ import SummaryComponent from "./SummaryComponent";
 
 
 const mapStateToProps = (state) => ({
-    score: state.counterReducer.score,
+    scores: state.counterReducer.scores,
     problem: state.counterReducer.problem,
     alternatives: state.counterReducer.alternatives,
     correctAlternative: state.counterReducer.correctAlternative
@@ -52,6 +52,9 @@ class CounterComponent extends Component {
                 style={styles.button}
             /></View>
         });
+        const scoresList = this.props.scores.map((score, index) => {
+            return <Text key={index} style={styles.score}>{score.getDiscipline()}: {score.getScore()}</Text>
+        });
         return (
             <View style={styles.container}>
                 <View style={styles.textContainer}>
@@ -63,7 +66,7 @@ class CounterComponent extends Component {
                 </View>
 
                 <View style={styles.scoreContainer}>
-                    <Text style={styles.score}>Score: {this.props.score}</Text>
+                    {scoresList}
                 </View>
 
                 <AnswerKeyComponent component={this.props.componentId} />

@@ -10,6 +10,7 @@ import {Navigation} from "react-native-navigation";
 const mapStateToProps = (state) => ({
     answerKey: state.answerKeyReducer.answerKey,
     isAnswerCorrect: state.answerKeyReducer.isAnswerCorrect,
+    discipline: state.counterReducer.discipline,
     questionNumber: state.counterReducer.questionNumber,
     numberOfQuestions: state.counterReducer.numberOfQuestions,
     answerKeyExplanation: state.counterReducer.answerKeyExplanation
@@ -34,7 +35,7 @@ class AnswerKeyComponent extends Component{
               return <Text style={{fontSize: 30, color: "#FF0000"}}>Wrong!</Text>;
         };
         const updateScoreAndQuestion = () => {
-            this.props.updateScore();
+            this.props.updateScore(this.props.discipline);
             if (this.props.isAnswerCorrect) {
                 if (this.props.questionNumber+1 < this.props.numberOfQuestions)
                     this.props.nextQuestion();
