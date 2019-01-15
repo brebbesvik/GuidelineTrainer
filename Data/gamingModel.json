@@ -25,18 +25,15 @@
                   "answerAlternatives": [
                     {
                       "alternative": "Asthma",
-                      "reward": 10,
-                      "correct": "true"
+                      "reward": 10
                     },
                     {
                       "alternative": "Tuberculosis",
-                      "reward": 0,
-                      "correct": "false"
+                      "reward": 0
                     },
                     {
                       "alternative": "Malaria",
-                      "reward": -10,
-                      "correct": "false"
+                      "reward": -10
                     }
                   ],
                   "explanation": "Cough is one of the symptoms of asthma or tuberculosis. However, what answer we are looking for in this setting is asthma.",
@@ -52,18 +49,15 @@
                   "answerAlternatives": [
                     {
                       "alternative": "Mild",
-                      "reward": 0,
-                      "correct": "false"
+                      "reward": 0
                     },
                     {
                       "alternative": "Severe",
-                      "reward": 10,
-                      "correct": "true"
+                      "reward": 10
                     },
                     {
                       "alternative": "Moderate",
-                      "reward": -10,
-                      "correct": "false"
+                      "reward": -10
                     }
                   ],
                   "explanation": "Wheeze and breathing condition are symptoms on asthma. If the patient is not alert, we categorize it as severe asthma.",
