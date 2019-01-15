@@ -20,29 +20,6 @@ class DisciplineComponent extends Component{
         componentId: PropTypes.string
     };
     render() {
-        const navigateTo = () => {
-            Navigation.push(this.props.componentId, {
-                component: {
-                    name: 'game.Quiz',
-                    passProps: {
-                    },
-                    options: {
-                        topBar: {
-                            title: {
-                                text: 'Asthma Quiz',
-                                color: '#FFFFFF'
-                            },
-                            background: {
-                                color: '#841584'
-                            },
-                            backButton: {
-                                color: '#FFFFFF'
-                            }
-                        }
-                    }
-                }
-            });
-        };
         const disciplineList = this.props.disciplines.map((discipline, index) => {
             if (this.props.allLevels[index].length === 0)
                 return <View key={index}><Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text></View>;
@@ -53,67 +30,6 @@ class DisciplineComponent extends Component{
         return (
             <View>
                 {disciplineList}
-                {/*
-                <View>
-                    <Text style={{fontSize: 30, margin:10}}>Choosing medical tests</Text>
-                </View>
-
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
-                        <Text style={{fontSize: 18}}>1</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>2</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>3</Text>
-                    </TouchableOpacity>
-                </View>
-                <View>
-                    <Text style={{fontSize: 30, margin:10}}>Diagnosis</Text>
-                </View>
-
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
-                        <Text style={{fontSize: 18}}>1</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>2</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>3</Text>
-                    </TouchableOpacity>
-                </View>
-                <View>
-                    <Text style={{fontSize: 30, margin:10}}>Treatment</Text>
-                </View>
-
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
-                        <Text style={{fontSize: 18}}>1</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>2</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>3</Text>
-                    </TouchableOpacity>
-                </View>
-                <View>
-                    <Text style={{fontSize: 30, margin:10}}>Evaluation</Text>
-                </View>
-
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
-                        <Text style={{fontSize: 18}}>1</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>2</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>3</Text>
-                    </TouchableOpacity>
-                </View>*/}
             </View>
         );
     }
