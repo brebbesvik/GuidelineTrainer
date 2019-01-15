@@ -36,14 +36,6 @@ const CounterReducer = (state, action) => {
         return initialState;
     }
     switch (action.type) {
-        case Actions.COUNTER_INCREMENT:
-            return Object.assign({}, state, {
-                count: state.count + 1,
-            });
-        case Actions.COUNTER_DECREMENT:
-            return Object.assign({}, state, {
-                count: state.count - 1
-            });
         case Actions.SET_REWARD:
             return Object.assign({}, state, {
                 reward: action.reward

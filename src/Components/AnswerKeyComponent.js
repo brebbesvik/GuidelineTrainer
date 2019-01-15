@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Modal, ScrollView} from 'react-native';
 
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
-import {increment, decrement, updateScore, nextQuestion} from "../Actions/CounterAction";
+import {updateScore, nextQuestion} from "../Actions/CounterAction";
 import {showSummary} from "../Actions/SummaryAction";
 import {Navigation} from "react-native-navigation";
 
@@ -17,8 +17,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     hideAnswerKey,
-    increment,
-    decrement,
     updateScore,
     nextQuestion,
     showSummary,
@@ -38,13 +36,9 @@ class AnswerKeyComponent extends Component{
         const updateScoreAndQuestion = () => {
             this.props.updateScore();
             if (this.props.isAnswerCorrect) {
-                this.props.increment();
                 if (this.props.questionNumber+1 < this.props.numberOfQuestions)
                     this.props.nextQuestion();
                 else goToSummary();
-            }
-            else {
-                this.props.decrement();
             }
         };
         const goToSummary = () => {
