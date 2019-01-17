@@ -4,7 +4,7 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Navigation} from "react-native-navigation";
 
 const mapStateToProps = (state) => ({
-    allLevels: state.disciplineReducer.allLevels
+    allLevels: state.disciplineReducer.allLevels,
 });
 
 class LevelComponent extends Component{
@@ -35,8 +35,19 @@ class LevelComponent extends Component{
                 }
             });
         };
-        const levelList = this.props.allLevels[this.props.discipline].map((level, index) => {
-            return <View key={index}><TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}><Text key={index} style={{fontSize: 18}}>{level}</Text></TouchableOpacity></View>
+        const getLevels = (category, discipline) => {
+            console.log("Levels: " + this.props.allLevels[discipline]);
+            return this.props.allLevels[discipline];
+
+        };
+        const levelList = getLevels("Asthma", this.props.discipline).map((level, index) => {
+            return (
+                <View key={index}>
+                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
+                        <Text key={index} style={{fontSize: 18}}>{level}</Text>
+                    </TouchableOpacity>
+                </View>
+            )
         });
         return (
         <View style={styles.buttonContainer}>

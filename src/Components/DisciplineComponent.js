@@ -20,10 +20,20 @@ class DisciplineComponent extends Component{
     };
     render() {
         const disciplineList = this.props.disciplines.map((discipline, index) => {
-            if (this.props.allLevels[index].length === 0)
-                return <View key={index}><Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text></View>;
-            else
-                return <View key={index}><Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text><LevelComponent discipline={index} component={this.props.componentId}/></View>
+            /*if (this.props.allLevels[index].length === 0)
+                return (
+                    <View key={index}>
+                        <Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text>
+                    </View>
+                );
+            else*/
+                return (
+                    <View key={index}>
+                        <Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text>
+                        <LevelComponent discipline={discipline} component={this.props.componentId}/>
+                    </View>
+                );
+
         });
 
         return (

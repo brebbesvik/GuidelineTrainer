@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Modal, ScrollView} from 'react-native';
 
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
-import {updateScore, nextQuestion} from "../Actions/CounterAction";
+import {updateScore, nextQuestion, storeScores} from "../Actions/CounterAction";
 import {showSummary} from "../Actions/SummaryAction";
 import {Navigation} from "react-native-navigation";
 
@@ -21,6 +21,7 @@ const mapDispatchToProps = {
     updateScore,
     nextQuestion,
     showSummary,
+    storeScores
 };
 
 class AnswerKeyComponent extends Component{
@@ -43,6 +44,7 @@ class AnswerKeyComponent extends Component{
             }
         };
         const goToSummary = () => {
+            this.props.storeScores();
             this.props.hideAnswerKey();
             this.props.showSummary();
         };

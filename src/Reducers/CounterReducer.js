@@ -3,6 +3,7 @@ import QuizDAO from '../DAO/QuizDAO';
 import QuestionDAO from '../DAO/QuestionDAO';
 import Quiz from '../Model/Quiz';
 import Skill from '../Model/Skill';
+import SkillDAO from '../DAO/SkillDAO';
 
 const quiz = new Quiz();
 quiz.setCategory("Asthma");
@@ -18,6 +19,13 @@ disciplines.map((discipline)=> {
     scores.push(score);
 });
 
+const skills = [];
+disciplines.map((discipline)=> {
+    let skill = new Skill();
+    skill.setDiscipline(discipline);
+    skills.push(skill);
+});
+
 const initialState = {
     scores: scores,
     discipline: quiz.getQuestion().getDiscipline(),
@@ -26,7 +34,8 @@ const initialState = {
     correctAlternative: quiz.getQuestion().getAnswerKeyIndex(),
     questionNumber: quiz.getQuestionNumber(),
     numberOfQuestions: quiz.getNumberOfQuestions(),
-    answerKeyExplanation: quiz.getQuestion().getAnswerExplanation()
+    answerKeyExplanation: quiz.getQuestion().getAnswerExplanation(),
+    skills: skills
 };
 
 const CounterReducer = (state, action) => {
@@ -65,6 +74,9 @@ const CounterReducer = (state, action) => {
             });
             quiz.reset();
             return initialState;
+        case Actions.STORE_SCORES:
+            SkillDAO.saveScores(quiz.getCategory(), state.scores);
+            return state;
         default:
             return state;
     }
