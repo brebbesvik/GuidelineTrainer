@@ -41,7 +41,7 @@ class QuizDAO {
                 for (let j = 0; j < json.categories[i].disciplines.length; j++)
                     if (json.categories[i].disciplines[j].discipline === discipline)
                         for (let k = 0; k < json.categories[i].disciplines[j].levels.length; k++)
-                            if (json.categories[i].disciplines[j].levels[k].requiredMinSkill < skill)
+                            if (json.categories[i].disciplines[j].levels[k].requiredMinSkill <= skill)
                                 levels.push(json.categories[i].disciplines[j].levels[k].level);
         return levels;
     }

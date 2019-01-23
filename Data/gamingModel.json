@@ -3,7 +3,45 @@
     "category": "Asthma",
     "disciplines": [{
         "discipline": "Diagnosing",
-        "levels": []
+        "levels": [
+          {
+            "level": 1,
+            "passingCondition": 5,
+            "requiredMinSkill": 0,
+            "questions": [
+              {
+
+                "narrative": "<%Patient%> is being examined for <%Patient.hasDiagnosis.Asthma%>. She <%Patient.underGoesExamination.Pulse-Rate%>. Which other of the following observations should you also do to decide if the asthma is severe?",
+                "entityInstance": "entity-instance",
+                "answerKey": "Consciousness",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Respiratory rate",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Lower chest wall indrawing",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Consciousness",
+                    "reward": 10
+                  }
+                ],
+                "explanation": "Respiratory rate and lower chest wall indrawing are used to determine if the asthma is mild or moderate. To determine if the asthma is severe, we investigate the patients level of consciousness. If the patient is not alert, the asthma is severe.",
+                "evidence": "http://www.foskning.no",
+                "guideline": "http://www.nice.org.uk"
+
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "passingCondition": 100,
+            "requiredMinSkill": 0 ,
+            "questions": []
+          }
+        ]
       },
        {
         "discipline": "Investigation",
@@ -19,7 +57,7 @@
             "questions": [
               {
 
-                  "narrative": "<%Patient%> visits the hospital with a <%Patient.underGoesExamination.Wheeze%>. What condition do you want to examine for?",
+                  "narrative": "<%Patient%> arrives at the emergency room. She is <%Patient.underGoesExamination.Wheeze%> and <%Patient.underGoesExamination.Breathing-Condition%>. Which diagnosis should the patient be examined for?",
                   "entityInstance": "entity-instance",
                   "answerKey": "<%Patient.hasDiagnosis.Asthma%>",
                   "answerAlternatives": [
@@ -29,27 +67,27 @@
                     },
                     {
                       "alternative": "Tuberculosis",
-                      "reward": 0
+                      "reward": -5
                     },
                     {
                       "alternative": "Malaria",
                       "reward": -10
                     }
                   ],
-                  "explanation": "Cough is one of the symptoms of asthma or tuberculosis. However, what answer we are looking for in this setting is asthma.",
+                  "explanation": "A patient which is wheezing and have either difficulty breathing or having a history of cough, probably have asthma.",
                   "evidence": "http://www.foskning.no",
                   "guideline": "http://www.nice.org.uk"
 
               },
               {
 
-                  "narrative": "<%Patient%> arrives at the emergency room. She <%Patient.underGoesExamination.Wheeze%>. You do some quick tests and observations and find that <%Patient%> <%Patient.underGoesExamination.Consciousness%> and <%Patient.underGoesExamination.Pulse-Rate%>",
+                  "narrative": "You do some quik observations, and see that <%Patient.underGoesExamination.Consciousness%>. She <%Patient.underGoesExamination.Pulse-Rate%>. What is the severity of the asthma?",
                   "entityInstance": "entity-instance",
                   "answerKey": "<%Patient.hasDiagnosis.Asthma.hasSeverity.Severity%>",
                   "answerAlternatives": [
                     {
                       "alternative": "Mild",
-                      "reward": 0
+                      "reward": -5
                     },
                     {
                       "alternative": "Severe",
@@ -60,7 +98,7 @@
                       "reward": -10
                     }
                   ],
-                  "explanation": "Wheeze and breathing condition are symptoms on asthma. If the patient is not alert, we categorize it as severe asthma.",
+                  "explanation": "That the patient is not alert indicates the asthma as severe.",
                   "evidence": "http://www.asthma.no/alvorlighetsgrad",
                   "guideline": "http://www.nice.org.uk/asthma/severity"
 

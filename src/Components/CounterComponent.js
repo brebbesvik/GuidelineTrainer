@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView} from 'react-native';
 
 import AnswerKeyComponent from '../Components/AnswerKeyComponent';
 
@@ -56,7 +56,7 @@ class CounterComponent extends Component {
             return <Text key={index} style={styles.score}>{score.getDiscipline()}: {score.getScore()}</Text>
         });
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <View style={styles.textContainer}>
                     <Text style={styles.description}>{this.props.problem}</Text>
                 </View>
@@ -72,7 +72,7 @@ class CounterComponent extends Component {
                 <AnswerKeyComponent component={this.props.componentId} />
                 <SummaryComponent component={this.props.componentId} />
 
-            </View>
+            </ScrollView>
         );
     }
 }

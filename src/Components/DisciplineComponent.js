@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import PropTypes from "prop-types";
 
 import LevelComponent from './LevelComponent';
@@ -37,9 +37,9 @@ class DisciplineComponent extends Component{
         });
 
         return (
-            <View>
+            <ScrollView>
                 {disciplineList}
-            </View>
+            </ScrollView>
         );
     }
 }

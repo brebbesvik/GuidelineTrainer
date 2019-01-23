@@ -7,6 +7,7 @@ const allLevels = [];
 for (let i=0; i<disciplines.length; i++) {
     SkillDAO.getScore("Asthma", disciplines[i]).then((value)=> {
         allLevels[disciplines[i]] = (QuizDAO.getAllowedLevels("Asthma", disciplines[i], value));
+        console.log("Reducer: " + allLevels[disciplines[i]]);
     }).catch(allLevels[disciplines[i]] = 0);
 
 }

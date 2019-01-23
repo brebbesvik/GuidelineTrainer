@@ -2,6 +2,9 @@ class Quiz {
     constructor() {
         this._category = "";
         this._questions = [];
+        this._disciplines = [];
+        this._allLevels = [];
+        this._allowedLevels = [];
         this._questionNumber = 0;
 
     }
@@ -10,6 +13,27 @@ class Quiz {
     }
     getCategory() {
         return this._category;
+    }
+    setDisciplines(disciplines) {
+        this._disciplines = disciplines;
+    }
+    getDisciplines() {
+        return this._disciplines;
+    }
+    getAllLevels() {
+        return this._allLevels;
+    }
+    setAllLevels(levels) {
+        this._allLevels = levels;
+    }
+    getAllowedLevels() {
+        return this._allowedLevels;
+    }
+    setAllowedLevels(levels) {
+        this._allowedLevels = levels;
+    }
+    addAllowedLevels(discipline, levels) {
+        this._allowedLevels[discipline] = levels;
     }
     setQuestions(questions) {
         this._questions = questions;
