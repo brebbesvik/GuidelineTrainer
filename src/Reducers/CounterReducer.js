@@ -1,42 +1,19 @@
 import * as Actions from '../Actions/ActionTypes';
-import QuizDAO from '../DAO/QuizDAO';
-import QuestionDAO from '../DAO/QuestionDAO';
-import Quiz from '../Model/Quiz';
-import Skill from '../Model/Skill';
 import SkillDAO from '../DAO/SkillDAO';
+import Game from '../GameEngine/Game';
 
-
-const quiz = new Quiz();
-quiz.setCategory("Asthma");
-
-const disciplines = QuizDAO.getDisciplines("Asthma");
-
-disciplines.map((discipline)=>quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 1)));
-
-const scores = [];
-disciplines.map((discipline)=> {
-    let score = new Skill();
-    score.setDiscipline(discipline);
-    scores.push(score);
-});
-
-const skills = [];
-disciplines.map((discipline)=> {
-    let skill = new Skill();
-    skill.setDiscipline(discipline);
-    skills.push(skill);
-});
+Game.createQuiz("Asthma");
 
 const initialState = {
-    scores: scores,
-    discipline: quiz.getQuestion().getDiscipline(),
-    problem: quiz.getQuestion().getNarrative(),
-    alternatives: quiz.getQuestion().getAnswerAlternatives(),
-    correctAlternative: quiz.getQuestion().getAnswerKeyIndex(),
-    questionNumber: quiz.getQuestionNumber(),
-    numberOfQuestions: quiz.getNumberOfQuestions(),
-    answerKeyExplanation: quiz.getQuestion().getAnswerExplanation(),
-    skills: skills
+    scores: Game.getScores(),
+    discipline: "",
+    problem: "",
+    alternatives: "",
+    correctAlternative: "",
+    questionNumber: "",
+    numberOfQuestions: "",
+    answerKeyExplanation: "",
+    skills: Game.getSkills()
 };
 
 const CounterReducer = (state, action) => {
@@ -44,6 +21,16 @@ const CounterReducer = (state, action) => {
         return initialState;
     }
     switch (action.type) {
+        case 'INITIALIZE_QUIZ':
+            return Object.assign({}, state, {
+                discipline: action.discipline,
+                problem: action.problem,
+                alternatives: action.alternatives,
+                correctAlternative: action.correctAlternative,
+                questionNumber: action.questionNumber,
+                numberOfQuestions: action.numberOfQuestions,
+                answerKeyExplanation: action.answerKeyExplanation
+            });
         case Actions.SET_REWARD:
             return Object.assign({}, state, {
                 reward: action.reward
@@ -59,23 +46,30 @@ const CounterReducer = (state, action) => {
                 scores: state.scores
             });
         case Actions.NEXT_QUESTION:
-            quiz.increaseQuestionNumber();
+            Game.getQuiz().increaseQuestionNumber();
             return Object.assign({}, state, {
-                discipline: quiz.getQuestion().getDiscipline(),
-                problem: quiz.getQuestion().getNarrative(),
-                alternatives: quiz.getQuestion().getAnswerAlternatives(),
-                correctAlternative: quiz.getQuestion().getAnswerKeyIndex(),
-                questionNumber: quiz.getQuestionNumber(),
-                answerKeyExplanation: quiz.getQuestion().getAnswerExplanation()
+                discipline: Game.getQuiz().getQuestion().getDiscipline(),
+                problem: Game.getQuiz().getQuestion().getNarrative(),
+                alternatives: Game.getQuiz().getQuestion().getAnswerAlternatives(),
+                correctAlternative: Game.getQuiz().getQuestion().getAnswerKeyIndex(),
+                questionNumber: Game.getQuiz().getQuestionNumber(),
+                answerKeyExplanation: Game.getQuiz().getQuestion().getAnswerExplanation()
             });
         case Actions.RESET_QUIZ:
             state.scores.map((score)=> {
                 score.setScore(0);
             });
-            quiz.reset();
-            return initialState;
+            Game.getQuiz().reset();
+            return Object.assign({}, state, {
+            discipline: Game.getQuiz().getQuestion().getDiscipline(),
+            problem: Game.getQuiz().getQuestion().getNarrative(),
+            alternatives: Game.getQuiz().getQuestion().getAnswerAlternatives(),
+            correctAlternative: Game.getQuiz().getQuestion().getAnswerKeyIndex(),
+            questionNumber: Game.getQuiz().getQuestionNumber(),
+            answerKeyExplanation: Game.getQuiz().getQuestion().getAnswerExplanation()
+        });
         case Actions.STORE_SCORES:
-            SkillDAO.saveScores(quiz.getCategory(), state.scores);
+            SkillDAO.saveScores(Game.getQuiz().getCategory(), state.scores);
             return state;
         default:
             return state;

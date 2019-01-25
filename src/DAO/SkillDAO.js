@@ -9,8 +9,17 @@ class SkillDAO {
         return this._skills;
     }
     static saveScores(category, skills) {
-        for(let i=0; i<skills.length; i++)
-            this.saveScore(category, skills[i]);
+        let dict = {};
+        for(let i=0; i<skills.length; i++) {
+            dict[skills[i].getDiscipline()] = skills[i].getScore();
+
+        }
+        console.log("YYYYYYYYYYYYOOOOOOOOOOOLLLLLLLLLLLOOOOOOOOOO:" + JSON.stringify(dict));
+        try {
+            AsyncStorage.setItem(category, JSON.stringify(dict));
+        }catch(error) {
+            console.log("Error storing " + error);
+        }
     }
     static saveScore(category, skill) {
         try {

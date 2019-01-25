@@ -5,7 +5,6 @@ import { StyleSheet, Text, View, Button, Modal, ScrollView} from 'react-native';
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
 import {updateScore, nextQuestion, storeScores} from "../Actions/CounterAction";
 import {showSummary} from "../Actions/SummaryAction";
-import {Navigation} from "react-native-navigation";
 
 const mapStateToProps = (state) => ({
     answerKey: state.answerKeyReducer.answerKey,
@@ -38,9 +37,12 @@ class AnswerKeyComponent extends Component{
         const updateScoreAndQuestion = () => {
             this.props.updateScore(this.props.discipline);
             if (this.props.isAnswerCorrect) {
-                if (this.props.questionNumber+1 < this.props.numberOfQuestions)
+                if (this.props.questionNumber+1 < this.props.numberOfQuestions) {
                     this.props.nextQuestion();
-                else goToSummary();
+                }
+                else {
+                    goToSummary();
+                }
             }
         };
         const goToSummary = () => {

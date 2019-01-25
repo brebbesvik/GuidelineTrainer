@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Navigation} from "react-native-navigation";
 
-const mapStateToProps = (state) => ({
+/*const mapStateToProps = (state) => ({
     allLevels: state.disciplineReducer.allLevels,
-});
+});*/
 
 class LevelComponent extends Component{
     constructor(props) {
@@ -35,7 +35,7 @@ class LevelComponent extends Component{
                 }
             });
         };
-        const getLevels = (category, discipline) => {
+        /*const getLevels = (category, discipline) => {
             console.log("Levels: " + this.props.allLevels[discipline]);
             return this.props.allLevels[discipline];
 
@@ -48,7 +48,12 @@ class LevelComponent extends Component{
                     </TouchableOpacity>
                 </View>
             )
-        });
+        });*/
+        const levelList = this.props.levels.map((level, index)=> {
+            return (
+                <Text style={{fontSize: 18, marginRight: 10, backgroundColor: '#158415'}} key={index}>{level}</Text>
+            );
+        }) ;
         return (
         <View style={styles.buttonContainer}>
             {levelList}
@@ -77,4 +82,4 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
 });
-export default connect(mapStateToProps)(LevelComponent);
+export default LevelComponent;
