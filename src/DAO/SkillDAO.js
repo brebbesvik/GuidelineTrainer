@@ -5,7 +5,6 @@ class SkillDAO {
         this._skills = [];
     }
     getSkills() {
-        console.log(this._skills);
         return this._skills;
     }
     static saveScores(category, skills) {
@@ -14,7 +13,6 @@ class SkillDAO {
             dict[skills[i].getDiscipline()] = skills[i].getScore();
 
         }
-        console.log("YYYYYYYYYYYYOOOOOOOOOOOLLLLLLLLLLLOOOOOOOOOO:" + JSON.stringify(dict));
         try {
             AsyncStorage.setItem(category, JSON.stringify(dict));
         }catch(error) {
