@@ -50,8 +50,6 @@ class MainMenuComponent extends Component{
                         <Text style={{fontSize: 18}}>Malaria</Text>
                     </TouchableOpacity>
                 </View>
-                {/*  <ChartComponent/> */}
-
             </View>
         );
     }

@@ -51,7 +51,12 @@ class LevelComponent extends Component{
         });*/
         const levelList = this.props.levels.map((level, index)=> {
             return (
-                <Text style={{fontSize: 18, marginRight: 10, backgroundColor: '#158415'}} key={index}>{level}</Text>
+                <View key={index}>
+                {/*<Text style={{fontSize: 18, marginRight: 10, backgroundColor: '#158415'}} key={index}>{level}</Text>*/}
+            <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}} disabled={true}>
+                <Text key={index} style={{fontSize: 18}}>{level}</Text>
+            </TouchableOpacity>
+                </View>
             );
         }) ;
         return (
@@ -68,7 +73,7 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center',
-        backgroundColor: '#DDDDDD',
+        backgroundColor: '#158415',
         padding: 20,
         margin: 10,
     },
