@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {Button, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Navigation} from "react-native-navigation";
+
+import ChartComponent from './ChartComponent';
 
 class MainMenuComponent extends Component{
     constructor(props) {
@@ -48,6 +50,8 @@ class MainMenuComponent extends Component{
                         <Text style={{fontSize: 18}}>Malaria</Text>
                     </TouchableOpacity>
                 </View>
+                {/*  <ChartComponent/> */}
+
             </View>
         );
     }

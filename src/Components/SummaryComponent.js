@@ -5,6 +5,7 @@ import {Navigation} from "react-native-navigation";
 
 import {resetQuiz} from "../Actions/CounterAction";
 import {hideSummary} from "../Actions/SummaryAction";
+import ChartComponent from './ChartComponent';
 
 const mapStateToProps = (state) => ({
     summary: state.summaryReducer.summary,
@@ -46,15 +47,15 @@ class SummaryComponent extends Component{
                             <View style={styles.textContainer}>
                                 <Text style={{fontSize: 30}}>Quiz summary</Text>
                             </View>
-
-                            <View style={styles.scoreContainer}>
+<ChartComponent scores={this.props.scores}/>
+                            {/*<View style={styles.scoreContainer}>
                                 {scoresList}
                                 <Text style={styles.score}>To pass the quiz you need a score of 10 or higher</Text>
                             </View>
                             <View style={styles.scoreContainer}>
                                 <Text style={styles.score}>Number of questions: {this.props.numberOfQuestions}</Text>
                                 <Text style={styles.score}>Average score per question: {scorePerQuestion()}</Text>
-                            </View>
+                            </View>*/}
                             <View style={styles.buttonContainer}>
                                 <Button title={"Back to menu"} color="#841584" onPress={() => {
                                     this.props.resetQuiz();
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     modalView: {
-        height: '60%',
+        height: '80%',
         width: '80%',
         backgroundColor: '#FFFFFF',
         borderColor: '#000000',
