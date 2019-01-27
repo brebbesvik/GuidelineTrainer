@@ -98,7 +98,7 @@
                 "guideline": "http://www.nice.org.uk"
               },
               {
-                "narrative": "<%Patient.hasName.PatientName%> <%Patient.undergoesExamination.History-Of-Cough%>, <%Patient.undergoesExamination.Oxygen-Saturation%>, <%Patient.undergoesExamination.Central-Cyanosis%>, <%Patient.undergoesExamination.Inability-To-Drink%>, <%Patient.undergoesExamination.Inability-To-Talk%>",
+                "narrative": "<%Patient.hasName.PatientName%> <%Patient.undergoesExamination.History-Of-Cough%>, <%Patient.undergoesExamination.Oxygen-Saturation%>, <%Patient.undergoesExamination.Central-Cyanosis%>, <%Patient.undergoesExamination.Inability-To-Drink%>, <%Patient.undergoesExamination.Inability-To-Talk%>,  <%Patient.underGoesExamination.Lower-Chest-Wall-Indrawing%> and <%Patient.underGoesExamination.Respiratory-Rate%>",
                 "entityInstance": "entity-instance",
                 "answerKey": "Consciousness",
                 "answerAlternatives": [

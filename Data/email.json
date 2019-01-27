@@ -4,6 +4,7 @@
     {"name": "Age"},
     {"name": "Weight"},
     {"name": "PatientName"},
+
     {"name": "Examination", "constraint": "[abstract]"},
     {"name": "Wheeze"},
     {"name": "Breathing condition"},
@@ -14,6 +15,9 @@
     {"name": "Consciousness"},
     {"name": "Inability-To-Talk"},
     {"name": "Pulse-Rate"},
+    {"name": "Lower-Chest-Wall-Indrawing"},
+    {"name": "Respiratory-Rate"},
+
     {"name": "Measurement", "constraint":  "[abstract"},
     {"name": "Wheeze-value"},
     {"name": "Breathing-Condition-Value"},
@@ -24,6 +28,9 @@
     {"name": "AVPU"},
     {"name": "Inability-To-Talk-Value"},
     {"name": "Beats-Per-Minute"},
+    {"name": "Lower-Chest-Wall-Indrawing-Value"},
+    {"name": "Breaths-Per-Minute"},
+
     {"name": "Presentation", "constraint":  "[abstract"},
     {"name": "Wheeze-Presentation"},
     {"name": "Breathing-Condition-Presentation"},
@@ -34,6 +41,8 @@
     {"name": "AVPU-Presentation"},
     {"name": "Inability-To-Talk-Presentation"},
     {"name": "Pulse-Rate-Presentation"},
+    {"name": "Lower-Chest-Wall-Indrawing-Presentation"},
+    {"name": "Respiratory-Rate-Presentation"},
     {"name": "Diagnosis"},
     {"name": "DiagnosisName"},
     {"name": "Severity"}
@@ -42,6 +51,7 @@
     {"name": "hasAge", "src": "Patient", "trg": "Age"},
     {"name": "hasWeight", "src": "Patient", "trg": "Weight"},
     {"name": "hasName", "src": "Patient", "trg": "PatientName"},
+
     {"name": "undergoesExamination", "src": "Patient", "trg": "Examination"},
     {"name": "wheezeInheritsExamination", "src": "Wheeze", "trg": "Examination", "constraint": "[inherit]"},
     {"name": "breathingConditionInheritsExamination", "src": "Breathing-Condition", "trg": "Examination", "constraint": "[inherit]"},
@@ -52,6 +62,10 @@
     {"name": "consciousnessInheritsExamination", "src": "Consciousness", "trg": "Examination", "constraint": "[inherit]"},
     {"name": "inabilityToTalkInheritsExamination", "src": "Inability-To-Talk", "trg": "Examination", "constraint": "[inherit]"},
     {"name": "pulseRateInheritsExamination", "src": "Pulse-Rate", "trg": "Examination", "constraint": "[inherit]"},
+    {"name": "lowerChestWallIndrawingInheritsExamination", "src": "Lower-Chest-Wall-Indrawing", "trg": "Examination", "constraint": "[inherit]"},
+    {"name": "respiratoryRateInheritsExamination", "src": "Respiratory-Rate", "trg": "Examination", "constraint": "[inherit]"},
+
+
     {"name": "hasMeasurement", "src": "Examination", "trg": "Measurement"},
     {"name": "wheezeValueInheritsMeasurement", "src": "Wheeze-Value", "trg": "Measurement", "constraint": "[inherit]"},
     {"name": "breathingConditionValueInheritsMeasurement", "src": "Breathing-Condition-Value", "trg": "Measurement", "constraint": "[inherit]"},
@@ -62,6 +76,9 @@
     {"name": "avpuInheritsMeasurement", "src": "AVPU", "trg": "Measurement", "constraint": "[inherit]"},
     {"name": "inabilityToTalkValueMeasurement", "src": "Inability-To-Talk", "trg": "Measurement", "constraint": "[inherit]"},
     {"name": "beatsPerMinuteInheritsMeasurement", "src": "Beats-Per-Minute", "trg": "Measurement", "constraint": "[inherit]"},
+    {"name": "lowerChestWallIndrawingValueInheritsMeasurement", "src": "Lower-Chest-Wall-Indrawing-Value", "trg": "Measurement", "constraint": "[inherit]"},
+    {"name": "breathsPerMinuteInheritsMeasurement", "src": "Breaths-Per-Minute", "trg": "Measurement", "constraint": "[inherit]"},
+
     {"name": "hasPresentation", "src": "Measurement", "trg": "Presentation"},
     {"name": "wheezePresentationInheritsPresentation", "src": "Wheeze-Presentation", "trg": "Presentation","constraint": "[inherit]"},
     {"name": "breathingConditionPresentationInheritsPresentation", "src": "Breathing-Condition-Presentation", "trg": "Presentation","constraint": "[inherit]"},
@@ -72,6 +89,9 @@
     {"name": "consciousnessPresentationInheritsPresentation", "src": "Consciousness-Presentation", "trg": "Presentation","constraint": "[inherit]"},
     {"name": "inabilityToTalkPresentationInheritsPresentation", "src": "Inability-To-Talk-Presentation", "trg": "Presentation","constraint": "[inherit]"},
     {"name": "pulseRatePresentationInheritsPresentation", "src": "Pulse-Rate-Presentation", "trg": "Presentation","constraint": "[inherit]"},
+    {"name": "lowerChestWallIndrawingPresentationInheritsPresentation", "src": "Lower-Chest-Wall-Indrawing-Presentation", "trg": "Presentation","constraint": "[inherit]"},
+    {"name": "respiratoryRatePresentationInheritsPresentation", "src": "Respiratory-Rate-Presentation", "trg": "Presentation","constraint": "[inherit]"},
+
     {"name": "hasPresentation", "src": "Wheeze", "trg": "Wheeze-Presentation"},
     {"name": "hasDiagnosis", "src": "Patient", "trg": "Diagnosis"},
     {"name": "hasDiagnosisName", "src": "Diagnosis", "trg": "DiagnosisName"},
@@ -92,6 +112,8 @@
       {"name": "Consciousness", "type": "Consciousness"},
       {"name": "Inability-To-Talk", "type": "Inability-To-Talk"},
       {"name": "Pulse-Rate", "type": "Pulse-Rate"},
+      {"name": "Lower-Chest-Wall-Indrawing", "type": "Lower-Chest-Wall-Indrawing"},
+      {"name": "Respiratory-Rate", "type": "Respiratory-Rate"},
 
       {"name": "True", "type": "Wheeze-Value"},
       {"name": "True", "type": "Breathing-Condition-Value"},
@@ -102,6 +124,8 @@
       {"name": "V", "type": "AVPU"},
       {"name": "False", "type": "Inability-To-Talk-Value"},
       {"name": "120 bpm", "type": "Beats-Per-Minute"},
+      {"name": "True", "type": "Lower-Chest-Wall-Indrawing-Value"},
+      {"name": "55/min", "type": "Breaths-Per-Minute"},
 
       {"name": "is wheezing", "type": "Wheeze-Presentation"},
       {"name": "is having difficulty breathing", "type": "Breathing-Condition-Presentation"},
@@ -112,6 +136,8 @@
       {"name": "is not alert but verbal", "type": "Consciousness-Presentation"},
       {"name": "does talk and is able to complete sentences", "type": "Inability-To-Talk-Presentation"},
       {"name": "is having a pulse rate of 120 bpm", "type": "Pulse-Rate-Presentation"},
+      {"name": "has lower chest wall indrawing", "type": "Lower-Chest-Wall-Indrawing-Presentation"},
+      {"name": "does 55 breaths per minute", "type": "Respiratory-Rate-Presentation"},
 
       {"name": "Diagnosis", "type": "Diagnosis"},
       {"name": "Asthma", "type": "DiagnosisName"},
@@ -129,7 +155,8 @@
       {"name": "undergoesExamination", "src": "Patient", "trg": "Consciousness"},
       {"name": "undergoesExamination", "src": "Patient", "trg": "Inability-To-Talk"},
       {"name": "undergoesExamination", "src": "Patient", "trg": "Pulse-Rate"},
-
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Lower-Chest-Wall-Indrawing"},
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Respiratory-Rate"},
 
       {"name": "hasMeasurement", "src": "Wheeze", "trg": "Wheeze-Value"},
       {"name": "hasMeasurement", "src": "Breathing-Condition", "trg": "Breathing-Condition-Value"},
@@ -140,6 +167,8 @@
       {"name": "hasMeasurement", "src": "Consciousness", "trg": "AVPU"},
       {"name": "hasMeasurement", "src": "Inability-To-Talk", "trg": "Inability-To-Talk-Value"},
       {"name": "hasMeasurement", "src": "Pulse-Rate", "trg": "Beats-Per-Minute"},
+      {"name": "hasMeasurement", "src": "Lower-Chest-Wall-Indrawing", "trg": "Lower-Chest-Wall-Indrawing-Value"},
+      {"name": "hasMeasurement", "src": "Respiratory-Rate", "trg": "Breaths-Per-Minute"},
 
 
       {"name": "hasPresentation", "src": "Wheeze-Value", "trg": "Wheeze-Presentation"},
@@ -151,6 +180,8 @@
       {"name": "hasPresentation", "src": "AVPU", "trg": "Consciousness-Presentation"},
       {"name": "hasPresentation", "src": "Inability-To-Talk-Value", "trg": "Inability-To-Talk-Presentation"},
       {"name": "hasPresentation", "src": "Beats-Per-Minute", "trg": "Pulse-Rate-Presentation"},
+      {"name": "hasPresentation", "src": "Lower-Chest-Wall-Indrawing-Value", "trg": "Lower-Chest-Wall-Indrawing-Presentation"},
+      {"name": "hasPresentation", "src": "Breaths-Per-Minute", "trg": "Respiratory-Rate-Presentation"},
 
       {"name": "hasDiagnosis", "src": "Patient", "trg": "Diagnosis"},
       {"name": "hasDiagnosisName", "src": "Diagnosis", "trg": "DiagnosisName"},
