@@ -45,7 +45,7 @@ class SummaryComponent extends Component{
                     <View style={styles.modalView}>
                         <ScrollView>
                             <View style={styles.textContainer}>
-                                <Text style={{fontSize: 30}}>Quiz summary</Text>
+                                <Text style={{fontSize: 30}}>Quiz scores</Text>
                             </View>
 <ChartComponent scores={this.props.scores}/>
                             {/*<View style={styles.scoreContainer}>
@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     modalView: {
-        height: '80%',
-        width: '80%',
+        height: '90%',
+        width: '90%',
         backgroundColor: '#FFFFFF',
         borderColor: '#000000',
         borderStyle: 'solid',

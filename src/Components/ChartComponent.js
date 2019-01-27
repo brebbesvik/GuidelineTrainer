@@ -40,7 +40,7 @@ class ChartComponent extends Component {
                           '    <script src="https://code.highcharts.com/highcharts-more.js"></script>\n' +
                           '    <script src="https://code.highcharts.com/modules/exporting.js"></script>\n' +
                           '    <script src="https://code.highcharts.com/modules/export-data.js"></script>' +
-                          '<div id="container" style="min-width: 250px; max-width: 250px; height: 250px; margin: 0 auto"></div>\n' +
+                          '<div id="container" style="min-width: 300px; max-width: 300px; height: 250px; margin: 0 auto"></div>\n' +
                           '<script>\n' +
                           'Highcharts.chart(\'container\', {\n' +
                           '\n' +
@@ -60,7 +60,7 @@ class ChartComponent extends Component {
                           '        enabled: false\n' +
                           '    },\n' +
                           'pane: {\n' +
-                          'size: \'45%\'\n' +
+                          'size: \'66%\'\n' +
                           '},\n' +
                           '\n' +
                           'xAxis: {\n' +
@@ -101,7 +101,7 @@ class ChartComponent extends Component {
           );
         };
         return (
-        <View style={{ height: 250, width: 300,overflow:'hidden' }}>
+        <View style={{ height: 250, width: '100%',overflow:'hidden' }}>
             {web()}
         </View>
         );
