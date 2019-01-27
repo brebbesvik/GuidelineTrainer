@@ -4,15 +4,20 @@ PatientName
 -Weight
 
 Examination:
-Breathing condition
-Consciousness
 Wheeze
-Respiratory rate
+Breathing condition
+History of Cough
 Oxygen saturation
-Inability to talk
-Lower chest wall indrawing
-Pulse-Rate
 Central syanosis
+Consciousness
+Inability to talk
+Pulse-Rate
+-Respiratory rate
+-Lower chest wall indrawing
+
+
+
+    Inability to drink
 
 Diagnosis:
 DiagnosisName
