@@ -23,7 +23,7 @@
     {"name": "Inability-To-Drink-Value"},
     {"name": "AVPU"},
     {"name": "Inability-To-Talk-Value"},
-    {"name": "BPM"},
+    {"name": "Beats-Per-Minute"},
     {"name": "Presentation", "constraint":  "[abstract"},
     {"name": "Wheeze-Presentation"},
     {"name": "Breathing-Condition-Presentation"},
@@ -61,7 +61,7 @@
     {"name": "inabilityToDrinkValueInheritsMeasurement", "src": "Inability-To-Drink-Value", "trg": "Measurement", "constraint": "[inherit]"},
     {"name": "avpuInheritsMeasurement", "src": "AVPU", "trg": "Measurement", "constraint": "[inherit]"},
     {"name": "inabilityToTalkValueMeasurement", "src": "Inability-To-Talk", "trg": "Measurement", "constraint": "[inherit]"},
-    {"name": "bpmInheritsMeasurement", "src": "BPM", "trg": "Measurement", "constraint": "[inherit]"},
+    {"name": "beatsPerMinuteInheritsMeasurement", "src": "Beats-Per-Minute", "trg": "Measurement", "constraint": "[inherit]"},
     {"name": "hasPresentation", "src": "Measurement", "trg": "Presentation"},
     {"name": "wheezePresentationInheritsPresentation", "src": "Wheeze-Presentation", "trg": "Presentation","constraint": "[inherit]"},
     {"name": "breathingConditionPresentationInheritsPresentation", "src": "Breathing-Condition-Presentation", "trg": "Presentation","constraint": "[inherit]"},
@@ -101,7 +101,7 @@
       {"name": "False", "type": "Inability-To-Drink-Value"},
       {"name": "V", "type": "AVPU"},
       {"name": "False", "type": "Inability-To-Talk-Value"},
-      {"name": "120 bpm", "type": "BPM"},
+      {"name": "120 bpm", "type": "Beats-Per-Minute"},
 
       {"name": "is wheezing", "type": "Wheeze-Presentation"},
       {"name": "is having difficulty breathing", "type": "Breathing-Condition-Presentation"},
@@ -139,7 +139,7 @@
       {"name": "hasMeasurement", "src": "Inability-To-Drink", "trg": "Inability-To-Drink-Value"},
       {"name": "hasMeasurement", "src": "Consciousness", "trg": "AVPU"},
       {"name": "hasMeasurement", "src": "Inability-To-Talk", "trg": "Inability-To-Talk-Value"},
-      {"name": "hasMeasurement", "src": "Pulse-Rate", "trg": "BPM"},
+      {"name": "hasMeasurement", "src": "Pulse-Rate", "trg": "Beats-Per-Minute"},
 
 
       {"name": "hasPresentation", "src": "Wheeze-Value", "trg": "Wheeze-Presentation"},
@@ -150,7 +150,7 @@
       {"name": "hasPresentation", "src": "Inability-To-Drink-Value", "trg": "Inability-To-Drink-Presentation"},
       {"name": "hasPresentation", "src": "AVPU", "trg": "Consciousness-Presentation"},
       {"name": "hasPresentation", "src": "Inability-To-Talk-Value", "trg": "Inability-To-Talk-Presentation"},
-      {"name": "hasPresentation", "src": "BPM", "trg": "Pulse-Rate-Presentation"},
+      {"name": "hasPresentation", "src": "Beats-Per-Minute", "trg": "Pulse-Rate-Presentation"},
 
       {"name": "hasDiagnosis", "src": "Patient", "trg": "Diagnosis"},
       {"name": "hasDiagnosisName", "src": "Diagnosis", "trg": "DiagnosisName"},
