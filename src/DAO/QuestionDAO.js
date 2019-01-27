@@ -14,7 +14,7 @@ class QuestionDAO {
                     if (json.categories[i].disciplines[j].discipline === discipline)
                         for (let k = 0; k < json.categories[i].disciplines[j].levels.length; k++) {
                             let jL = json.categories[i].disciplines[j].levels[k];
-                            if (jL.requiredMinSkill < skill)
+                            if (jL.requiredMinSkill <= skill)
                                 for (let l = 0; l < jL.questions.length; l++) {
                                     let jQ = jL.questions[l];
                                     let question = new Question();

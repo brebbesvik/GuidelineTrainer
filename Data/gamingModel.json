@@ -10,28 +10,48 @@
             "requiredMinSkill": 0,
             "questions": [
               {
-
-                "narrative": "<%Patient%> is being examined for <%Patient.hasDiagnosis.Asthma%>. She <%Patient.underGoesExamination.Pulse-Rate%>. Which other of the following observations should you also do to decide if the asthma is severe?",
+                "narrative": "<%Patient.hasName.PatientName%> arrives at the emergency room. She is <%Patient.underGoesExamination.Wheeze%> and <%Patient.underGoesExamination.Breathing-Condition%>. Which diagnosis should the patient be examined for?",
                 "entityInstance": "entity-instance",
-                "answerKey": "Consciousness",
+                "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>",
                 "answerAlternatives": [
                   {
-                    "alternative": "Respiratory rate",
-                    "reward": -10
+                    "alternative": "Asthma",
+                    "reward": 10
                   },
                   {
-                    "alternative": "Lower chest wall indrawing",
+                    "alternative": "Tuberculosis",
                     "reward": -5
                   },
                   {
-                    "alternative": "Consciousness",
-                    "reward": 10
+                    "alternative": "Malaria",
+                    "reward": -10
                   }
                 ],
-                "explanation": "Respiratory rate and lower chest wall indrawing are used to determine if the asthma is mild or moderate. To determine if the asthma is severe, we investigate the patients level of consciousness. If the patient is not alert, the asthma is severe.",
+                "explanation": "A patient which is wheezing and have either difficulty breathing or having a history of cough, probably have asthma.",
                 "evidence": "http://www.foskning.no",
                 "guideline": "http://www.nice.org.uk"
-
+              },
+              {
+                "narrative": "You do some quik observations, and see that the patient <%Patient.underGoesExamination.Consciousness%>. She <%Patient.underGoesExamination.Pulse-Rate%>. What is the severity of the asthma?",
+                "entityInstance": "entity-instance",
+                "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%>",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Mild",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Severe",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Moderate",
+                    "reward": -10
+                  }
+                ],
+                "explanation": "That the patient is not alert indicates the asthma as severe.",
+                "evidence": "http://www.asthma.no/alvorlighetsgrad",
+                "guideline": "http://www.nice.org.uk/asthma/severity"
               }
             ]
           },
@@ -56,52 +76,48 @@
             "requiredMinSkill": 0,
             "questions": [
               {
-
-                  "narrative": "<%Patient%> arrives at the emergency room. She is <%Patient.underGoesExamination.Wheeze%> and <%Patient.underGoesExamination.Breathing-Condition%>. Which diagnosis should the patient be examined for?",
-                  "entityInstance": "entity-instance",
-                  "answerKey": "<%Patient.hasDiagnosis.Asthma%>",
-                  "answerAlternatives": [
-                    {
-                      "alternative": "Asthma",
-                      "reward": 10
-                    },
-                    {
-                      "alternative": "Tuberculosis",
-                      "reward": -5
-                    },
-                    {
-                      "alternative": "Malaria",
-                      "reward": -10
-                    }
-                  ],
-                  "explanation": "A patient which is wheezing and have either difficulty breathing or having a history of cough, probably have asthma.",
-                  "evidence": "http://www.foskning.no",
-                  "guideline": "http://www.nice.org.uk"
-
+                "narrative": "<%Patient.hasName.PatientName%> is being examined for <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>. She <%Patient.underGoesExamination.Pulse-Rate%>. Which other of the following observations should you also do to decide if the asthma is severe?",
+                "entityInstance": "entity-instance",
+                "answerKey": "Consciousness",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Respiratory rate",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Lower chest wall indrawing",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Consciousness",
+                    "reward": 10
+                  }
+                ],
+                "explanation": "Respiratory rate and lower chest wall indrawing are used to determine if the asthma is mild or moderate. To determine if the asthma is severe, we investigate the patients level of consciousness. If the patient is not alert, the asthma is severe.",
+                "evidence": "http://www.foskning.no",
+                "guideline": "http://www.nice.org.uk"
               },
               {
-
-                  "narrative": "You do some quik observations, and see that <%Patient.underGoesExamination.Consciousness%>. She <%Patient.underGoesExamination.Pulse-Rate%>. What is the severity of the asthma?",
-                  "entityInstance": "entity-instance",
-                  "answerKey": "<%Patient.hasDiagnosis.Asthma.hasSeverity.Severity%>",
-                  "answerAlternatives": [
-                    {
-                      "alternative": "Mild",
-                      "reward": -5
-                    },
-                    {
-                      "alternative": "Severe",
-                      "reward": 10
-                    },
-                    {
-                      "alternative": "Moderate",
-                      "reward": -10
-                    }
-                  ],
-                  "explanation": "That the patient is not alert indicates the asthma as severe.",
-                  "evidence": "http://www.asthma.no/alvorlighetsgrad",
-                  "guideline": "http://www.nice.org.uk/asthma/severity"
-
+                "narrative": "<%Patient.hasName.PatientName%> <%Patient.undergoesExamination.History-Of-Cough%>, <%Patient.undergoesExamination.Oxygen-Saturation%>, <%Patient.undergoesExamination.Central-Cyanosis%>, <%Patient.undergoesExamination.Inability-To-Drink%>, <%Patient.undergoesExamination.Inability-To-Talk%>",
+                "entityInstance": "entity-instance",
+                "answerKey": "Consciousness",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Respiratory rate",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Lower chest wall indrawing",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Consciousness",
+                    "reward": 10
+                  }
+                ],
+                "explanation": "Respiratory rate and lower chest wall indrawing are used to determine if the asthma is mild or moderate. To determine if the asthma is severe, we investigate the patients level of consciousness. If the patient is not alert, the asthma is severe.",
+                "evidence": "http://www.foskning.no",
+                "guideline": "http://www.nice.org.uk"
               }
             ]
           },

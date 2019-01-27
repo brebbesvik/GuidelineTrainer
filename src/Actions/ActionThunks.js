@@ -37,8 +37,6 @@ export const getLockedLevels = ()=> {
                 for (let discipline in scores) {
                     scores[discipline] = QuizDAO.getUnallowedLevels("Asthma", discipline, scores[discipline]);
                 }
-                console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-               // console.log("SCORES: " + scores.length);
                 dispatch(GET_LOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
             });
 

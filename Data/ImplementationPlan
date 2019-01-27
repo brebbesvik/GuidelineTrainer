@@ -1,0 +1,27 @@
+Patient:
+PatientName
+-Age
+-Weight
+
+Examination:
+Breathing condition
+Consciousness
+Wheeze
+Respiratory rate
+Oxygen saturation
+Inability to talk
+Lower chest wall indrawing
+Pulse-Rate
+Central syanosis
+
+Diagnosis:
+DiagnosisName
+Severity
+
+Management:
+
+Treatment:
+
+Medication:
+
+Investigation:
