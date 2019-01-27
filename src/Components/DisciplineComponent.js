@@ -55,7 +55,7 @@ class DisciplineComponent extends Component{
                 return (
                     <View key={index}>
                         <Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text>
-                        <LevelComponent levels={this.props.allLevels[discipline]} component={this.props.componentId}/>
+                        <LevelComponent levels={this.props.unlockedLevels[discipline]} component={this.props.componentId}/>
                     </View>
                 );
 

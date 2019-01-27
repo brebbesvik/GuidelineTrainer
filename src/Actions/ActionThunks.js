@@ -6,7 +6,7 @@ import Game from "../GameEngine/Game";
 export const GET_UNLOCKED_LEVELS = (result)=> {
     return {
         type: "GET_UNLOCKED_LEVELS",
-        allLevels: result,
+        unlockedLevels: result,
     };
 };
 export const getUnlockedLevels = ()=> {
