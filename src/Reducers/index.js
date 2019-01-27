@@ -7,7 +7,7 @@ import counterReducer from './CounterReducer'
 import answerKeyReducer from './AnswerKeyReducer'
 import summaryReducer from './SummaryReducer'
 import disciplineReducer from './DisciplineReducer'
-import {getUnlockedLevels, initializeQuiz} from "../Actions/ActionThunks";
+import {getUnlockedLevels, getLockedLevels, initializeQuiz} from "../Actions/ActionThunks";
 
 const AppReducers = combineReducers({
     counterReducer,
@@ -28,6 +28,7 @@ let store = createStore(
 );
 
 store.dispatch(getUnlockedLevels());
+store.dispatch(getLockedLevels());
 store.dispatch(initializeQuiz());
 
 export default store;

@@ -21,8 +21,30 @@ export const getUnlockedLevels = ()=> {
             });
 
     };
-
 };
+
+export const GET_LOCKED_LEVELS = (result) => {
+    return {
+        type: "GET_LOCKED_LEVELS",
+        lockedLevels: result,
+    };
+};
+export const getLockedLevels = ()=> {
+    return (dispatch) => {
+        AsyncStorage.getItem("Asthma")
+            .then((result)=>{
+                let scores = JSON.parse(result);
+                for (let discipline in scores) {
+                    scores[discipline] = QuizDAO.getUnallowedLevels("Asthma", discipline, scores[discipline]);
+                }
+                console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+               // console.log("SCORES: " + scores.length);
+                dispatch(GET_LOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
+            });
+
+    };
+};
+
 
 export const INITIALIZE_QUIZ = ()=> {
     return {

@@ -104,6 +104,12 @@
 
               }
             ]
+          },
+          {
+            "level": 2,
+            "passingCondition": 100,
+            "requiredMinSkill": 50,
+            "questions": []
           }
         ]
       },

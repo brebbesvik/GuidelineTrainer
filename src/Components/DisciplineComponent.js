@@ -8,7 +8,7 @@ import {Navigation} from "react-native-navigation";
 
 const mapStateToProps = (state) => ({
     disciplines: state.disciplineReducer.disciplines,
-    allLevels: state.disciplineReducer.allLevels,
+    lockedLevels: state.disciplineReducer.lockedLevels,
     unlockedLevels: state.disciplineReducer.unlockedLevels,
     testText: state.disciplineReducer.testText
 });
@@ -55,7 +55,7 @@ class DisciplineComponent extends Component{
                 return (
                     <View key={index}>
                         <Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text>
-                        <LevelComponent levels={this.props.unlockedLevels[discipline]} component={this.props.componentId}/>
+                        <LevelComponent levels={this.props.unlockedLevels[discipline]} locked={this.props.lockedLevels[discipline]} component={this.props.componentId}/>
                     </View>
                 );
 

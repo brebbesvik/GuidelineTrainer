@@ -54,14 +54,25 @@ class LevelComponent extends Component{
                 <View key={index}>
                 {/*<Text style={{fontSize: 18, marginRight: 10, backgroundColor: '#158415'}} key={index}>{level}</Text>*/}
             <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}} disabled={true}>
-                <Text key={index} style={{fontSize: 18}}>{level}</Text>
+                <Text key={index} style={{color: '#FFFFFF', fontSize: 18}}>{level}</Text>
             </TouchableOpacity>
                 </View>
             );
-        }) ;
+        });
+        const lockedLevelList = this.props.locked.map((level, index)=> {
+            return (
+                <View key={index}>
+                    {/*<Text style={{fontSize: 18, marginRight: 10, backgroundColor: '#158415'}} key={index}>{level}</Text>*/}
+                    <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
+                        <Text key={index} style={{color: '#FFFFFF', fontSize: 18}}>{level}</Text>
+                    </TouchableOpacity>
+                </View>
+            );
+        });
         return (
         <View style={styles.buttonContainer}>
             {levelList}
+            {lockedLevelList}
         </View>
         );
     }
@@ -79,7 +90,7 @@ const styles = StyleSheet.create({
     },
     buttonDisabled: {
         alignItems: 'center',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#DDDDDD',
         padding: 20,
         margin: 10,
     },

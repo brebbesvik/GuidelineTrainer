@@ -3,7 +3,7 @@ import QuizDAO from '../DAO/QuizDAO';
 
 const initialState = {
     disciplines: QuizDAO.getDisciplines("Asthma"),
-    allLevels: "",
+    lockedLevels: "",
     unlockedLevels: "",
 };
 const DisciplineReducer = (state, action) => {
@@ -14,6 +14,10 @@ const DisciplineReducer = (state, action) => {
         case 'GET_UNLOCKED_LEVELS':
             return Object.assign({}, state, {
                 unlockedLevels: action.unlockedLevels,
+            });
+        case 'GET_LOCKED_LEVELS':
+            return Object.assign({}, state, {
+                lockedLevels: action.lockedLevels,
             });
         default:
             return state;
