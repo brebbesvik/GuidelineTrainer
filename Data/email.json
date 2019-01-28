@@ -63,16 +63,20 @@
     {"name": "Prednisolone-Dose"},
 
     {"name": "Rate", "constraint":  "[abstract"},
+    {"name": "Salbutamol-Rate"},
     {"name": "Ipratopium-Bromide-Rate"},
 
     {"name": "Duration", "constraint":  "[abstract"},
+    {"name": "Salbutamol-Duration"},
     {"name": "Ipratopium-Bromide-Duration"},
     {"name": "Prednisolone-Duration"},
 
     {"name": "Route", "constraint":  "[abstract"},
+    {"name": "Salbutamol-Route"},
     {"name": "Corticosteroid-Route"},
 
     {"name": "Form", "constraint":  "[abstract"},
+    {"name": "Salbutamol-Form"},
     {"name": "Corticosteroid-Form"}
 
   ],
@@ -140,16 +144,22 @@
     {"name": "prednisoloneDoseInheritsMaxDose", "src": "Prednisolone-Dose", "trg": "Dose","constraint": "[inherit]"},
 
     {"name": "hasRate", "src": "Medication", "trg": "Rate"},
+    {"name": "salbutamolRateInheritsRate", "src": "Salbutamol-Rate", "trg": "Rate","constraint": "[inherit]"},
     {"name": "ipratopiumBromideRateInheritsRate", "src": "Ipratopium-Bromide-Rate", "trg": "Rate","constraint": "[inherit]"},
 
+
     {"name": "hasDuration", "src": "Medication", "trg": "Duration"},
+    {"name": "salbutamolDurationInheritsDuration", "src": "Salbutamol-Duration", "trg": "Duration","constraint": "[inherit]"},
     {"name": "ipratopiumBromideDurationInheritsDuration", "src": "Ipratopium-Bromide-Duration", "trg": "Duration","constraint": "[inherit]"},
-    {"name": "prednisoloneRateInheritsDuration", "src": "Prednisolone-Duration", "trg": "Duration","constraint": "[inherit]"},
+    {"name": "prednisoloneDurationInheritsDuration", "src": "Prednisolone-Duration", "trg": "Duration","constraint": "[inherit]"},
+    {"name": "prednisoloneDurationInheritsDuration", "src": "Prednisolone-Duration", "trg": "Duration","constraint": "[inherit]"},
 
     {"name": "hasRoute", "src": "Medication", "trg": "Route"},
+    {"name": "salbutamolRouteInheritsRoute", "src": "Salbutamol-Route", "trg": "Route","constraint": "[inherit]"},
     {"name": "corticosteroidRouteInheritsRoute", "src": "Corticosteroid-Route", "trg": "Route","constraint": "[inherit]"},
 
     {"name": "hasMethod", "src": "Route", "trg": "Form"},
+    {"name": "salbutamolFormInheritsForm", "src": "Salbutamol-Form", "trg": "Form","constraint": "[inherit]"},
     {"name": "corticosteroidFormInheritsForm", "src": "Corticosteroid-Form", "trg": "Form","constraint": "[inherit]"}
   ]
 },
@@ -211,14 +221,18 @@
 
       {"name": "20mg","type": "Prednisolone-Dose"},
 
+      {"name": "6 puffs every 20 minutes","type": "Salbutamol-Rate"},
       {"name": "250mcg every 20 minutes","type": "Ipratopium-Bromide-Rate"},
       {"name": "20mg per day","type": "Prednisolone-Rate"},
 
+      {"name": "3 doses","type": "Salbutamol-Duration"},
       {"name": "60 minutes","type": "Ipratopium-Bromide-Duration"},
       {"name": "2-5 days","type": "Prednisolone-Duration"},
 
+      {"name": "Inhale", "type": "Salbutamol-Route"},
       {"name": "Inhale", "type": "Corticosteroid-Route"},
 
+      {"name": "inhaler with spacer and mask","type": "Salbutamol-Form"},
       {"name": "MDI and spacer with face mask","type": "Corticosteroid-Form"}
 
     ],
@@ -278,12 +292,17 @@
 
       {"name": "hasDose", "src": "Prednisolone", "trg": "Prednisolone-Dose"},
 
+      {"name": "hasRate", "src": "Salbutamol", "trg": "Salbutamol-Rate"},
       {"name": "hasRate", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Rate"},
 
+      {"name": "hasDuration", "src": "Salbutamol", "trg": "Salbutamol-Duration"},
       {"name": "hasDuration", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Duration"},
       {"name": "hasDuration", "src": "Prednisolone", "trg": "Prednisolone-Duration"},
 
+      {"name": "hasRoute", "src": "Salbutamol", "trg": "Salbutamol-Route"},
       {"name": "hasRoute", "src": "Corticosteroid", "trg": "Corticosteroid-Route"},
+
+      {"name": "hasMethod", "src": "Salbutamol-Route", "trg": "Salbutamol-Form"},
       {"name": "hasMethod", "src": "Corticosteroid-Route", "trg": "Corticosteroid-Form"}
     ]
   }
