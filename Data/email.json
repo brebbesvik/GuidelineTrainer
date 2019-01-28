@@ -43,9 +43,28 @@
     {"name": "Pulse-Rate-Presentation"},
     {"name": "Lower-Chest-Wall-Indrawing-Presentation"},
     {"name": "Respiratory-Rate-Presentation"},
+
     {"name": "Diagnosis"},
     {"name": "DiagnosisName"},
-    {"name": "Severity"}
+    {"name": "Severity"},
+
+    {"name": "Management"},
+    {"name": "Treatment"},
+
+    {"name": "Medication", "constraint":  "[abstract"},
+    {"name": "Oxygen"},
+    {"name": "Salbutamol"},
+    {"name": "Prednisolone"},
+    {"name": "Antibiotics"},
+    {"name": "Corticosteroid"},
+    {"name": "Ipratopium-Bromide"},
+
+    {"name": "Rate", "constraint":  "[abstract"},
+    {"name": "Ipratopium-Bromide-Rate"},
+
+    {"name": "Duration", "constraint":  "[abstract"},
+    {"name": "Ipratopium-Bromide-Duration"}
+
   ],
   "edges": [
     {"name": "hasAge", "src": "Patient", "trg": "Age"},
@@ -92,10 +111,26 @@
     {"name": "lowerChestWallIndrawingPresentationInheritsPresentation", "src": "Lower-Chest-Wall-Indrawing-Presentation", "trg": "Presentation","constraint": "[inherit]"},
     {"name": "respiratoryRatePresentationInheritsPresentation", "src": "Respiratory-Rate-Presentation", "trg": "Presentation","constraint": "[inherit]"},
 
-    {"name": "hasPresentation", "src": "Wheeze", "trg": "Wheeze-Presentation"},
     {"name": "hasDiagnosis", "src": "Patient", "trg": "Diagnosis"},
     {"name": "hasDiagnosisName", "src": "Diagnosis", "trg": "DiagnosisName"},
-    {"name": "hasSeverity", "src": "Diagnosis", "trg": "Severity"}
+    {"name": "hasSeverity", "src": "Diagnosis", "trg": "Severity"},
+
+    {"name": "hasManagement", "src": "Diagnosis", "trg": "Management"},
+    {"name": "hasTreatment", "src": "Management", "trg": "Treatment"},
+
+    {"name": "involvesMedication", "src": "Treatment", "trg": "Medication"},
+    {"name": "oxygenInheritsMedication", "src": "Oxygen", "trg": "Medication","constraint": "[inherit]"},
+    {"name": "salbutamolInheritsMedication", "src": "Salbutamol", "trg": "Medication","constraint": "[inherit]"},
+    {"name": "prednisoloneInheritsMedication", "src": "Prednisolone", "trg": "Medication","constraint": "[inherit]"},
+    {"name": "antibioticsInheritsMedication", "src": "Antibiotics", "trg": "Medication","constraint": "[inherit]"},
+    {"name": "corticosteroidInheritsMedication", "src": "Corticosteroid", "trg": "Medication","constraint": "[inherit]"},
+    {"name": "ipratopiumBromideInheritsMedication", "src": "Ipratopium-Bromide", "trg": "Medication","constraint": "[inherit]"},
+
+    {"name": "hasRate", "src": "Medication", "trg": "Rate"},
+    {"name": "ipratopiumBromideRateInheritsRate", "src": "Ipratopium-Bromide-Rate", "trg": "Rate","constraint": "[inherit]"},
+
+    {"name": "hasDuration", "src": "Medication", "trg": "Duration"},
+    {"name": "ipratopiumBromideDurationInheritsDuration", "src": "Ipratopium-Bromide-Duration", "trg": "Duration","constraint": "[inherit]"}
   ]
 },
 
@@ -103,6 +138,7 @@
     "vertex": [
       {"name": "Patient", "type": "Patient"},
       {"name": "Kari", "type": "PatientName"},
+
       {"name": "Wheeze", "type": "Wheeze"},
       {"name": "Breathing-Condition", "type": "Breathing-Condition"},
       {"name": "History-Of-Cough", "type": "History-Of-Cough"},
@@ -141,7 +177,20 @@
 
       {"name": "Diagnosis", "type": "Diagnosis"},
       {"name": "Asthma", "type": "DiagnosisName"},
-      {"name": "Severe", "type": "Severity"}
+      {"name": "Severe", "type": "Severity"},
+
+      {"name": "Management", "type": "Management"},
+      {"name": "Treatment", "type": "Treatment"},
+
+      {"name": "Oxygen", "type": "Oxygen"},
+      {"name": "Salbutamol", "type": "Salbutamol"},
+      {"name": "Prednisolone", "type": "Prednisolone"},
+      {"name": "Antibiotics", "type": "Antibiotics"},
+      {"name": "Corticosteroid", "type": "Corticosteroid"},
+      {"name": "Ipratopium-Bromide", "type": "Ipratopium-Bromide"},
+
+      {"name": "250mcg every 20 minutes","type": "Ipratopium-Bromide-Rate"},
+      {"name": "60 minutes","type": "Ipratopium-Bromide-Duration"}
     ],
     "edges": [
       {"name": "hasName", "src": "Patient", "trg": "PatientName"},
@@ -185,7 +234,20 @@
 
       {"name": "hasDiagnosis", "src": "Patient", "trg": "Diagnosis"},
       {"name": "hasDiagnosisName", "src": "Diagnosis", "trg": "DiagnosisName"},
-      {"name": "hasSeverity", "src": "Diagnosis", "trg": "Severity"}
+      {"name": "hasSeverity", "src": "Diagnosis", "trg": "Severity"},
+
+      {"name": "hasManagement", "src": "Diagnosis", "trg": "Management"},
+      {"name": "hasTreatment", "src": "Management", "trg": "Treatment"},
+
+      {"name": "involvesMedication", "src": "Treatment", "trg": "Oxygen"},
+      {"name": "involvesMedication", "src": "Treatment", "trg": "Salbutamol"},
+      {"name": "involvesMedication", "src": "Treatment", "trg": "Prednisolone"},
+      {"name": "involvesMedication", "src": "Treatment", "trg": "Antibiotics"},
+      {"name": "involvesMedication", "src": "Treatment", "trg": "Corticosteroid"},
+      {"name": "involvesMedication", "src": "Treatment", "trg": "Ipratopium-Bromide"},
+
+      {"name": "hasRate", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Rate"},
+      {"name": "hasDuration", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Duration"}
     ]
   }
 }
