@@ -67,7 +67,13 @@
 
     {"name": "Duration", "constraint":  "[abstract"},
     {"name": "Ipratopium-Bromide-Duration"},
-    {"name": "Prednisolone-Duration"}
+    {"name": "Prednisolone-Duration"},
+
+    {"name": "Route", "constraint":  "[abstract"},
+    {"name": "Corticosteroid-Route"},
+
+    {"name": "Form", "constraint":  "[abstract"},
+    {"name": "Corticosteroid-Form"}
 
   ],
   "edges": [
@@ -138,7 +144,13 @@
 
     {"name": "hasDuration", "src": "Medication", "trg": "Duration"},
     {"name": "ipratopiumBromideDurationInheritsDuration", "src": "Ipratopium-Bromide-Duration", "trg": "Duration","constraint": "[inherit]"},
-    {"name": "prednisoloneRateInheritsDuration", "src": "Prednisolone-Duration", "trg": "Duration","constraint": "[inherit]"}
+    {"name": "prednisoloneRateInheritsDuration", "src": "Prednisolone-Duration", "trg": "Duration","constraint": "[inherit]"},
+
+    {"name": "hasRoute", "src": "Medication", "trg": "Route"},
+    {"name": "corticosteroidRouteInheritsRoute", "src": "Corticosteroid-Route", "trg": "Route","constraint": "[inherit]"},
+
+    {"name": "hasMethod", "src": "Route", "trg": "Form"},
+    {"name": "corticosteroidFormInheritsForm", "src": "Corticosteroid-Form", "trg": "Form","constraint": "[inherit]"}
   ]
 },
 
@@ -198,10 +210,16 @@
       {"name": "Ipratopium-Bromide", "type": "Ipratopium-Bromide"},
 
       {"name": "20mg","type": "Prednisolone-Dose"},
+
       {"name": "250mcg every 20 minutes","type": "Ipratopium-Bromide-Rate"},
       {"name": "20mg per day","type": "Prednisolone-Rate"},
+
       {"name": "60 minutes","type": "Ipratopium-Bromide-Duration"},
-      {"name": "2-5 days","type": "Prednisolone-Duration"}
+      {"name": "2-5 days","type": "Prednisolone-Duration"},
+
+      {"name": "Inhale", "type": "Corticosteroid-Route"},
+
+      {"name": "MDI and spacer with face mask","type": "Corticosteroid-Form"}
 
     ],
     "edges": [
@@ -263,7 +281,10 @@
       {"name": "hasRate", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Rate"},
 
       {"name": "hasDuration", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Duration"},
-      {"name": "hasDuration", "src": "Prednisolone", "trg": "Prednisolone-Duration"}
+      {"name": "hasDuration", "src": "Prednisolone", "trg": "Prednisolone-Duration"},
+
+      {"name": "hasRoute", "src": "Corticosteroid", "trg": "Corticosteroid-Route"},
+      {"name": "hasMethod", "src": "Corticosteroid-Route", "trg": "Corticosteroid-Form"}
     ]
   }
 }
