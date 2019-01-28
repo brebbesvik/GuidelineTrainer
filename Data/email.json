@@ -59,11 +59,15 @@
     {"name": "Corticosteroid"},
     {"name": "Ipratopium-Bromide"},
 
+    {"name": "Dose", "constraint":  "[abstract"},
+    {"name": "Prednisolone-Dose"},
+
     {"name": "Rate", "constraint":  "[abstract"},
     {"name": "Ipratopium-Bromide-Rate"},
 
     {"name": "Duration", "constraint":  "[abstract"},
-    {"name": "Ipratopium-Bromide-Duration"}
+    {"name": "Ipratopium-Bromide-Duration"},
+    {"name": "Prednisolone-Duration"}
 
   ],
   "edges": [
@@ -126,11 +130,15 @@
     {"name": "corticosteroidInheritsMedication", "src": "Corticosteroid", "trg": "Medication","constraint": "[inherit]"},
     {"name": "ipratopiumBromideInheritsMedication", "src": "Ipratopium-Bromide", "trg": "Medication","constraint": "[inherit]"},
 
+    {"name": "hasDose", "src": "Medication", "trg": "Dose"},
+    {"name": "prednisoloneDoseInheritsMaxDose", "src": "Prednisolone-Dose", "trg": "Dose","constraint": "[inherit]"},
+
     {"name": "hasRate", "src": "Medication", "trg": "Rate"},
     {"name": "ipratopiumBromideRateInheritsRate", "src": "Ipratopium-Bromide-Rate", "trg": "Rate","constraint": "[inherit]"},
 
     {"name": "hasDuration", "src": "Medication", "trg": "Duration"},
-    {"name": "ipratopiumBromideDurationInheritsDuration", "src": "Ipratopium-Bromide-Duration", "trg": "Duration","constraint": "[inherit]"}
+    {"name": "ipratopiumBromideDurationInheritsDuration", "src": "Ipratopium-Bromide-Duration", "trg": "Duration","constraint": "[inherit]"},
+    {"name": "prednisoloneRateInheritsDuration", "src": "Prednisolone-Duration", "trg": "Duration","constraint": "[inherit]"}
   ]
 },
 
@@ -189,8 +197,12 @@
       {"name": "Corticosteroid", "type": "Corticosteroid"},
       {"name": "Ipratopium-Bromide", "type": "Ipratopium-Bromide"},
 
+      {"name": "20mg","type": "Prednisolone-Dose"},
       {"name": "250mcg every 20 minutes","type": "Ipratopium-Bromide-Rate"},
-      {"name": "60 minutes","type": "Ipratopium-Bromide-Duration"}
+      {"name": "20mg per day","type": "Prednisolone-Rate"},
+      {"name": "60 minutes","type": "Ipratopium-Bromide-Duration"},
+      {"name": "2-5 days","type": "Prednisolone-Duration"}
+
     ],
     "edges": [
       {"name": "hasName", "src": "Patient", "trg": "PatientName"},
@@ -246,8 +258,12 @@
       {"name": "involvesMedication", "src": "Treatment", "trg": "Corticosteroid"},
       {"name": "involvesMedication", "src": "Treatment", "trg": "Ipratopium-Bromide"},
 
+      {"name": "hasDose", "src": "Prednisolone", "trg": "Prednisolone-Dose"},
+
       {"name": "hasRate", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Rate"},
-      {"name": "hasDuration", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Duration"}
+
+      {"name": "hasDuration", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Duration"},
+      {"name": "hasDuration", "src": "Prednisolone", "trg": "Prednisolone-Duration"}
     ]
   }
 }
