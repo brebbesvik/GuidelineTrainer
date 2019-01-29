@@ -1,38 +1,25 @@
 import React, { Component } from 'react';
 import {View, WebView} from 'react-native';
-import Skill from '../Model/Skill';
 class ChartComponent extends Component {
     constructor(props) {
         super(props);
-    };
-    skills = ()=> {
-        let scores = [];
-      for (let i=0; i<5; i++) {
-          let score = new Skill();
-          score.setScore(i+1);
-          score.setDiscipline("Ja" + i);
-          scores[i] = score;
-      }
-      return scores;
-    };
+    }
     render() {
         const web = ()=> {
-            let tab = this.props.scores;
-            let tekst = "[";
-            let tall = "[";
-            for (let i=0; i<tab.length; i++) {
-                tekst+="'"+tab[i].getDiscipline();
-                tall+=""+tab[i].getScore();
-                if (i+1<tab.length) {
-                    tekst+="',";
-                    tall+=",";
+            let scores = this.props.scores;
+            let labels = "[";
+            let numbers = "[";
+            for (let i=0; i<scores.length; i++) {
+                labels+="'"+scores[i].getDiscipline();
+                numbers+=""+scores[i].getScore();
+                if (i+1<scores.length) {
+                    labels+="',";
+                    numbers+=",";
 
                 }
             }
-            tekst+="']";
-            tall+="]";
-            console.log("Tabell: "+ tekst);
-            console.log("Tekst: "+ tall);
+            labels+="']";
+            numbers+="]";
           return (<WebView
                   originWhitelist={['*']}
                   source={{html: '<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>\n' +
@@ -64,7 +51,7 @@ class ChartComponent extends Component {
                           '},\n' +
                           '\n' +
                           'xAxis: {\n' +
-                          'categories: ' + tekst +',\n' +
+                          'categories: ' + labels +',\n' +
                           'tickmarkPlacement: \'on\',\n' +
                           'lineWidth: 0\n' +
                           '},\n' +
@@ -91,7 +78,7 @@ class ChartComponent extends Component {
                           '\n' +
                           '    series: [{\n' +
                           '        name: \'Scores\',\n' +
-                          '        data: '+ tall + ',\n' +
+                          '        data: '+ numbers + ',\n' +
                           '        pointPlacement: \'on\'\n' +
                           '    }]\n' +
                           '\n' +
