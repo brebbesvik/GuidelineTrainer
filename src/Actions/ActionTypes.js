@@ -9,3 +9,5 @@ export const CORRECT_ANSWER = 'correct_answer';
 export const WRONG_ANSWER = 'wrong_answer';
 export const SHOW_SUMMARY = 'show_summary';
 export const HIDE_SUMMARY = 'hide_summary';
+export const SHOW_PROGRESSION = 'show_progression';
+export const HIDE_PROGRESSION = 'hide_progression';

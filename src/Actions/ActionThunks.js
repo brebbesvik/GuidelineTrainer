@@ -2,6 +2,7 @@ import {AsyncStorage} from "react-native";
 import QuizDAO from "../DAO/QuizDAO";
 import QuestionDAO from "../DAO/QuestionDAO";
 import Game from "../GameEngine/Game";
+import Skill from "../Model/Skill";
 
 export const GET_UNLOCKED_LEVELS = (result)=> {
     return {
@@ -54,8 +55,7 @@ export const INITIALIZE_QUIZ = ()=> {
         questionNumber: Game.getQuiz().getQuestionNumber(),
         numberOfQuestions: Game.getQuiz().getNumberOfQuestions(),
         answerKeyExplanation: Game.getQuiz().getQuestion().getAnswerExplanation(),
-
-
+        skills: Game.getSkills(),
     }
 };
 export const initializeQuiz = ()=> {
@@ -65,12 +65,17 @@ export const initializeQuiz = ()=> {
             .then((result)=> {
                 let element = JSON.parse(result);
                 disciplines.map((discipline)=> {
+                   let skill = new Skill();
+                   skill.setDiscipline(discipline);
                    if (element.hasOwnProperty(discipline)) {
                        Game.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, element[discipline]));
+                       skill.setScore(element[discipline]);
                    }
                    else {
                        Game.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 0));
+                       skill.setScore(0);
                    }
+                   Game.addSkill(skill);
                 });
                 dispatch(INITIALIZE_QUIZ())
             });

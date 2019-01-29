@@ -13,7 +13,7 @@ const initialState = {
     questionNumber: "",
     numberOfQuestions: "",
     answerKeyExplanation: "",
-    skills: Game.getSkills()
+    skills: ""
 };
 
 const CounterReducer = (state, action) => {
@@ -29,7 +29,8 @@ const CounterReducer = (state, action) => {
                 correctAlternative: action.correctAlternative,
                 questionNumber: action.questionNumber,
                 numberOfQuestions: action.numberOfQuestions,
-                answerKeyExplanation: action.answerKeyExplanation
+                answerKeyExplanation: action.answerKeyExplanation,
+                skills: action.skills
             });
         case Actions.SET_REWARD:
             return Object.assign({}, state, {

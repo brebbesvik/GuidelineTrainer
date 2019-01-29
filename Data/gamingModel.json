@@ -58,7 +58,7 @@
           {
             "level": 2,
             "passingCondition": 100,
-            "requiredMinSkill": 0 ,
+            "requiredMinSkill": 10 ,
             "questions": []
           }
         ]

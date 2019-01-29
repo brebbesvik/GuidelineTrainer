@@ -8,6 +8,7 @@ import AnswerKeyComponent from '../Components/AnswerKeyComponent';
 import {showAnswerKey, setAnswerCorrect, setAnswerWrong} from "../Actions/AnswerKeyAction";
 import {setReward} from "../Actions/CounterAction";
 import SummaryComponent from "./SummaryComponent";
+import ProgressComponent from "./ProgressComponent";
 
 
 const mapStateToProps = (state) => ({
@@ -71,6 +72,7 @@ class CounterComponent extends Component {
 
                 <AnswerKeyComponent component={this.props.componentId} />
                 <SummaryComponent component={this.props.componentId} />
+                <ProgressComponent component={this.props.componentId}/>
 
             </ScrollView>
         );

@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, Button, Modal, ScrollView} from 'react-native';
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
 import {updateScore, nextQuestion, storeScores} from "../Actions/CounterAction";
 import {showSummary} from "../Actions/SummaryAction";
+import {showProgression} from "../Actions/ProgressAction";
 
 const mapStateToProps = (state) => ({
     answerKey: state.answerKeyReducer.answerKey,
@@ -20,7 +21,8 @@ const mapDispatchToProps = {
     updateScore,
     nextQuestion,
     showSummary,
-    storeScores
+    storeScores,
+    showProgression
 };
 
 class AnswerKeyComponent extends Component{
@@ -48,7 +50,7 @@ class AnswerKeyComponent extends Component{
         const goToSummary = () => {
             this.props.storeScores();
             this.props.hideAnswerKey();
-            this.props.showSummary();
+            this.props.showProgression();
         };
         return (
 

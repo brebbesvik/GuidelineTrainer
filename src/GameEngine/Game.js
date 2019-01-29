@@ -22,11 +22,14 @@ class Game {
         });
 
         this._skills = [];
-        this._quiz.getDisciplines().map((discipline)=> {
+        /*this._quiz.getDisciplines().map((discipline)=> {
             let skill = new Skill();
             skill.setDiscipline(discipline);
             this._skills.push(skill);
-        });
+        });*/
+    }
+    static addSkill(skill) {
+        this._skills.push(skill);
     }
     static getDisciplines() {
         return this._quiz.getDisciplines();

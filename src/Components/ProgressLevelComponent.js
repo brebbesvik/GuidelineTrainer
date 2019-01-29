@@ -1,0 +1,77 @@
+import React, { Component } from 'react';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+
+class ProgressLevelComponent extends Component{
+    constructor(props) {
+        super(props);
+    };
+    render() {
+        const levelList = this.props.unlocked.map((level, index)=> {
+            console.log(this.props.newLevels)
+            if (this.props.newLevels.includes(level))
+                return (
+                    <View key={index}>
+                        <TouchableOpacity style={styles.button} onPress={()=>()=>{}} disabled={true}>
+                            <Text key={index} style={{color: '#FFFFFF', fontSize: 18}}>{level}</Text>
+                        </TouchableOpacity>
+                    </View>
+                );
+            // If the previous level doesn't exist in the new array, then the level has been locked
+            else
+                return (
+                    <View key={index}>
+                        <TouchableOpacity style={{backgroundColor: '#000000'}} onPress={()=>()=>{}} disabled={true}>
+                            <Text key={index} style={{color: '#FFFFFF', fontSize: 18}}>{level}</Text>
+                        </TouchableOpacity>
+                    </View>
+                );
+        });
+        const lockedLevelList = this.props.locked.map((level, index)=> {
+            if (this.props.newLevels.includes(level))
+                return (
+                    <View key={index}>
+                        <TouchableOpacity style={{backgroundColor: '#FFFFFF'}} onPress={()=>()=>{}} disabled={true}>
+                            <Text key={index} style={{color: '#FFFFFF', fontSize: 18}}>{level}</Text>
+                        </TouchableOpacity>
+                    </View>
+                );
+            else
+            // If the previous level does exist in the new array, then the level has been unlocked
+                return (
+                    <View key={index}>
+                        <TouchableOpacity style={styles.buttonDisabled} onPress={()=>()=>{}} disabled={true}>
+                            <Text key={index} style={{color: '#FFFFFF', fontSize: 18}}>{level}</Text>
+                        </TouchableOpacity>
+                    </View>
+                );
+        });
+        return (
+            <View style={styles.buttonContainer}>
+                {levelList}
+                {lockedLevelList}
+            </View>
+        );
+    }
+
+}
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    button: {
+        alignItems: 'center',
+        backgroundColor: '#158415',
+        padding: 20,
+        margin: 10,
+    },
+    buttonDisabled: {
+        alignItems: 'center',
+        backgroundColor: '#DDDDDD',
+        padding: 20,
+        margin: 10,
+    },
+    buttonContainer: {
+        flexDirection: 'row'
+    },
+});
+export default ProgressLevelComponent;
