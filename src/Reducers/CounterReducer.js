@@ -60,19 +60,7 @@ const CounterReducer = (state, action) => {
             state.scores.map((score)=> {
                 score.setScore(0);
             });
-            Game.getQuiz().reset();
-            /*Game._skills = null;
-            Game._quiz = null;
-            Game._scores = null;
-            Game.createQuiz("Asthma");*/
-            return Object.assign({}, state, {
-            discipline: Game.getQuiz().getQuestion().getDiscipline(),
-            problem: Game.getQuiz().getQuestion().getNarrative(),
-            alternatives: Game.getQuiz().getQuestion().getAnswerAlternatives(),
-            correctAlternative: Game.getQuiz().getQuestion().getAnswerKeyIndex(),
-            questionNumber: Game.getQuiz().getQuestionNumber(),
-            answerKeyExplanation: Game.getQuiz().getQuestion().getAnswerExplanation()
-        });
+        return state;
         case Actions.STORE_SCORES:
             SkillDAO.saveScores(Game.getQuiz().getCategory(), state.scores);
             return state;
