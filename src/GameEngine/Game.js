@@ -10,6 +10,7 @@ class Game {
     static _skills = null;
 
     static createQuiz(category="Asthma") {
+
         this._quiz = new Quiz();
         this._quiz.setCategory(category);
         this._quiz.setDisciplines(QuizDAO.getDisciplines(category));

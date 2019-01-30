@@ -7,7 +7,7 @@
           {
             "level": 1,
             "passingCondition": 5,
-            "requiredMinSkill": 0,
+            "requiredMinSkill": -100,
             "questions": [
               {
                 "narrative": "<%Patient.hasName.PatientName%> arrives at the emergency room. She is <%Patient.underGoesExamination.Wheeze%> and <%Patient.underGoesExamination.Breathing-Condition%>. Which diagnosis should the patient be examined for?",

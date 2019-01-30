@@ -20,7 +20,7 @@ class ProgressLevelComponent extends Component{
             else
                 return (
                     <View key={index}>
-                        <TouchableOpacity style={{backgroundColor: '#000000'}} onPress={()=>()=>{}} disabled={true}>
+                        <TouchableOpacity style={styles.buttonRegression} onPress={()=>()=>{}} disabled={true}>
                             <Text key={index} style={{color: '#FFFFFF', fontSize: 18}}>{level}</Text>
                         </TouchableOpacity>
                     </View>
@@ -30,7 +30,7 @@ class ProgressLevelComponent extends Component{
             if (this.props.newLevels.includes(level))
                 return (
                     <View key={index}>
-                        <TouchableOpacity style={{backgroundColor: '#FFFFFF'}} onPress={()=>()=>{}} disabled={true}>
+                        <TouchableOpacity style={styles.buttonProgression} onPress={()=>()=>{}} disabled={true}>
                             <Text key={index} style={{color: '#FFFFFF', fontSize: 18}}>{level}</Text>
                         </TouchableOpacity>
                     </View>
@@ -60,7 +60,19 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center',
+        backgroundColor: '#848415',
+        padding: 20,
+        margin: 10,
+    },
+    buttonProgression: {
+        alignItems: 'center',
         backgroundColor: '#158415',
+        padding: 20,
+        margin: 10,
+    },
+    buttonRegression: {
+        alignItems: 'center',
+        backgroundColor: '#84154d',
         padding: 20,
         margin: 10,
     },

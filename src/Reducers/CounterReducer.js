@@ -61,6 +61,10 @@ const CounterReducer = (state, action) => {
                 score.setScore(0);
             });
             Game.getQuiz().reset();
+            /*Game._skills = null;
+            Game._quiz = null;
+            Game._scores = null;
+            Game.createQuiz("Asthma");*/
             return Object.assign({}, state, {
             discipline: Game.getQuiz().getQuestion().getDiscipline(),
             problem: Game.getQuiz().getQuestion().getNarrative(),
