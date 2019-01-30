@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Navigation} from "react-native-navigation";
 
-import ChartComponent from './ChartComponent';
+import {getLockedLevels, getUnlockedLevels, initializeQuiz} from "../Actions/ActionThunks";
+import store from "../Reducers";
+import Game from "../GameEngine/Game";
 
 class MainMenuComponent extends Component{
     constructor(props) {
         super(props);
     };
     render() {
+        const initializeApp = () => {
+
+        };
         const navigateTo = () => {
             Navigation.push(this.props.componentId, {
                 component: {
@@ -40,7 +45,17 @@ class MainMenuComponent extends Component{
                 </View>
 
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
+                    <TouchableOpacity style={styles.button} onPress={() => {
+                        Game._skills = null;
+                        Game._quiz = null;
+                        Game._scores = null;
+                        Game.createQuiz("Asthma");
+                        store.dispatch(getUnlockedLevels());
+                        store.dispatch(getLockedLevels());
+                        store.dispatch(initializeQuiz());
+                        navigateTo();
+                    }
+                    }>
                         <Text style={{fontSize: 18}}>Asthma</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>

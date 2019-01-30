@@ -8,7 +8,6 @@ import answerKeyReducer from './AnswerKeyReducer'
 import summaryReducer from './SummaryReducer'
 import disciplineReducer from './DisciplineReducer'
 import progressReducer from './ProgressReducer'
-import {getUnlockedLevels, getLockedLevels, initializeQuiz} from "../Actions/ActionThunks";
 
 const AppReducers = combineReducers({
     counterReducer,
@@ -28,9 +27,5 @@ let store = createStore(
         thunkMiddleware // lets us dispatch() functions
     )
 );
-
-store.dispatch(getUnlockedLevels());
-store.dispatch(getLockedLevels());
-store.dispatch(initializeQuiz());
 
 export default store;
