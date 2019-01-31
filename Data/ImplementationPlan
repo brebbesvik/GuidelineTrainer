@@ -10,7 +10,8 @@ Change size of summary modal.
 Change size of the menu buttons at the front screen
 Smaller headline on chart summary
 Remove scores on counter component
-- If answer key is shown (read more is clicked), continue to the next question
+- If answer key is shown (read more is clicked), continue to the next question and update score
+- Use flex box column to avoid that there is a lot of empty space below the buttons
 
 --------------------------------
 Patient:

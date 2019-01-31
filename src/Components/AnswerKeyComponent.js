@@ -31,7 +31,8 @@ class AnswerKeyComponent extends Component{
     };
     state = {
         explanation: '',
-        boxHeight: '40%'
+        boxHeight: '40%',
+        readMoreClicked: false
     };
     render() {
         const setTitle = () => {
@@ -42,7 +43,7 @@ class AnswerKeyComponent extends Component{
         };
         const updateScoreAndQuestion = () => {
             this.props.updateScore(this.props.discipline);
-            if (this.props.isAnswerCorrect) {
+            if (this.props.isAnswerCorrect || this.state.readMoreClicked) {
                 if (this.props.questionNumber+1 < this.props.numberOfQuestions) {
                     this.props.nextQuestion();
                 }
@@ -59,7 +60,8 @@ class AnswerKeyComponent extends Component{
         const readMore = ()=> {
             this.setState({
                 explanation: this.props.answerKeyExplanation,
-                boxHeight: '60%'
+                boxHeight: '60%',
+                readMoreClicked: true
             })
         };
         const dontReadMore = ()=> {
