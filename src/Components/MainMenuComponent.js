@@ -59,7 +59,7 @@ class MainMenuComponent extends Component{
                         <Text style={{fontSize: 18}}>Asthma</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>Tuberculosis</Text>
+                        <Text style={{fontSize: 18}}>Jaundice</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
                         <Text style={{fontSize: 18}}>Malaria</Text>
@@ -77,14 +77,24 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         backgroundColor: '#DDDDDD',
-        padding: 20,
-        margin: 10,
+        paddingTop: 20,
+        paddingBottom: 20,
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: '3%',
+        marginRight: '3%',
+        width: '27%'
     },
     buttonDisabled: {
         alignItems: 'center',
         backgroundColor: '#f5f5f5',
-        padding: 20,
-        margin: 10,
+        paddingTop: 20,
+        paddingBottom: 20,
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: '3%',
+        marginRight: '3%',
+        width: '27%'
     },
     buttonContainer: {
         flexDirection: 'row'
