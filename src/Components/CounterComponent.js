@@ -66,9 +66,9 @@ class CounterComponent extends Component {
                     {buttonList}
                 </View>
 
-                <View style={styles.scoreContainer}>
+                {/*<View style={styles.scoreContainer}>
                     {scoresList}
-                </View>
+                </View>*/}
 
                 <AnswerKeyComponent component={this.props.componentId} />
                 <SummaryComponent component={this.props.componentId} />
