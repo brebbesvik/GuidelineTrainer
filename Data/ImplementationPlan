@@ -1,16 +1,16 @@
 GUI:
 Rounder edges of answer key box
 
-- Remove buttons which aren't used in the answer key box
+Remove buttons which aren't used in the answer key box
 Try to fade background (dim) when the answer key box is displayed.
-- Only show "correct" and "wrong" when a question has been answered. Provide a button to display the
+Only show "correct" and "wrong" when a question has been answered. Provide a button to display the
 full explanation. The size of the answer key box will have to be adjusted accordingly
 Change text on summary button
 Change size of summary modal.
 Change size of the menu buttons at the front screen
 Smaller headline on chart summary
-- Remove scores on counter component
-
+Remove scores on counter component
+- If answer key is shown (read more is clicked), continue to the next question
 
 --------------------------------
 Patient:

@@ -29,6 +29,10 @@ class AnswerKeyComponent extends Component{
     constructor(props) {
         super(props);
     };
+    state = {
+        explanation: '',
+        boxHeight: '40%'
+    };
     render() {
         const setTitle = () => {
           if(this.props.isAnswerCorrect)
@@ -52,6 +56,18 @@ class AnswerKeyComponent extends Component{
             this.props.hideAnswerKey();
             this.props.showProgression();
         };
+        const readMore = ()=> {
+            this.setState({
+                explanation: this.props.answerKeyExplanation,
+                boxHeight: '60%'
+            })
+        };
+        const dontReadMore = ()=> {
+            this.setState({
+                explanation: '',
+                boxHeight: '40%'
+            })
+        };
         return (
 
             <Modal
@@ -61,20 +77,23 @@ class AnswerKeyComponent extends Component{
                 onRequestClose={() => {
                 }}>
                 <View style={styles.modalViewParent}>
-                    <View style={styles.modalView}>
+                    <View style={[styles.modalView, {height: this.state.boxHeight}]}>
                         <ScrollView>
                             <View style={styles.textContainer}>
                                 {setTitle()}
-                                <Text style={{fontSize: 18}}>{this.props.answerKeyExplanation}</Text>
+                                <Text style={{fontSize: 18}}>{this.state.explanation}</Text>
                             </View>
                             <View style={styles.buttonContainer}>
-                                <Button title={"Evidence"} color="#841584" onPress={() => {
+                                <Button title={"Read more"} color="#841584" onPress={() => {
+                                    readMore();
                                 }}/>
-                                <Button title={"Guideline"} color="#841584" onPress={() => {
-                                }}/>
+                                {/*<Button title={"Guideline"} color="#841584" onPress={() => {
+                                }}/>*/}
                                 <Button title={"Close"} color="#841584" onPress={() => {
                                     {updateScoreAndQuestion()}
-                                    this.props.hideAnswerKey();}}/>
+                                    this.props.hideAnswerKey();
+                                    {dontReadMore()};
+                                    }}/>
                             </View>
                         </ScrollView>
                     </View>
@@ -91,7 +110,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#000000AA"
     },
     modalView: {
-        height: '60%',
         width: '80%',
         backgroundColor: '#FFFFFF',
         borderColor: '#000000',
@@ -104,9 +122,10 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     buttonContainer: {
+        margin: 20,
         flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',
+        //alignItems: 'center',
+        justifyContent: 'space-between',
     },
 });
 
