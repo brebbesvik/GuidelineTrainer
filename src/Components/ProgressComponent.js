@@ -41,7 +41,7 @@ class ProgressComponent extends Component{
             }
             return (
                 <View key={index}>
-                    <Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text>
+                    <Text key={index} style={{fontSize: 20, margin:10}}>{discipline}</Text>
                     <ProgressLevelComponent unlocked={this.props.unlockedLevels[discipline]} locked={this.props.lockedLevels[discipline]} newLevels={QuizDAO.getAllowedLevels("Asthma", discipline, score)} component={this.props.componentId}/>
                 </View>
             );
@@ -52,15 +52,22 @@ class ProgressComponent extends Component{
         };
 
         return (
-            <Modal visible={this.props.progression} onRequestClose={()=>{}}>
-                <ScrollView>
-                    {disciplineList}
-                    <View style={styles.buttonView}>
-                        <Button title={"Start quiz"} color="#841584" onPress={() => {
-                            {goToSummary()}
-                        }}/>
+            <Modal transparent={true}
+                   visible={this.props.progression}
+                   onRequestClose={()=>{}}
+            >
+                <View style={styles.modalViewParent}>
+                    <View style={styles.modalView}>
+                        <ScrollView>
+                            {disciplineList}
+                            <View style={styles.buttonView}>
+                                <Button title={"Start quiz"} color="#841584" onPress={() => {
+                                    {goToSummary()}
+                                }}/>
+                            </View>
+                        </ScrollView>
                     </View>
-                </ScrollView>
+                </View>
             </Modal>
         );
     }
@@ -70,17 +77,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    button: {
-        alignItems: 'center',
-        backgroundColor: '#DDDDDD',
-        padding: 20,
-        margin: 10,
+    modalViewParent: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
     },
-    buttonDisabled: {
-        alignItems: 'center',
-        backgroundColor: '#f5f5f5',
-        padding: 20,
-        margin: 10,
+    modalView: {
+        height: '90%',
+        width: '90%',
+        backgroundColor: '#FFFFFF',
+        borderColor: '#000000',
+        borderStyle: 'solid',
+        borderWidth: 1,
     },
     buttonView:{
         marginLeft: 20,

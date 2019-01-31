@@ -86,14 +86,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         //backgroundColor: '#EFCC00',
         backgroundColor: '#848415',
-        padding: 20,
-        margin: 10,
+        padding: 10,
+        margin: 5,
     },
     buttonDisabled: {
         alignItems: 'center',
         backgroundColor: '#DDDDDD',
-        padding: 20,
-        margin: 10,
+        padding: 10,
+        margin: 5,
     },
     buttonContainer: {
         flexDirection: 'row'

@@ -54,7 +54,7 @@ class DisciplineComponent extends Component{
             else*/
                 return (
                     <View key={index}>
-                        <Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text>
+                        <Text key={index} style={{fontSize: 20, margin:10}}>{discipline}</Text>
                         <LevelComponent levels={this.props.unlockedLevels[discipline]} locked={this.props.lockedLevels[discipline]} component={this.props.componentId}/>
                     </View>
                 );
