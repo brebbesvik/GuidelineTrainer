@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
         borderColor: '#000000',
         borderStyle: 'solid',
         borderWidth: 1,
+        borderRadius: 10
     },
     textContainer: {
         backgroundColor: 'white',
