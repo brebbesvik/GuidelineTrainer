@@ -45,7 +45,7 @@ class SummaryComponent extends Component{
                     <View style={styles.modalView}>
                         <ScrollView>
                             <View style={styles.textContainer}>
-                                <Text style={{fontSize: 30}}>Quiz scores</Text>
+                                <Text style={{fontSize: 25}}>Quiz scores</Text>
                             </View>
 <ChartComponent scores={this.props.scores}/>
                             {/*<View style={styles.scoreContainer}>

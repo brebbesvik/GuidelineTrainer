@@ -62,25 +62,33 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#848415',
         padding: 10,
-        margin: 5,
+        marginLeft: 10,
+        marginTop: 5,
+        marginBottom: 5
     },
     buttonProgression: {
         alignItems: 'center',
         backgroundColor: '#158415',
         padding: 10,
-        margin: 5,
+        marginLeft: 10,
+        marginTop: 5,
+        marginBottom: 5
     },
     buttonRegression: {
         alignItems: 'center',
         backgroundColor: '#84154d',
         padding: 10,
-        margin: 5,
+        marginLeft: 10,
+        marginTop: 5,
+        marginBottom: 5
     },
     buttonDisabled: {
         alignItems: 'center',
         backgroundColor: '#DDDDDD',
         padding: 10,
-        margin: 5,
+        marginLeft: 10,
+        marginTop: 5,
+        marginBottom: 5
     },
     buttonContainer: {
         flexDirection: 'row'

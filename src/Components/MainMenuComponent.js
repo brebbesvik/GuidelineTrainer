@@ -41,7 +41,7 @@ class MainMenuComponent extends Component{
         return (
             <View>
                 <View>
-                    <Text style={{fontSize: 30, margin:10}}>Modules</Text>
+                    <Text style={{fontSize: 25, margin:10}}>Modules</Text>
                 </View>
 
                 <View style={styles.buttonContainer}>

@@ -59,11 +59,15 @@ class ProgressComponent extends Component{
                 <View style={styles.modalViewParent}>
                     <View style={styles.modalView}>
                         <ScrollView>
-                            {disciplineList}
-                            <View style={styles.buttonView}>
-                                <Button title={"Start quiz"} color="#841584" onPress={() => {
-                                    {goToSummary()}
-                                }}/>
+                            <View style={styles.textContainer}>
+                                <Text style={{fontSize: 25}}>Level progression</Text>
+                            </View>
+                                {disciplineList}
+                                <View style={styles.buttonView}>
+                                    <Button title={"Next"} color="#841584" onPress={() => {
+                                        {goToSummary()}
+                                    }}/>
+
                             </View>
                         </ScrollView>
                     </View>
@@ -89,6 +93,12 @@ const styles = StyleSheet.create({
         borderColor: '#000000',
         borderStyle: 'solid',
         borderWidth: 1,
+    },
+    textContainer: {
+        backgroundColor: 'white',
+        marginTop: 20,
+        marginBottom: 20,
+        marginLeft: 10,
     },
     buttonView:{
         marginLeft: 20,
