@@ -91,7 +91,7 @@ class AnswerKeyComponent extends Component{
                                 <Button title={"Close"} color="#841584" onPress={() => {
                                     {updateScoreAndQuestion()}
                                     this.props.hideAnswerKey();
-                                    {dontReadMore()};
+                                    {dontReadMore()}
                                     }}/>
                             </View>
                         </ScrollView>
