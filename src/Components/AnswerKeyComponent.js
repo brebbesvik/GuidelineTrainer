@@ -86,7 +86,7 @@ class AnswerKeyComponent extends Component{
                                 <Text style={{fontSize: 18}}>{this.state.explanation}</Text>
                             </View>
                             <View style={styles.buttonContainer}>
-                                <Button title={"Read more"} color="#841584" onPress={() => {
+                                <Button title={(this.props.isAnswerCorrect)? "Read more" : "Give up"} color="#841584" onPress={() => {
                                     readMore();
                                 }}/>
                                 {/*<Button title={"Guideline"} color="#841584" onPress={() => {

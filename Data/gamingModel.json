@@ -73,7 +73,7 @@
           {
             "level": 1,
             "passingCondition": 5,
-            "requiredMinSkill": 0,
+            "requiredMinSkill": -100,
             "questions": [
               {
                 "narrative": "<%Patient.hasName.PatientName%> is being examined for <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>. She <%Patient.underGoesExamination.Pulse-Rate%>. Which other of the following observations should you also do to decide if the asthma is severe?",
