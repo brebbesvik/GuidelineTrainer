@@ -31,7 +31,6 @@ class AnswerKeyComponent extends Component{
     };
     state = {
         explanation: '',
-        boxHeight: '40%',
         readMoreClicked: false
     };
     render() {
@@ -60,14 +59,12 @@ class AnswerKeyComponent extends Component{
         const readMore = ()=> {
             this.setState({
                 explanation: this.props.answerKeyExplanation,
-                boxHeight: '60%',
                 readMoreClicked: true
             })
         };
         const dontReadMore = ()=> {
             this.setState({
-                explanation: '',
-                boxHeight: '40%'
+                explanation: ''
             })
         };
         return (
@@ -79,7 +76,7 @@ class AnswerKeyComponent extends Component{
                 onRequestClose={() => {
                 }}>
                 <View style={styles.modalViewParent}>
-                    <View style={[styles.modalView, {height: this.state.boxHeight}]}>
+                    <View style={styles.modalView}>
                         <ScrollView>
                             <View style={styles.textContainer}>
                                 {setTitle()}
