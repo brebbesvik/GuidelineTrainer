@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#000000AA"
     },
     modalView: {
-        height: '90%',
         width: '90%',
         backgroundColor: '#FFFFFF',
         borderColor: '#000000',
@@ -94,7 +93,9 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         marginLeft: 20,
-        marginRight: 20
+        marginRight: 20,
+        marginBottom: 20,
+        marginTop: 20
         /*flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',*/
