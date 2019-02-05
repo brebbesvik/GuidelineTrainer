@@ -4,11 +4,14 @@
     {"name": "Age"},
     {"name": "Weight"},
     {"name": "PatientName"},
+    {"name":  "Gender"},
+
+    {"name": "History", "constraint": "[abstract]"},
+    {"name":  "Cough"},
 
     {"name": "Examination", "constraint": "[abstract]"},
     {"name": "Wheeze"},
     {"name": "Breathing condition"},
-    {"name": "History-Of-Cough"},
     {"name": "Oxygen-Saturation"},
     {"name": "Central-Cyanosis"},
     {"name": "Inability-To-Drink"},
@@ -21,7 +24,7 @@
     {"name": "Measurement", "constraint":  "[abstract"},
     {"name": "Wheeze-value"},
     {"name": "Breathing-Condition-Value"},
-    {"name": "History-Of-Cough-Value"},
+    {"name": "Cough-Value"},
     {"name": "Percentage"},
     {"name": "Central-Cyanosis-Value"},
     {"name": "Inability-To-Drink-Value"},
@@ -34,7 +37,7 @@
     {"name": "Presentation", "constraint":  "[abstract"},
     {"name": "Wheeze-Presentation"},
     {"name": "Breathing-Condition-Presentation"},
-    {"name": "History-Of-Cough-Presentation"},
+    {"name": "Cough-Presentation"},
     {"name": "Oxygen-Saturation-Presentation"},
     {"name": "Central-Cyanosis-Presentation"},
     {"name": "Inability-To-Drink-Presentation"},
@@ -49,7 +52,6 @@
     {"name": "Severity"},
 
     {"name": "Management"},
-    {"name": "Treatment"},
 
     {"name": "Medication", "constraint":  "[abstract"},
     {"name": "Oxygen"},
@@ -84,11 +86,15 @@
     {"name": "hasAge", "src": "Patient", "trg": "Age"},
     {"name": "hasWeight", "src": "Patient", "trg": "Weight"},
     {"name": "hasName", "src": "Patient", "trg": "PatientName"},
+    {"name": "isOfGender", "src": "Patient", "trg": "Gender"},
+
+    {"name": "givesHistory", "src": "Patient", "trg": "History"},
+    {"name": "coughInheritsHistory", "src": "Cough", "trg": "History", "constraint": "[inherit]"},
+
 
     {"name": "undergoesExamination", "src": "Patient", "trg": "Examination"},
     {"name": "wheezeInheritsExamination", "src": "Wheeze", "trg": "Examination", "constraint": "[inherit]"},
     {"name": "breathingConditionInheritsExamination", "src": "Breathing-Condition", "trg": "Examination", "constraint": "[inherit]"},
-    {"name": "historyOfCoughInheritsExamination", "src": "History-Of-Cough", "trg": "Examination", "constraint": "[inherit]"},
     {"name": "oxygenSaturationInheritsExamination", "src": "Oxygen-Saturation", "trg": "Examination", "constraint": "[inherit]"},
     {"name": "centralCyanosisInheritsExamination", "src": "Central-Cyanosis", "trg": "Examination", "constraint": "[inherit]"},
     {"name": "inabilityToDrinkInheritsExamination", "src": "Inability-To-Drink", "trg": "Examination", "constraint": "[inherit]"},
@@ -102,7 +108,7 @@
     {"name": "hasMeasurement", "src": "Examination", "trg": "Measurement"},
     {"name": "wheezeValueInheritsMeasurement", "src": "Wheeze-Value", "trg": "Measurement", "constraint": "[inherit]"},
     {"name": "breathingConditionValueInheritsMeasurement", "src": "Breathing-Condition-Value", "trg": "Measurement", "constraint": "[inherit]"},
-    {"name": "historyOfCoughValueInheritsMeasurement", "src": "History-Of-Cough-Value", "trg": "Measurement", "constraint": "[inherit]"},
+    {"name": "coughValueInheritsMeasurement", "src": "Cough-Value", "trg": "Measurement", "constraint": "[inherit]"},
     {"name": "percentageInheritsMeasurement", "src": "Percentage", "trg": "Measurement", "constraint": "[inherit]"},
     {"name": "centralCyanosisValueInheritsMeasurement", "src": "Central-Cyanosis-Value", "trg": "Measurement", "constraint": "[inherit]"},
     {"name": "inabilityToDrinkValueInheritsMeasurement", "src": "Inability-To-Drink-Value", "trg": "Measurement", "constraint": "[inherit]"},
@@ -115,7 +121,7 @@
     {"name": "hasPresentation", "src": "Measurement", "trg": "Presentation"},
     {"name": "wheezePresentationInheritsPresentation", "src": "Wheeze-Presentation", "trg": "Presentation","constraint": "[inherit]"},
     {"name": "breathingConditionPresentationInheritsPresentation", "src": "Breathing-Condition-Presentation", "trg": "Presentation","constraint": "[inherit]"},
-    {"name": "historyOfCoughPresentationInheritsPresentation", "src": "History-Of-Cough-Presentation", "trg": "Presentation","constraint": "[inherit]"},
+    {"name": "coughPresentationInheritsPresentation", "src": "Cough-Presentation", "trg": "Presentation","constraint": "[inherit]"},
     {"name": "oxygenSaturationPresentationInheritsPresentation", "src": "Oxygen-Saturation-Presentation", "trg": "Presentation","constraint": "[inherit]"},
     {"name": "centralCyanosisPresentationInheritsPresentation", "src": "Central-Cyanosis-Presentation", "trg": "Presentation","constraint": "[inherit]"},
     {"name": "inabilityToDrinkPresentationInheritsPresentation", "src": "Inability-To-Drink-Presentation", "trg": "Presentation","constraint": "[inherit]"},
@@ -130,9 +136,8 @@
     {"name": "hasSeverity", "src": "Diagnosis", "trg": "Severity"},
 
     {"name": "hasManagement", "src": "Diagnosis", "trg": "Management"},
-    {"name": "hasTreatment", "src": "Management", "trg": "Treatment"},
 
-    {"name": "involvesMedication", "src": "Treatment", "trg": "Medication"},
+    {"name": "involvesMedication", "src": "Management", "trg": "Medication"},
     {"name": "oxygenInheritsMedication", "src": "Oxygen", "trg": "Medication","constraint": "[inherit]"},
     {"name": "salbutamolInheritsMedication", "src": "Salbutamol", "trg": "Medication","constraint": "[inherit]"},
     {"name": "prednisoloneInheritsMedication", "src": "Prednisolone", "trg": "Medication","constraint": "[inherit]"},
@@ -169,9 +174,12 @@
       {"name": "Patient", "type": "Patient"},
       {"name": "Kari", "type": "PatientName"},
 
+      {"name": "Cough", "type": "Cough"},
+      {"name": "False", "type": "Cough-Value"},
+      {"name": "does not have a history of cough", "type": "Cough-Presentation"},
+
       {"name": "Wheeze", "type": "Wheeze"},
       {"name": "Breathing-Condition", "type": "Breathing-Condition"},
-      {"name": "History-Of-Cough", "type": "History-Of-Cough"},
       {"name": "Oxygen-Saturation", "type": "Oxygen-Saturation"},
       {"name": "Central-Cyanosis", "type": "Central-Cyanosis"},
       {"name": "Inability-To-Drink", "type": "Inability-To-Drink"},
@@ -183,7 +191,6 @@
 
       {"name": "True", "type": "Wheeze-Value"},
       {"name": "True", "type": "Breathing-Condition-Value"},
-      {"name": "False", "type": "History-Of-Cough-Value"},
       {"name": "95%", "type": "Percentage"},
       {"name": "False", "type": "Central-Cyanosis-Value"},
       {"name": "False", "type": "Inability-To-Drink-Value"},
@@ -195,7 +202,6 @@
 
       {"name": "is wheezing", "type": "Wheeze-Presentation"},
       {"name": "is having difficulty breathing", "type": "Breathing-Condition-Presentation"},
-      {"name": "does not have a history of cough", "type": "History-Of-Cough-Presentation"},
       {"name": "has an oxygen saturation of 95%", "type": "Oxygen-Saturation-Presentation"},
       {"name": "does not have central cyanosis", "type": "Central-Cyanosis-Presentation"},
       {"name": "is able to drink", "type": "Inability-To-Drink-Presentation"},
@@ -210,7 +216,6 @@
       {"name": "Severe", "type": "Severity"},
 
       {"name": "Management", "type": "Management"},
-      {"name": "Treatment", "type": "Treatment"},
 
       {"name": "Oxygen", "type": "Oxygen"},
       {"name": "Salbutamol", "type": "Salbutamol"},
@@ -239,9 +244,12 @@
     "edges": [
       {"name": "hasName", "src": "Patient", "trg": "PatientName"},
 
+      {"name": "givesHistory", "src": "Patient", "trg": "Cough"},
+      {"name": "hasMeasurement", "src": "Cough", "trg": "Cough-Value"},
+      {"name": "hasPresentation", "src": "Cough-Value", "trg": "Cough-Presentation"},
+
       {"name": "undergoesExamination", "src": "Patient", "trg": "Wheeze"},
       {"name": "undergoesExamination", "src": "Patient", "trg": "Breathing-Condition"},
-      {"name": "undergoesExamination", "src": "Patient", "trg": "History-Of-Cough"},
       {"name": "undergoesExamination", "src": "Patient", "trg": "Oxygen-Saturation"},
       {"name": "undergoesExamination", "src": "Patient", "trg": "Central-Cyanosis"},
       {"name": "undergoesExamination", "src": "Patient", "trg": "Inability-To-Drink"},
@@ -253,7 +261,6 @@
 
       {"name": "hasMeasurement", "src": "Wheeze", "trg": "Wheeze-Value"},
       {"name": "hasMeasurement", "src": "Breathing-Condition", "trg": "Breathing-Condition-Value"},
-      {"name": "hasMeasurement", "src": "History-Of-Cough", "trg": "History-Of-Cough-Value"},
       {"name": "hasMeasurement", "src": "Oxygen-Saturation", "trg": "Percentage"},
       {"name": "hasMeasurement", "src": "Central-Cyanosis", "trg": "Central-Cyanosis-Value"},
       {"name": "hasMeasurement", "src": "Inability-To-Drink", "trg": "Inability-To-Drink-Value"},
@@ -266,7 +273,6 @@
 
       {"name": "hasPresentation", "src": "Wheeze-Value", "trg": "Wheeze-Presentation"},
       {"name": "hasPresentation", "src": "Breathing-Condition-Value", "trg": "Breathing-Condition-Presentation"},
-      {"name": "hasPresentation", "src": "History-Of-Cough-Value", "trg": "History-Of-Cough-Presentation"},
       {"name": "hasPresentation", "src": "Percentage", "trg": "Oxygen-Saturation-Presentation"},
       {"name": "hasPresentation", "src": "Central-Cyanosis-Value", "trg": "Central-Cyanosis-Presentation"},
       {"name": "hasPresentation", "src": "Inability-To-Drink-Value", "trg": "Inability-To-Drink-Presentation"},
@@ -281,14 +287,13 @@
       {"name": "hasSeverity", "src": "Diagnosis", "trg": "Severity"},
 
       {"name": "hasManagement", "src": "Diagnosis", "trg": "Management"},
-      {"name": "hasTreatment", "src": "Management", "trg": "Treatment"},
 
-      {"name": "involvesMedication", "src": "Treatment", "trg": "Oxygen"},
-      {"name": "involvesMedication", "src": "Treatment", "trg": "Salbutamol"},
-      {"name": "involvesMedication", "src": "Treatment", "trg": "Prednisolone"},
-      {"name": "involvesMedication", "src": "Treatment", "trg": "Antibiotics"},
-      {"name": "involvesMedication", "src": "Treatment", "trg": "Corticosteroid"},
-      {"name": "involvesMedication", "src": "Treatment", "trg": "Ipratopium-Bromide"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Oxygen"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Salbutamol"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Prednisolone"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Antibiotics"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Corticosteroid"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Ipratopium-Bromide"},
 
       {"name": "hasDose", "src": "Prednisolone", "trg": "Prednisolone-Dose"},
 
