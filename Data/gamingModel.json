@@ -157,7 +157,7 @@
                 "guideline": "http://www.nice.org.uk"
               },
               {
-                "narrative": "What dose of <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.hasMedication.Salbutamol%> should be used in a <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.hasMedication.Salbutamol.hasRoute.Salbutamol-Route.hasMethod.hasForm%>r?",
+                "narrative": "What dose of <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.hasMedication.Salbutamol%> should be used in a <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.hasMedication.Salbutamol.hasRoute.Salbutamol-Route.hasMethod.Method%>r?",
                 "entityInstance": "initial-level-one",
                 "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.hasMedication.Salbutamol.haRate.Salbutamol-Rate%>",
                 "answerAlternatives": [

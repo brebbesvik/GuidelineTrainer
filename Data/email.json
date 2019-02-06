@@ -77,9 +77,9 @@
     {"name": "Salbutamol-Route"},
     {"name": "Corticosteroid-Route"},
 
-    {"name": "Form", "constraint":  "[abstract"},
-    {"name": "Salbutamol-Form"},
-    {"name": "Corticosteroid-Form"},
+    {"name": "Method", "constraint":  "[abstract"},
+    {"name": "Salbutamol-Method"},
+    {"name": "Corticosteroid-Method"},
 
     {"name": "Hospitalization"},
     {"name": "Hospitalization-Presentation"}
@@ -168,9 +168,9 @@
     {"name": "salbutamolRouteInheritsRoute", "src": "Salbutamol-Route", "trg": "Route","constraint": "[inherit]"},
     {"name": "corticosteroidRouteInheritsRoute", "src": "Corticosteroid-Route", "trg": "Route","constraint": "[inherit]"},
 
-    {"name": "hasMethod", "src": "Route", "trg": "Form"},
-    {"name": "salbutamolFormInheritsForm", "src": "Salbutamol-Form", "trg": "Form","constraint": "[inherit]"},
-    {"name": "corticosteroidFormInheritsForm", "src": "Corticosteroid-Form", "trg": "Form","constraint": "[inherit]"},
+    {"name": "hasMethod", "src": "Route", "trg": "Method"},
+    {"name": "salbutamolMethodInheritsMethod", "src": "Salbutamol-Method", "trg": "Method","constraint": "[inherit]"},
+    {"name": "corticosteroidMethodInheritsMethod", "src": "Corticosteroid-Method", "trg": "Method","constraint": "[inherit]"},
 
     {"name": "admit", "src": "Management", "trg": "Hospitalization"},
     {"name": "hasPresentation", "src": "Hospitalization", "trg": "Hospitalization-Presentation"}
@@ -245,8 +245,8 @@
       {"name": "Inhale", "type": "Salbutamol-Route"},
       {"name": "Inhale", "type": "Corticosteroid-Route"},
 
-      {"name": "inhaler with spacer and mask","type": "Salbutamol-Form"},
-      {"name": "MDI and spacer with face mask","type": "Corticosteroid-Form"},
+      {"name": "inhaler with spacer and mask","type": "Salbutamol-Method"},
+      {"name": "MDI and spacer with face mask","type": "Corticosteroid-Method"},
 
       {"name": "True","type": "Hospitalization"},
       {"name": "admit to hospital","type": "Hospitalization-Presentation"}
@@ -317,8 +317,8 @@
       {"name": "hasRoute", "src": "Salbutamol", "trg": "Salbutamol-Route"},
       {"name": "hasRoute", "src": "Corticosteroid", "trg": "Corticosteroid-Route"},
 
-      {"name": "hasMethod", "src": "Salbutamol-Route", "trg": "Salbutamol-Form"},
-      {"name": "hasMethod", "src": "Corticosteroid-Route", "trg": "Corticosteroid-Form"},
+      {"name": "hasMethod", "src": "Salbutamol-Route", "trg": "Salbutamol-Method"},
+      {"name": "hasMethod", "src": "Corticosteroid-Route", "trg": "Corticosteroid-Method"},
 
       {"name": "admit", "src": "Management", "trg": "Hospitalization"},
       {"name": "hasPresentation", "src": "Hospitalization", "trg": "Hospitalization-Presentation"}
@@ -369,7 +369,7 @@
 
       {"name": "inhale", "type": "Salbutamol-Route"},
 
-      {"name": "nebulize","type": "Salbutamol-Form"},
+      {"name": "nebulize","type": "Salbutamol-Method"},
 
       {"name": "True","type": "Hospitalization"},
       {"name": "admit to hospital","type": "Hospitalization-Presentation"}
@@ -417,7 +417,7 @@
 
       {"name": "hasRoute", "src": "Salbutamol", "trg": "Salbutamol-Route"},
 
-      {"name": "hasMethod", "src": "Salbutamol-Route", "trg": "Salbutamol-Form"},
+      {"name": "hasMethod", "src": "Salbutamol-Route", "trg": "Salbutamol-Method"},
 
       {"name": "admit", "src": "Management", "trg": "Hospitalization"},
       {"name": "hasPresentation", "src": "Hospitalization", "trg": "Hospitalization-Presentation"}
