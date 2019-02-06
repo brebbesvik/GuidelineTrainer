@@ -22,11 +22,7 @@ export const getUnlockedLevels = ()=> {
                    else {
                        scores[discipline] = QuizDAO.getAllowedLevels("Asthma", discipline, 0);
                    }
-                });/*
-                for (let discipline in scores) {
-                    console.log("Discipline", discipline, "Scores", scores);
-                    scores[discipline] = QuizDAO.getAllowedLevels("Asthma", discipline, scores[discipline]);
-                }*/
+                });
                 dispatch(GET_UNLOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
             });
 
@@ -52,9 +48,6 @@ export const getLockedLevels = ()=> {
                         scores[discipline] = QuizDAO.getUnallowedLevels("Asthma", discipline, 0);
                     }
                 });
-                /*for (let discipline in scores) {
-                    scores[discipline] = QuizDAO.getUnallowedLevels("Asthma", discipline, scores[discipline]);
-                }*/
                 dispatch(GET_LOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
             });
 
