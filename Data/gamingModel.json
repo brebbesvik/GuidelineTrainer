@@ -10,8 +10,8 @@
             "requiredMinSkill": -100,
             "questions": [
               {
-                "narrative": "<%Patient.hasName.PatientName%> arrives at the emergency room. She is <%Patient.underGoesExamination.Wheeze%> and <%Patient.underGoesExamination.Breathing-Condition%>. Which diagnosis should the patient be examined for?",
-                "entityInstance": "entity-instance",
+                "narrative": "A <%Patient.hasAge.Age%> <%Patient.hasGender.Gender%> presents with a history of <%Patient.undergoesExamination.Wheeze%> <%Patient.undergoesExamination.Difficulty-Breathing%>. What is the possible diagnosis?",
+                "entityInstance": "initial-level-one",
                 "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>",
                 "answerAlternatives": [
                   {
@@ -19,21 +19,21 @@
                     "reward": 10
                   },
                   {
-                    "alternative": "Tuberculosis",
+                    "alternative": "Whooping cough",
                     "reward": -5
                   },
                   {
-                    "alternative": "Malaria",
+                    "alternative": "Tuberculosis",
                     "reward": -10
                   }
                 ],
-                "explanation": "A patient which is wheezing and have either difficulty breathing or having a history of cough, probably have asthma.",
+                "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma.",
                 "evidence": "http://www.foskning.no",
                 "guideline": "http://www.nice.org.uk"
               },
               {
-                "narrative": "You do some quik observations, and see that the patient <%Patient.underGoesExamination.Consciousness%>. She <%Patient.underGoesExamination.Pulse-Rate%>. What is the severity of the asthma?",
-                "entityInstance": "entity-instance",
+                "narrative": "On examination you find <%Patient.undergoesExamination.Oxygen-Saturation%>, <%Patient.undergoesExamination.Central-Cyanosis%> and <%Patient.undergoesExamination.Inability-To-Drink%>. What severity of asthma is the patient suffering from?",
+                "entityInstance": "initial-level-one",
                 "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%>",
                 "answerAlternatives": [
                   {
@@ -49,7 +49,7 @@
                     "reward": -10
                   }
                 ],
-                "explanation": "That the patient is not alert indicates the asthma as severe.",
+                "explanation": "Oxygen saturation lower than 90%, central cyanosis and inability to drink are all symptoms of asthma. If at least one of them is present, the asthma is severe.",
                 "evidence": "http://www.asthma.no/alvorlighetsgrad",
                 "guideline": "http://www.nice.org.uk/asthma/severity"
               }
@@ -64,11 +64,66 @@
         ]
       },
        {
-        "discipline": "Investigation",
-        "levels": []
+        "discipline": "Management",
+        "levels": [
+          {
+            "level": 1,
+            "passingCondition": 5,
+            "requiredMinSkill": -100,
+            "questions": [{
+              "narrative": "You make a diagnosis of <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%> and decide to start treating. What are the initial steps of treating such a condition?",
+              "entityInstance": "initial-level-one",
+              "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.admit.Hospitalization%> and provide medication",
+              "answerAlternatives": [
+                {
+                  "alternative": "provide medication",
+                  "reward": -5
+                },
+                {
+                  "alternative": "admit to hospital",
+                  "reward": -10
+                },
+                {
+                  "alternative": "admit to hospital and provide medication",
+                  "reward": 10
+                }
+              ],
+              "explanation": "The patient should be admitted to observation on the hospital. Medication is critical to help the patient breathe and open airways.",
+              "evidence": "http://www.foskning.no",
+              "guideline": "http://www.nice.org.uk"
+            }]
+          },
+          {
+            "level": 2,
+            "passingCondition": 5,
+            "requiredMinSkill": 10,
+            "questions": [{
+              "narrative": "What of the following is the correct management of <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>?",
+              "entityInstance": "initial-level-one-evaluation",
+              "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.admit.Hospitalization%>",
+              "answerAlternatives": [
+                {
+                  "alternative": "inhale corticosteroid",
+                  "reward": -10
+                },
+                {
+                  "alternative": "6 puffs of salbutamol with inhaler",
+                  "reward": -5
+                },
+                {
+                  "alternative": "do not admit to hospital",
+                  "reward": 10
+                }
+              ],
+              "explanation": "Only for severe asthma the patient gets admitted for observation at the hospital.",
+              "evidence": "http://www.foskning.no",
+              "guideline": "http://www.nice.org.uk"
+            }]
+          }
+        ]
       },
       {
-        "discipline": "Examination",
+        "discipline": "Medication",
         "levels": [
           {
             "level": 1,
@@ -76,68 +131,54 @@
             "requiredMinSkill": -100,
             "questions": [
               {
-                "narrative": "<%Patient.hasName.PatientName%> is being examined for <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>. She <%Patient.underGoesExamination.Pulse-Rate%>. Which other of the following observations should you also do to decide if the asthma is severe?",
-                "entityInstance": "entity-instance",
-                "answerKey": "Consciousness",
+                "narrative": "The childs weight was <%Patient.hasWeight.Weight%>. What dose of <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.hasMedication.Prednisolone%> should be administered?",
+                "entityInstance": "initial-level-one",
+                "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.hasMedication.Prednisolone.hasDose.Prednisolone-Dose%>",
                 "answerAlternatives": [
                   {
-                    "alternative": "Respiratory rate",
-                    "reward": -10
-                  },
-                  {
-                    "alternative": "Lower chest wall indrawing",
+                    "alternative": "30mg",
                     "reward": -5
                   },
                   {
-                    "alternative": "Consciousness",
+                    "alternative": "25mg",
                     "reward": 10
+                  },
+                  {
+                    "alternative": "19mg",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "15mg",
+                    "reward": -10
                   }
                 ],
-                "explanation": "Respiratory rate and lower chest wall indrawing are used to determine if the asthma is mild or moderate. To determine if the asthma is severe, we investigate the patients level of consciousness. If the patient is not alert, the asthma is severe.",
+                "explanation": "For severe asthma 25mg prednisolone should be administered. Remember that the tablets of prednisolone is of 5mg each.",
                 "evidence": "http://www.foskning.no",
                 "guideline": "http://www.nice.org.uk"
               },
               {
-                "narrative": "<%Patient.hasName.PatientName%> <%Patient.givesHistory.Cough%>, <%Patient.undergoesExamination.Oxygen-Saturation%>, <%Patient.undergoesExamination.Central-Cyanosis%>, <%Patient.undergoesExamination.Inability-To-Drink%>, <%Patient.undergoesExamination.Inability-To-Talk%>,  <%Patient.underGoesExamination.Lower-Chest-Wall-Indrawing%> and <%Patient.underGoesExamination.Respiratory-Rate%>",
-                "entityInstance": "entity-instance",
-                "answerKey": "Consciousness",
+                "narrative": "What dose of <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.hasMedication.Salbutamol%> should be used in a <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.hasMedication.Salbutamol.hasRoute.Salbutamol-Route.hasMethod.hasForm%>r?",
+                "entityInstance": "initial-level-one",
+                "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.hasMedication.Salbutamol.haRate.Salbutamol-Rate%>",
                 "answerAlternatives": [
                   {
-                    "alternative": "Respiratory rate",
+                    "alternative": "7.5mg every 20 minutes",
                     "reward": -10
                   },
                   {
-                    "alternative": "Lower chest wall indrawing",
+                    "alternative": "4mg every 20 minutes",
                     "reward": -5
                   },
                   {
-                    "alternative": "Consciousness",
+                    "alternative": "2.5mg every 20 minutes",
                     "reward": 10
-                  }
-                ],
-                "explanation": "Respiratory rate and lower chest wall indrawing are used to determine if the asthma is mild or moderate. To determine if the asthma is severe, we investigate the patients level of consciousness. If the patient is not alert, the asthma is severe.",
-                "evidence": "http://www.foskning.no",
-                "guideline": "http://www.nice.org.uk"
-              },
-              {
-                "narrative": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Oxygen%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Prednisolone%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Antibiotics%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Corticosteroid%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide.hasRate.Ipratopium-Bromide-Rate%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide.hasDuration.Ipratopium-Bromide-Duration%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Prednisolone.hasDose.Prednisolone-Dose%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Prednisolone.hasDuration.Prednisolone-Duration%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Corticosteroid.hasRoute.Corticosteroid-Route%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Corticosteroid.hasRoute.Corticosteroid-Route.hasMethod.Corticosteroid-Form%> SALBUTAMOL: <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol.hasRate.Salbutamol-Rate%> <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol.hasDuration.Salbutamol-Duration%> <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol.hasRoute.Salbutamol-Route%><%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol.hasRoute.Salbutamol-Route.hasMethod.Salbutamol-Form%> <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.admit.Hospitalization%>",
-                "entityInstance": "entity-instance",
-                "answerKey": "Consciousness",
-                "answerAlternatives": [
+                  },
                   {
-                    "alternative": "Respiratory rate",
+                    "alternative": "10mg every 20 minutes",
                     "reward": -10
-                  },
-                  {
-                    "alternative": "Lower chest wall indrawing",
-                    "reward": -5
-                  },
-                  {
-                    "alternative": "Consciousness",
-                    "reward": 10
                   }
                 ],
-                "explanation": "Respiratory rate and lower chest wall indrawing are used to determine if the asthma is mild or moderate. To determine if the asthma is severe, we investigate the patients level of consciousness. If the patient is not alert, the asthma is severe.",
+                "explanation": "2.5mg salbutamol should be used in the nebulizer. The patient should use the nebulizer every 20 minutes in case of severe asthma.",
                 "evidence": "http://www.foskning.no",
                 "guideline": "http://www.nice.org.uk"
               }
@@ -152,12 +193,36 @@
         ]
       },
       {
-        "discipline": "Treating",
-        "levels": []
-      },
-      {
-        "discipline": "Advising",
-        "levels": []
+        "discipline": "Evaluating",
+        "levels": [
+          {
+            "level": 1,
+            "passingCondition": 5,
+            "requiredMinSkill": -100,
+            "questions": [              {
+              "narrative": "After 40 minutes of 2 repeated nebulizations, the child has a <%Patient.undergoesExamination.Wheeze%> and <%Patient.undergoesExamination.Respiratory-Rate%>. What is the severity of asthma?",
+              "entityInstance": "initial-level-one-evaluation",
+              "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%>",
+              "answerAlternatives": [
+                {
+                  "alternative": "Mild",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Moderate",
+                  "reward": 10
+                },
+                {
+                  "alternative": "Severe",
+                  "reward": -10
+                }
+              ],
+              "explanation": "For a 2 year old child, a respiratory rate of 40 breaths per minute or more, indicates a moderate asthma, if no other symptoms indicating severe asthma is present.",
+              "evidence": "http://www.foskning.no",
+              "guideline": "http://www.nice.org.uk"
+            }]
+          }
+          ]
       }
       ]
 
