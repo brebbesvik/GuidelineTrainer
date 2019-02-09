@@ -67,6 +67,11 @@ class AnswerKeyComponent extends Component{
                 explanation: ''
             })
         };
+        const dontGiveUp = ()=> {
+            this.setState({
+                readMoreClicked: false
+            })
+        };
         return (
 
             <Modal
@@ -92,6 +97,7 @@ class AnswerKeyComponent extends Component{
                                     {updateScoreAndQuestion()}
                                     this.props.hideAnswerKey();
                                     {dontReadMore()}
+                                    {dontGiveUp()}
                                     }}/>
                             </View>
                         </ScrollView>
