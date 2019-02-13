@@ -1,10 +1,13 @@
 Finishing work:
 
-- Model Diagnosis with inheritance. Asthma inherits Diagnosis and is connected to severity
+- Model Diagnosis with inheritance. Asthma inherits Diagnosis and is connected to severity (This is a problem,
+because with inheritance you know the answer if you refer to a Diagnosis-Asthma vertex. But you don't have to
+know if you refer to a DiagnosisName vertex).
 - Generate templates to cover as much of the guideline as possible. Need more graphs. Get the templates
   and coverage approved by Job.
 - Look at the flow of the questions. If the questions are case based, it needs to fit with the order of the questions.
-- Fix the bug which crashes the app on the first start up. Is related to Highcharts and webview.
+Fix the bug which crashes the app on the first start up. Is related to Highcharts and webview.
+(Updating to the community webview seemed to fix that problem)
 
 
 ---------------------------------------------------

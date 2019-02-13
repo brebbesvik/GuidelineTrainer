@@ -72,6 +72,13 @@ class AnswerKeyComponent extends Component{
                 readMoreClicked: false
             })
         };
+        const displayExplanationButton = ()=> {
+            if (!this.state.readMoreClicked)
+                 return (<Button title={(this.props.isAnswerCorrect)? "Read more" : "Give up"} color="#841584" onPress={() => {
+                     readMore();
+                 }}/>);
+
+        };
         return (
 
             <Modal
@@ -88,17 +95,15 @@ class AnswerKeyComponent extends Component{
                                 <Text style={{fontSize: 18}}>{this.state.explanation}</Text>
                             </View>
                             <View style={styles.buttonContainer}>
-                                <Button title={(this.props.isAnswerCorrect)? "Read more" : "Give up"} color="#841584" onPress={() => {
-                                    readMore();
-                                }}/>
-                                {/*<Button title={"Guideline"} color="#841584" onPress={() => {
-                                }}/>*/}
+
                                 <Button title={"Close"} color="#841584" onPress={() => {
                                     {updateScoreAndQuestion()}
                                     this.props.hideAnswerKey();
                                     {dontReadMore()}
                                     {dontGiveUp()}
                                     }}/>
+
+                                {displayExplanationButton()}
                             </View>
                         </ScrollView>
                     </View>
@@ -128,7 +133,7 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         margin: 20,
-        flexDirection: 'row',
+        flexDirection: 'row-reverse',
         //alignItems: 'center',
         justifyContent: 'space-between',
     },
