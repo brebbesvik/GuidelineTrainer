@@ -8,7 +8,6 @@ class SkillDAO {
             dict[skills[i].getDiscipline()] = skills[i].getScore();
         }
         try {
-            console.log("WHATCH!!!!" + JSON.stringify(dict));
             AsyncStorage.setItem(category, JSON.stringify(dict));
         }catch(error) {
             console.log("Error storing " + error);
