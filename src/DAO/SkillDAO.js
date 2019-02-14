@@ -13,9 +13,9 @@ class SkillDAO {
             console.log("Error storing " + error);
         }
     }
-    static getScore (category, discipline) {
+    /*static getScore (category, discipline) {
         return AsyncStorage.getItem(category + discipline);
-    }
+    }*/
 
 }
 module.exports = SkillDAO;
