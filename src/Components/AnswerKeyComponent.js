@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Modal, ScrollView} from 'react-native';
 
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
-import {updateScore, nextQuestion, storeScores} from "../Actions/CounterAction";
+import {updateScore, nextQuestion} from "../Actions/CounterAction";
 import {showSummary} from "../Actions/SummaryAction";
 import {showProgression} from "../Actions/ProgressAction";
+import store from "../Reducers";
+
+import {storeScores} from '../Actions/ActionThunks';
 
 const mapStateToProps = (state) => ({
     answerKey: state.answerKeyReducer.answerKey,
@@ -21,7 +24,6 @@ const mapDispatchToProps = {
     updateScore,
     nextQuestion,
     showSummary,
-    storeScores,
     showProgression
 };
 
@@ -52,7 +54,7 @@ class AnswerKeyComponent extends Component{
             }
         };
         const goToSummary = () => {
-            this.props.storeScores();
+            store.dispatch(storeScores());
             this.props.hideAnswerKey();
             this.props.showProgression();
         };

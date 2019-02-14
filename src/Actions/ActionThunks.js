@@ -115,3 +115,20 @@ export const initializeQuiz = ()=> {
             });
     }
 };
+
+export const STORE_SCORES = ()=> {
+  return {
+      type: "STORE_SCORES",
+  };
+};
+export const storeScores = ()=> {
+  return (dispatch, getState)=> {
+      let skills = getState().counterReducer.scores;
+      let dict = {};
+      for(let i=0; i<skills.length; i++) {
+          dict[skills[i].getDiscipline()] = skills[i].getScore();
+      }
+      AsyncStorage.setItem("Asthma", JSON.stringify(dict))
+          .catch(()=>console.log("Something when wrong storing the results"));
+  };
+};

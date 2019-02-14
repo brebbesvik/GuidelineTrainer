@@ -1,5 +1,4 @@
 import * as Actions from '../Actions/ActionTypes';
-import SkillDAO from '../DAO/SkillDAO';
 import Game from '../GameEngine/Game';
 
 Game.createQuiz("Asthma");
@@ -61,8 +60,8 @@ const CounterReducer = (state, action) => {
                 score.setScore(0);
             });
         return state;
-        case Actions.STORE_SCORES:
-            SkillDAO.saveScores(Game.getQuiz().getCategory(), state.scores);
+        case 'STORE_SCORES':
+            console.log("HVA SKJER? :(");
             return state;
         default:
             return state;
