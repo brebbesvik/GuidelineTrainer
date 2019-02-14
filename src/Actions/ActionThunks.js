@@ -24,6 +24,14 @@ export const getUnlockedLevels = ()=> {
                    }
                 });
                 dispatch(GET_UNLOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
+            })
+            .catch(()=> {
+                let scores = {};
+                Game.getDisciplines().map((discipline)=> {
+                    scores[discipline] = QuizDAO.getAllowedLevels("Asthma", discipline, 0);
+                    dispatch(GET_UNLOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
+                });
+
             });
 
     };
@@ -49,8 +57,14 @@ export const getLockedLevels = ()=> {
                     }
                 });
                 dispatch(GET_LOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
+            })
+            .catch(()=> {
+                let scores = {};
+                Game.getDisciplines().map((discipline) => {
+                    scores[discipline] = QuizDAO.getUnallowedLevels("Asthma", discipline, 0);
+                    dispatch(GET_LOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
+                });
             });
-
     };
 };
 
@@ -88,6 +102,16 @@ export const initializeQuiz = ()=> {
                    Game.addSkill(skill);
                 });
                 dispatch(INITIALIZE_QUIZ())
+            })
+            .catch(()=>{
+                Game.getDisciplines().map((discipline) => {
+                    let skill = new Skill();
+                    skill.setDiscipline(discipline);
+                    Game.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 0));
+                    skill.setScore(0);
+                    Game.addSkill(skill);
+                });
+                dispatch(INITIALIZE_QUIZ());
             });
     }
 };
