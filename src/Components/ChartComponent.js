@@ -27,7 +27,7 @@ class ChartComponent extends Component {
                           '    <script src="https://code.highcharts.com/highcharts-more.js"></script>\n' +
                           '    <script src="https://code.highcharts.com/modules/exporting.js"></script>\n' +
                           '    <script src="https://code.highcharts.com/modules/export-data.js"></script>' +
-                          '<div id="container" style="min-width: 300px; max-width: 300px; height: 250px; margin: 0 auto"></div>\n' +
+                          '<div id="container" style="min-width: 300px; width: 100%; height: 100%; margin: 0 auto"></div>\n' +
                           '<script>\n' +
                           'Highcharts.chart(\'container\', {\n' +
                           '\n' +
