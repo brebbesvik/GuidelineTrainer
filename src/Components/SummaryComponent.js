@@ -23,17 +23,6 @@ class SummaryComponent extends Component{
         super(props);
     };
     render() {
-        const scorePerQuestion = () => {
-            let scores = 0;
-            this.props.scores.map((score, index) => {
-                scores += score.getScore();
-            });
-            let average = scores / this.props.numberOfQuestions;
-            return average.toFixed(2);
-        };
-        const scoresList = this.props.scores.map((score, index) => {
-            return <Text key={index} style={styles.score}>{score.getDiscipline()}: {score.getScore()}</Text>
-        });
         return (
             <Modal
                 animationType="fade"
@@ -44,24 +33,20 @@ class SummaryComponent extends Component{
                 <View style={styles.modalViewParent}>
                     <View style={styles.modalView}>
                         <ScrollView>
+
                             <View style={styles.textContainer}>
                                 <Text style={{fontSize: 25}}>Quiz scores</Text>
                             </View>
-<ChartComponent scores={this.props.scores}/>
-                            {/*<View style={styles.scoreContainer}>
-                                {scoresList}
-                                <Text style={styles.score}>To pass the quiz you need a score of 10 or higher</Text>
-                            </View>
-                            <View style={styles.scoreContainer}>
-                                <Text style={styles.score}>Number of questions: {this.props.numberOfQuestions}</Text>
-                                <Text style={styles.score}>Average score per question: {scorePerQuestion()}</Text>
-                            </View>*/}
+
+                            <ChartComponent scores={this.props.scores}/>
+
                             <View style={styles.buttonContainer}>
                                 <Button title={"Back to menu"} color="#841584" onPress={() => {
                                     this.props.resetQuiz();
                                     this.props.hideSummary();
                                     Navigation.popToRoot(this.props.component);}}/>
                             </View>
+
                         </ScrollView>
                     </View>
                 </View>
@@ -96,9 +81,6 @@ const styles = StyleSheet.create({
         marginRight: 20,
         marginBottom: 20,
         marginTop: 20
-        /*flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',*/
     },
     button:{
         width: '40%',
