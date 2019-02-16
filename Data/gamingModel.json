@@ -6,7 +6,7 @@
         "levels": [
           {
             "level": 1,
-            "passingCondition": 5,
+            "passingCondition": 10,
             "requiredMinSkill": -100,
             "questions": [
               {
@@ -30,7 +30,14 @@
                 "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma.",
                 "evidence": "http://www.foskning.no",
                 "guideline": "http://www.nice.org.uk"
-              },
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "passingCondition": 50,
+            "requiredMinSkill": 20,
+            "questions": [
               {
                 "narrative": "On examination you find <%Patient.undergoesExamination.Oxygen-Saturation%>, <%Patient.undergoesExamination.Central-Cyanosis%> and <%Patient.undergoesExamination.Inability-To-Drink%>. What severity of asthma is the patient suffering from?",
                 "entityInstance": "initial-level-one",
@@ -56,9 +63,9 @@
             ]
           },
           {
-            "level": 2,
+            "level": 3,
             "passingCondition": 100,
-            "requiredMinSkill": 10 ,
+            "requiredMinSkill": 50 ,
             "questions": []
           }
         ]

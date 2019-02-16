@@ -1,4 +1,4 @@
-const json = require('../../Data/gamingModel');
+const json = require('../../Data/testingGamingModel');
 const Quiz = require('../Model/Quiz');
 const QuestionDAO = require('./QuestionDAO');
 

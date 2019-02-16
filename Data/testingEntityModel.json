@@ -1,0 +1,228 @@
+{
+  "no-asthma-1" : {
+    "vertex": [
+      {"name": "Patient", "type": "Patient"},
+      {"name": "8 months old", "type": "Age"},
+
+      {"name": "Cough", "type":  "Cough"},
+      {"name": "True", "type": "Cough-Value"},
+      {"name": "but has a history of cough", "type": "Cough-Presentation"},
+
+      {"name": "Wheeze", "type": "Wheeze"},
+      {"name": "False", "type": "Wheeze-Value"},
+      {"name": "no wheeze,", "type": "Wheeze-Presentation"},
+
+      {"name": "Diagnosis", "type": "Diagnosis"},
+      {"name": "No asthma", "type": "DiagnosisName"}
+    ],
+    "edges": [
+      {"name": "hasAge", "src": "Patient", "trg": "Age"},
+
+      {"name": "givesHistory", "src": "Patient", "trg": "Cough"},
+      {"name": "hasMeasurement", "src": "Cough", "trg": "Cough-Value"},
+      {"name": "hasPresentation", "src": "Cough-Value", "trg": "Cough-Presentation"},
+
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Wheeze"},
+      {"name": "hasMeasurement", "src": "Wheeze", "trg": "Wheeze-Value"},
+      {"name": "hasPresentation", "src": "Wheeze-Value", "trg": "Wheeze-Presentation"},
+
+      {"name": "hasDiagnosis", "src": "Patient", "trg": "Diagnosis"},
+      {"name": "hasDiagnosisName", "src": "Diagnosis", "trg": "DiagnosisName"}
+    ]
+  },
+  "undecided-asthma-1": {
+    "vertex": [
+      {"name": "Patient", "type": "Patient"},
+      {"name": "11 years old", "type": "Age"},
+
+      {"name": "Cough", "type":  "Cough"},
+      {"name": "True", "type": "Cough-Value"},
+      {"name": "and has a history of cough", "type": "Cough-Presentation"},
+
+      {"name": "Breathing-Condition", "type": "Breathing-Condition"},
+      {"name": "True", "type": "Breathing-Condition-Value"},
+      {"name": "difficulty breathing", "type": "Breathing-Condition-Presentation"},
+
+      {"name": "Diagnosis", "type": "Diagnosis"},
+      {"name": "Undecided", "type": "DiagnosisName"}
+    ],
+    "edges": [
+      {"name": "hasAge", "src": "Patient", "trg": "Age"},
+
+      {"name": "givesHistory", "src": "Patient", "trg": "Cough"},
+      {"name": "hasMeasurement", "src": "Cough", "trg": "Cough-Value"},
+      {"name": "hasPresentation", "src": "Cough-Value", "trg": "Cough-Presentation"},
+
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Breathing-Condition"},
+      {"name": "hasMeasurement", "src": "Breathing-Condition", "trg": "Breathing-Condition-Value"},
+      {"name": "hasPresentation", "src": "Breathing-Condition-Value", "trg": "Breathing-Condition-Presentation"},
+
+      {"name": "hasDiagnosis", "src": "Patient", "trg": "Diagnosis"},
+      {"name": "hasDiagnosisName", "src": "Diagnosis", "trg": "DiagnosisName"}
+    ]
+  },
+  "severe-asthma-1" : {
+    "vertex": [
+      {"name": "Patient", "type": "Patient"},
+      {"name": "Mary","type": "PatientName"},
+      {"name": "girl", "type": "Gender"},
+      {"name": "2 years old", "type": "Age"},
+      {"name": "12kg", "type": "Weight"},
+
+      {"name": "Cough", "type":  "Cough"},
+      {"name": "True", "type": "Cough-Value"},
+      {"name": "and a history of cough", "type": "Cough-Presentation"},
+
+      {"name": "Wheeze", "type": "Wheeze"},
+      {"name": "Breathing-Condition", "type": "Breathing-Condition"},
+      {"name": "Oxygen-Saturation", "type": "Oxygen-Saturation"},
+      {"name": "Central-Cyanosis", "type": "Central-Cyanosis"},
+      {"name": "Inability-To-Drink", "type": "Inability-To-Drink"},
+      {"name": "Respiratory-Rate", "type": "Respiratory-Rate"},
+
+      {"name": "True", "type": "Wheeze-Value"},
+      {"name": "True", "type": "Breathing-Condition-Value"},
+      {"name": "88%", "type": "Percentage"},
+      {"name": "True", "type": "Central-Cyanosis-Value"},
+      {"name": "True", "type": "Inability-To-Drink-Value"},
+      {"name": "42/min", "type": "Breaths-Per-Minute"},
+
+      {"name": "a wheeze,", "type": "Wheeze-Presentation"},
+      {"name": "has difficulty breathing", "type": "Breathing-Condition-Presentation"},
+      {"name": "an oxygen saturation of 88%", "type": "Oxygen-Saturation-Presentation"},
+      {"name": "central cyanosis", "type": "Central-Cyanosis-Presentation"},
+      {"name": "an inability to feed", "type": "Inability-To-Drink-Presentation"},
+      {"name": "does 42 breaths per minute", "type": "Respiratory-Rate-Presentation"},
+
+      {"name": "Diagnosis", "type": "Diagnosis"},
+      {"name": "Asthma", "type": "DiagnosisName"},
+      {"name": "Severe", "type": "Severity"},
+
+      {"name": "Management", "type": "Management"},
+
+      {"name": "Oxygen", "type": "Oxygen"},
+      {"name": "Salbutamol", "type": "Salbutamol"},
+      {"name": "Prednisolone", "type": "Prednisolone"},
+
+      {"name": "25mg","type": "Prednisolone-Dose"},
+
+      {"name": "2.5mg every 20 minutes","type": "Salbutamol-Rate"},
+
+      {"name": "inhale", "type": "Salbutamol-Route"},
+
+      {"name": "nebulize","type": "Salbutamol-Method"},
+
+      {"name": "True","type": "Hospitalization"},
+      {"name": "admit to hospital","type": "Hospitalization-Presentation"}
+    ],
+    "edges": [
+      {"name": "hasName", "src": "Patient", "trg": "PatientName"},
+      {"name": "hasAge", "src": "Patient", "trg": "Age"},
+      {"name": "hasWeight", "src": "Patient", "trg": "Weight"},
+      {"name": "hasGender", "src": "Patient", "trg": "Gender"},
+
+      {"name": "givesHistory", "src": "Patient", "trg": "Cough"},
+      {"name": "hasMeasurement", "src": "Cough", "trg": "Cough-Value"},
+      {"name": "hasPresentation", "src": "Cough-Value", "trg": "Cough-Presentation"},
+
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Wheeze"},
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Breathing-Condition"},
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Oxygen-Saturation"},
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Central-Cyanosis"},
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Inability-To-Drink"},
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Respiratory-Rate"},
+
+      {"name": "hasMeasurement", "src": "Wheeze", "trg": "Wheeze-Value"},
+      {"name": "hasMeasurement", "src": "Breathing-Condition", "trg": "Breathing-Condition-Value"},
+      {"name": "hasMeasurement", "src": "Oxygen-Saturation", "trg": "Percentage"},
+      {"name": "hasMeasurement", "src": "Central-Cyanosis", "trg": "Central-Cyanosis-Value"},
+      {"name": "hasMeasurement", "src": "Inability-To-Drink", "trg": "Inability-To-Drink-Value"},
+      {"name": "hasMeasurement", "src": "Respiratory-Rate", "trg": "Breaths-Per-Minute"},
+
+      {"name": "hasPresentation", "src": "Wheeze-Value", "trg": "Wheeze-Presentation"},
+      {"name": "hasPresentation", "src": "Breathing-Condition-Value", "trg": "Breathing-Condition-Presentation"},
+      {"name": "hasPresentation", "src": "Percentage", "trg": "Oxygen-Saturation-Presentation"},
+      {"name": "hasPresentation", "src": "Central-Cyanosis-Value", "trg": "Central-Cyanosis-Presentation"},
+      {"name": "hasPresentation", "src": "Inability-To-Drink-Value", "trg": "Inability-To-Drink-Presentation"},
+      {"name": "hasPresentation", "src": "Breaths-Per-Minute", "trg": "Respiratory-Rate-Presentation"},
+
+      {"name": "hasDiagnosis", "src": "Patient", "trg": "Diagnosis"},
+      {"name": "hasDiagnosisName", "src": "Diagnosis", "trg": "DiagnosisName"},
+      {"name": "hasSeverity", "src": "Diagnosis", "trg": "Severity"},
+
+      {"name": "hasManagement", "src": "Diagnosis", "trg": "Management"},
+
+      {"name": "involvesMedication", "src": "Management", "trg": "Oxygen"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Salbutamol"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Prednisolone"},
+
+      {"name": "hasDose", "src": "Prednisolone", "trg": "Prednisolone-Dose"},
+
+      {"name": "hasRate", "src": "Salbutamol", "trg": "Salbutamol-Rate"},
+
+      {"name": "hasRoute", "src": "Salbutamol", "trg": "Salbutamol-Route"},
+
+      {"name": "hasMethod", "src": "Salbutamol-Route", "trg": "Salbutamol-Method"},
+
+      {"name": "admit", "src": "Management", "trg": "Hospitalization"},
+      {"name": "hasPresentation", "src": "Hospitalization", "trg": "Hospitalization-Presentation"}
+    ]
+  },
+  "moderate-asthma-1" : {
+    "vertex": [
+      {"name": "Patient", "type": "Patient"},
+      {"name": "Mary","type": "PatientName"},
+      {"name": "girl", "type": "Gender"},
+      {"name": "2 years old", "type": "Age"},
+      {"name": "12kg", "type": "Weight"},
+
+      {"name": "Wheeze", "type": "Wheeze"},
+      {"name": "Breathing-Condition", "type": "Breathing-Condition"},
+      {"name": "Respiratory-Rate", "type": "Respiratory-Rate"},
+
+      {"name": "True", "type": "Wheeze-Value"},
+      {"name": "True", "type": "Breathing-Condition-Value"},
+      {"name": "42/min", "type": "Breaths-Per-Minute"},
+
+      {"name": "wheeze", "type": "Wheeze-Presentation"},
+      {"name": "and difficulty breathing", "type": "Breathing-Condition-Presentation"},
+      {"name": "does 42 breaths per minute", "type": "Respiratory-Rate-Presentation"},
+
+      {"name": "Diagnosis", "type": "Diagnosis"},
+      {"name": "Asthma", "type": "DiagnosisName"},
+      {"name": "Moderate", "type": "Severity"},
+
+      {"name": "Management", "type": "Management"},
+
+      {"name": "False","type": "Hospitalization"},
+      {"name": "do not admit to hospital","type": "Hospitalization-Presentation"}
+    ],
+    "edges": [
+      {"name": "hasName", "src": "Patient", "trg": "PatientName"},
+      {"name": "hasAge", "src": "Patient", "trg": "Age"},
+      {"name": "hasWeight", "src": "Patient", "trg": "Weight"},
+      {"name": "hasGender", "src": "Patient", "trg": "Gender"},
+
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Wheeze"},
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Breathing-Condition"},
+      {"name": "undergoesExamination", "src": "Patient", "trg": "Respiratory-Rate"},
+
+      {"name": "hasMeasurement", "src": "Wheeze", "trg": "Wheeze-Value"},
+      {"name": "hasMeasurement", "src": "Breathing-Condition", "trg": "Breathing-Condition-Value"},
+      {"name": "hasMeasurement", "src": "Respiratory-Rate", "trg": "Breaths-Per-Minute"},
+
+      {"name": "hasPresentation", "src": "Wheeze-Value", "trg": "Wheeze-Presentation"},
+      {"name": "hasPresentation", "src": "Breathing-Condition-Value", "trg": "Breathing-Condition-Presentation"},
+      {"name": "hasPresentation", "src": "Breaths-Per-Minute", "trg": "Respiratory-Rate-Presentation"},
+
+      {"name": "hasDiagnosis", "src": "Patient", "trg": "Diagnosis"},
+      {"name": "hasDiagnosisName", "src": "Diagnosis", "trg": "DiagnosisName"},
+      {"name": "hasSeverity", "src": "Diagnosis", "trg": "Severity"},
+
+      {"name": "hasManagement", "src": "Diagnosis", "trg": "Management"},
+
+      {"name": "admit", "src": "Management", "trg": "Hospitalization"},
+      {"name": "hasPresentation", "src": "Hospitalization", "trg": "Hospitalization-Presentation"}
+    ]
+  }
+}

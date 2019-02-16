@@ -39,7 +39,7 @@ class EntityInstanceGraph extends Graph {
     getEdges(origin, name) {
         let edges = [];
         for(let i=0; i<this._edges.length; i++) {
-            if (this._edges[i].getObject().name === name && this._edges[i].getOrigin() === origin)
+            if (this._edges[i].getObject().name === name && this._vertices[this._edges[i].getOrigin()].getObject().type === origin)
                 edges.push(this._edges[i]);
         }
         return edges;
@@ -73,8 +73,13 @@ class EntityInstanceGraph extends Graph {
             let v = this.getVertexFromType(pathArray[i]);
             if (v == null) {
                 let edges = this.getEdges(vertex.getObject().type, pathArray[i]);
-                if (edges.length === 1)
+                /*if (edges.length === 1) {
                     edge = edges[0];
+                }
+
+                else*/ if (edges.length === 0) {
+                    return -1;
+                }
 
                 else {
                     for (let j=0; j<edges.length; j++) {
@@ -104,7 +109,11 @@ class EntityInstanceGraph extends Graph {
 
     getTextFromPath(path) {
         let vertex = this._getVertexFromPath(path);
-        return this._getVertexPresentation(vertex);
+        if (vertex === -1) {
+            return "";
+        }
+        else
+            return this._getVertexPresentation(vertex);
 
 
     }

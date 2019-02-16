@@ -1,5 +1,5 @@
 const EntityInstanceGraph = require('../Graph/EntityInstanceGraph');
-const json = require('../../Data/email');
+const json = require('../../Data/testingEntityModel');
 class Template {
     constructor() {
         this._re = /<%([a-zA-Z0-9_\-.]+)%>/g;

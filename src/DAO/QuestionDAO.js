@@ -1,4 +1,5 @@
-const json = require('../../Data/gamingModel');
+const json = require('../../Data/testingGamingModel');
+const jsonQuestion = require('../../Data/testingQuestionModel');
 const Question = require('../Model/Question');
 const AnswerAlternative = require('../Model/AnswerAlternative');
 const Template = require('../Graph/Template');
@@ -24,11 +25,11 @@ class QuestionDAO {
 
                                     let template = new Template();
                                     template.generateEntityGraph(jQ.entityInstance);
-                                    question.setNarrative(template.transformTemplate(jQ.narrative));
-                                    question.setAnswerKey(template.transformTemplate(jQ.answerKey));
+                                    question.setNarrative(template.transformTemplate(jsonQuestion.questions[jQ.question].narrative));
+                                    question.setAnswerKey(template.transformTemplate(jsonQuestion.questions[jQ.question].answerKey));
 
                                     question.setAnswerAlternatives(this._getAnswerKeys(jQ));
-                                    question.setAnswerExplanation(jQ.explanation);
+                                    question.setAnswerExplanation(jsonQuestion.questions[jQ.question].explanation);
 
                                     questions.push(question);
                                 }

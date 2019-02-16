@@ -346,8 +346,8 @@
       {"name": "True", "type": "Inability-To-Drink-Value"},
       {"name": "42/min", "type": "Breaths-Per-Minute"},
 
-      {"name": "wheeze", "type": "Wheeze-Presentation"},
-      {"name": "difficulty breathing", "type": "Breathing-Condition-Presentation"},
+      {"name": "a wheeze", "type": "Wheeze-Presentation"},
+      {"name": "and difficulty breathing", "type": "Breathing-Condition-Presentation"},
       {"name": "an oxygen saturation of 88%", "type": "Oxygen-Saturation-Presentation"},
       {"name": "central cyanosis", "type": "Central-Cyanosis-Presentation"},
       {"name": "an inability to feed", "type": "Inability-To-Drink-Presentation"},
