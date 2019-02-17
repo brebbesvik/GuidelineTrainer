@@ -20,6 +20,48 @@
       "explanation": "A patient with a severe asthma should be admitted into the hospital. For mild or moderate, don't admit.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
+    },
+    "prednisolone": {
+      "narrative": "A patient which is <%Patient.hasAge.Age%> and weighs <%Patient.hasWeight.Weight%> is diagnosed with <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>. What dose of prednisolone should be administered?",
+      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Prednisolone.hasDose.Prednisolone-Dose%>",
+      "explanation": "A patient with a severe asthma should be given 2mg/kg. Max dose of 20mg/day for <2 years and 30mg/day for 2-5 years. Prednisolone should be administered for 3-5 days. \n\nDon't give prednisolone to patients with mild or moderate asthma.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "nebulizer": {
+      "narrative": "What dose of <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol%> should be used in a <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol.hasRoute.Salbutamol-Route.hasMethod.Salbutamol-Method%>r?",
+      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol.hasRate.Salbutamol-Rate%>",
+      "explanation": "2.5mg salbutamol should be used in the nebulizer. It is is the same dose whether the asthma is severe, moderate or mild.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "ipratopium-bromide": {
+      "narrative": "The patient you treat for <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%> responds poorly to salbutamol. What is the next step?",
+      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide%>",
+      "explanation": "Patients with severe asthma always gets administered with oxygen, salbutamol and prednisolone. If the response is poorly, administer ipratopium bromide.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "ipratopium-bromide-2": {
+      "narrative": "What what is the right administration of <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide%>?",
+      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide.hasRate.Ipratopium-Bromide-Rate%> for <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide.hasDuration.Ipratopium-Bromide-Duration%>",
+      "explanation": "Correct administration of ipratopium bromide is 250mcg every 20 minutes for 60 minutes. Use only when patient responds poorly to basic treatment.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "antibiotics": {
+      "narrative": "The patient you treat for <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%> is showing signs of severe pneumonia. What do you do?",
+      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Antibiotics%>",
+      "explanation": "For severe pneumonia administer antibiotics. Refer to the pneumonia guideline and antibiotic guideline.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "basic-treatment": {
+      "narrative": "What is the right treatment to start with for <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>?",
+      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Oxygen%> <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol%> <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Prednisolone%>",
+      "explanation": "For all asthma treatment start with giving oxygen and salbutamol. Provide prednisolone for severe asthma.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
     }
 
   }

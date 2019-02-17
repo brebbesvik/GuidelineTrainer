@@ -195,6 +195,53 @@
                 ]
               }
             ]}
+        ]},
+      {
+        "discipline": "Management",
+        "levels": [
+          {
+            "level": 1,
+            "passingCondition": 10,
+            "requiredMinSkill": -100,
+            "questions": [
+              {
+                "question": "management",
+                "entityInstance": "moderate-asthma-1",
+                "answerAlternatives": [
+                  {
+                    "alternative": "allow home on salbutamol",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "admit to hospital",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "do not admit to hospital",
+                    "reward": 10
+                  }
+                ]
+              },
+              {
+                "question": "management",
+                "entityInstance": "severe-asthma-1",
+                "answerAlternatives": [
+                  {
+                    "alternative": "allow home on salbutamol",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "admit to hospital",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "do not admit to hospital",
+                    "reward": -10
+                  }
+                ]
+              }
+
+            ]}
         ]}
     ]
 

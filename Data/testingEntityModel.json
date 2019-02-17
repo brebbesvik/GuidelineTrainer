@@ -216,16 +216,20 @@
       {"name": "Management", "type": "Management"},
 
       {"name": "Oxygen", "type": "Oxygen"},
-      {"name": "Salbutamol", "type": "Salbutamol"},
-      {"name": "Prednisolone", "type": "Prednisolone"},
 
+      {"name": "Salbutamol", "type": "Salbutamol"},
+      {"name": "2.5mg every 20 minutes","type": "Salbutamol-Rate"},
+      {"name": "inhale", "type": "Salbutamol-Route"},
+      {"name": "nebulize","type": "Salbutamol-Method"},
+
+      {"name": "Prednisolone", "type": "Prednisolone"},
       {"name": "25mg","type": "Prednisolone-Dose"},
 
-      {"name": "2.5mg every 20 minutes","type": "Salbutamol-Rate"},
+      {"name": "Ipratopium Bromide", "type": "Ipratopium-Bromide"},
+      {"name": "250mcg every 20 minutes","type": "Ipratopium-Bromide-Rate"},
+      {"name": "60 minutes","type": "Ipratopium-Bromide-Duration"},
 
-      {"name": "inhale", "type": "Salbutamol-Route"},
-
-      {"name": "nebulize","type": "Salbutamol-Method"},
+      {"name": "Antibiotics", "type": "Antibiotics"},
 
       {"name": "True","type": "Hospitalization"},
       {"name": "admit to hospital","type": "Hospitalization-Presentation"}
@@ -270,10 +274,15 @@
       {"name": "involvesMedication", "src": "Management", "trg": "Oxygen"},
       {"name": "involvesMedication", "src": "Management", "trg": "Salbutamol"},
       {"name": "involvesMedication", "src": "Management", "trg": "Prednisolone"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Ipratopium-Bromide"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Antibiotics"},
 
       {"name": "hasDose", "src": "Prednisolone", "trg": "Prednisolone-Dose"},
 
       {"name": "hasRate", "src": "Salbutamol", "trg": "Salbutamol-Rate"},
+      {"name": "hasRate", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Rate"},
+
+      {"name": "hasDuration", "src": "Ipratopium-Bromide", "trg": "Ipratopium-Bromide-Duration"},
 
       {"name": "hasRoute", "src": "Salbutamol", "trg": "Salbutamol-Route"},
 
@@ -436,6 +445,14 @@
 
       {"name": "Management", "type": "Management"},
 
+      {"name": "Oxygen", "type": "Oxygen"},
+
+      {"name": "Salbutamol", "type": "Salbutamol"},
+      {"name": "2.5mg every 20 minutes","type": "Salbutamol-Rate"},
+      {"name": "inhale", "type": "Salbutamol-Route"},
+      {"name": "nebulize","type": "Salbutamol-Method"},
+
+
       {"name": "False","type": "Hospitalization"},
       {"name": "do not admit to hospital","type": "Hospitalization-Presentation"}
     ],
@@ -486,6 +503,12 @@
       {"name": "hasSeverity", "src": "Diagnosis", "trg": "Severity"},
 
       {"name": "hasManagement", "src": "Diagnosis", "trg": "Management"},
+
+      {"name": "involvesMedication", "src": "Management", "trg": "Oxygen"},
+      {"name": "involvesMedication", "src": "Management", "trg": "Salbutamol"},
+      {"name": "hasRate", "src": "Salbutamol", "trg": "Salbutamol-Rate"},
+      {"name": "hasRoute", "src": "Salbutamol", "trg": "Salbutamol-Route"},
+      {"name": "hasMethod", "src": "Salbutamol-Route", "trg": "Salbutamol-Method"},
 
       {"name": "admit", "src": "Management", "trg": "Hospitalization"},
       {"name": "hasPresentation", "src": "Hospitalization", "trg": "Hospitalization-Presentation"}
