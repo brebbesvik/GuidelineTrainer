@@ -1,0 +1,202 @@
+{"categories":[
+  {
+    "category": "Asthma",
+    "disciplines": [{
+      "discipline": "Initial",
+      "levels": [
+        {
+          "level": 1,
+          "passingCondition": 10,
+          "requiredMinSkill": -100,
+          "questions": [
+            {
+              "question": "initial",
+              "entityInstance": "severe-asthma-1",
+              "answerAlternatives": [
+                {
+                  "alternative": "Asthma",
+                  "reward": 10
+                },
+                {
+                  "alternative": "Whooping cough",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Tuberculosis",
+                  "reward": -10
+                }
+              ]
+            },
+            {
+              "question": "initial",
+              "entityInstance": "no-asthma-1",
+              "answerAlternatives": [
+                {
+                  "alternative": "Undecided",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Asthma",
+                  "reward": -10
+                },
+                {
+                  "alternative": "No asthma",
+                  "reward": 10
+                }
+              ]
+            },
+            {
+              "question": "initial",
+              "entityInstance": "undecided-asthma-1",
+              "answerAlternatives": [
+                {
+                  "alternative": "Undecided",
+                  "reward": 10
+                },
+                {
+                  "alternative": "Asthma",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Whooping cough",
+                  "reward": -10
+                },
+                {
+                  "alternative": "Tuberculosis",
+                  "reward": -10
+                }
+              ]
+            },
+            {
+              "question": "initial",
+              "entityInstance": "moderate-asthma-1",
+              "answerAlternatives": [
+                {
+                  "alternative": "Undecided",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Tuberculosis",
+                  "reward": -10
+                },
+                {
+                  "alternative": "Asthma",
+                  "reward": 10
+                },
+                {
+                  "alternative": "Tuberculosis",
+                  "reward": -10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+      {
+        "discipline": "Severity",
+        "levels": [
+          {
+            "level": 1,
+            "passingCondition": 10,
+            "requiredMinSkill": -100,
+            "questions": [
+              {
+                "question": "severity",
+                "entityInstance": "severe-asthma-1",
+                "answerAlternatives": [
+
+                  {
+                    "alternative": "Mild or moderate",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Severe",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "No asthma",
+                    "reward": -5
+                  }
+                ]
+              },
+              {
+                "question": "severity",
+                "entityInstance": "severe-asthma-2",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Severe",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "No asthma",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Mild or moderate",
+                    "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "severity",
+                "entityInstance": "moderate-asthma-1",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Severe",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "No asthma",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Mild or moderate",
+                    "reward": 10
+                  }
+                ]
+              },
+              {
+                "question": "severity",
+                "entityInstance": "moderate-asthma-2",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Severe",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "No asthma",
+                    "reward": -10
+                  },
+
+                  {
+                    "alternative": "Mild or moderate",
+                    "reward": 10
+                  }
+                ]
+              },
+              {
+                "question": "severity",
+                "entityInstance": "no-asthma-2",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Severe",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "No asthma",
+                    "reward": 10
+                  },
+
+                  {
+                    "alternative": "Mild or moderate",
+                    "reward": -10
+                  }
+                ]
+              }
+            ]}
+        ]}
+    ]
+
+  }
+]}

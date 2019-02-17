@@ -110,6 +110,7 @@ class EntityInstanceGraph extends Graph {
     getTextFromPath(path) {
         let vertex = this._getVertexFromPath(path);
         if (vertex === -1) {
+            console.log("Should never end here");
             return "";
         }
         else

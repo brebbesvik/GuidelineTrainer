@@ -13,6 +13,13 @@
       "explanation": "SEVERE ASTHMA:\nOxygen saturation <90%,\ncentral cyanosis,\ninability to drink,\nAVPU = V, P or U,\ninability to talk,\npulse rate > 200 bpm (0-3 years) and >180 bpm (4-5 years).\n\nMILD or MODERATE ASTHMA: \nwheeze \nPLUS \nlower chest wall indrawing\nOR\nRR => 50/min (2-11months)\nRR =>40/min (12-59months)\nRR=>30/min (5-12years)",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
+    },
+    "management": {
+      "narrative": "You make a diagnosis of <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>. What of the following is the correct to do?",
+      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.admit.Hospitalization%>",
+      "explanation": "A patient with a severe asthma should be admitted into the hospital. For mild or moderate, don't admit.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
     }
 
   }
