@@ -6,6 +6,13 @@
       "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
+    },
+    "severity": {
+      "narrative": "On examination of a patient with possible asthma, you find <%Patient.undergoesExamination.Oxygen-Saturation%> <%Patient.undergoesExamination.Central-Cyanosis%> <%Patient.undergoesExamination.Inability-To-Drink%> <%Patient.undergoesExamination.Consciousness%> <%Patient.undergoesExamination.Inability-To-Talk%> <%Patient.undergoesExamination.Pulse-Rate%> <%Patient.undergoesExamination.Lower-Chest-Wall-Indrawing%> <%Patient.undergoesExamination.Respiratory-Rate%>",
+      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%>",
+      "explanation": "SEVERE ASTHMA:\nOxygen saturation <90%,\ncentral cyanosis,\ninability to drink,\nAVPU = V, P or U,\ninability to talk,\npulse rate > 200 bpm (0-3 years) and >180 bpm (4-5 years).\n\nMILD or MODERATE ASTHMA: \nwheeze \nPLUS \nlower chest wall indrawing\nOR\nRR => 50/min (2-11months)\nRR =>40/min (12-59months)\nRR=>30/min (5-12years)",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
     }
 
   }

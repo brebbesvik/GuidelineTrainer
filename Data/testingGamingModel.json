@@ -2,7 +2,7 @@
   {
     "category": "Asthma",
     "disciplines": [{
-      "discipline": "Diagnosing",
+      "discipline": "Initial",
       "levels": [
         {
           "level": 1,
@@ -92,7 +92,110 @@
           ]
         }
       ]
-    }
+    },
+      {
+      "discipline": "Severity",
+      "levels": [
+        {
+          "level": 1,
+          "passingCondition": 10,
+          "requiredMinSkill": -100,
+          "questions": [
+            {
+              "question": "severity",
+              "entityInstance": "severe-asthma-1",
+              "answerAlternatives": [
+
+                {
+                  "alternative": "Mild or moderate",
+                  "reward": -10
+                },
+                {
+                  "alternative": "Severe",
+                  "reward": 10
+                },
+                {
+                  "alternative": "No asthma",
+                  "reward": -5
+                }
+              ]
+            },
+            {
+              "question": "severity",
+              "entityInstance": "severe-asthma-2",
+              "answerAlternatives": [
+                {
+                  "alternative": "Severe",
+                  "reward": 10
+                },
+                {
+                  "alternative": "No asthma",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Mild or moderate",
+                  "reward": -10
+                }
+              ]
+            },
+            {
+              "question": "severity",
+              "entityInstance": "moderate-asthma-1",
+              "answerAlternatives": [
+                {
+                  "alternative": "Severe",
+                  "reward": -10
+                },
+                {
+                  "alternative": "No asthma",
+                  "reward": -10
+                },
+                {
+                  "alternative": "Mild or moderate",
+                  "reward": 10
+                }
+              ]
+            },
+            {
+              "question": "severity",
+              "entityInstance": "moderate-asthma-2",
+              "answerAlternatives": [
+                {
+                  "alternative": "Severe",
+                  "reward": -10
+                },
+                {
+                  "alternative": "No asthma",
+                  "reward": -10
+                },
+
+                {
+                  "alternative": "Mild or moderate",
+                  "reward": 10
+                }
+              ]
+            },
+            {
+              "question": "severity",
+              "entityInstance": "no-asthma-2",
+              "answerAlternatives": [
+                {
+                  "alternative": "Severe",
+                  "reward": -5
+                },
+                {
+                  "alternative": "No asthma",
+                  "reward": 10
+                },
+
+                {
+                  "alternative": "Mild or moderate",
+                  "reward": -10
+                }
+              ]
+            }
+          ]}
+      ]}
     ]
 
   }
