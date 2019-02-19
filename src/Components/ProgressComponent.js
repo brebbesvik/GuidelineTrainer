@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, ScrollView, Button, Modal} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, Modal, TouchableOpacity} from 'react-native';
 import PropTypes from "prop-types";
 
 import ProgressLevelComponent from './ProgressLevelComponent';
@@ -64,10 +64,14 @@ class ProgressComponent extends Component{
                             </View>
                                 {disciplineList}
                                 <View style={styles.buttonView}>
-                                    <Button title={"Next"} color="#841584" onPress={() => {
+                                    {/*<Button title={"Next"} color="#841584" onPress={() => {
                                         {goToSummary()}
-                                    }}/>
-
+                                    }}/>*/}
+                                    <TouchableOpacity
+                                        style={styles.button}
+                                        onPress={() => {goToSummary()}}>
+                                        <Text style={{fontSize:17, color:"#FFFFFF"}}>Next</Text>
+                                    </TouchableOpacity>
                             </View>
                         </ScrollView>
                     </View>
@@ -85,7 +89,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#000000AA"
+        backgroundColor: "#0d020dAA"
     },
     modalView: {
         width: '90%',
@@ -101,9 +105,17 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginLeft: 10,
     },
+    button: {
+        height: 60,
+        justifyContent:"center",
+        backgroundColor:"#420a42",
+        padding:15,
+        borderRadius: 10,
+        marginRight: '5%',
+        marginLeft: '5%'
+    },
     buttonView:{
-        marginLeft: 20,
-        marginRight: 40,
+        alignItems: 'center',
         marginBottom: 20,
         marginTop: 20
     },
