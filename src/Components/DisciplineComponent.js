@@ -62,11 +62,16 @@ class DisciplineComponent extends Component{
         });
 
         return (
-            <ScrollView>
+            <ScrollView style={{backgroundColor:"#f2e7f2"}}>
                 {disciplineList}
                 {/*<Text>Tester en tekst: {this.props.allLevels}</Text>*/}
                 <View style={styles.buttonView}>
-                <Button title={"Start quiz"} color="#841584" onPress={() => {navigateTo()}}/>
+                    {/*<Button title={"Start quiz"} color="#841584" onPress={() => {navigateTo()}}/>*/}
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => {navigateTo()}}>
+                        <Text style={{fontSize:17, color:"#FFFFFF"}}>Start quiz</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         );
@@ -78,10 +83,13 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     button: {
-        alignItems: 'center',
-        backgroundColor: '#DDDDDD',
-        padding: 20,
-        margin: 10,
+        height: 60,
+        justifyContent:"center",
+        backgroundColor:"#420a42",
+        padding:15,
+        borderRadius: 10,
+        marginRight: '5%',
+        marginLeft: '5%'
     },
     buttonDisabled: {
         alignItems: 'center',
@@ -90,8 +98,7 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     buttonView:{
-        marginLeft: 20,
-        marginRight: 40,
+        alignItems: 'center'
     },
 });
 
