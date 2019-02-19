@@ -28,6 +28,14 @@
                 {
                   "alternative": "15mg",
                   "reward": -10
+                },
+                {
+                  "alternative": "28mg",
+                  "reward": -5
+                },
+                {
+                  "alternative": "40mg",
+                  "reward": -10
                 }
               ]
             },

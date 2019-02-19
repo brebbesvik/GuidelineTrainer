@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, Modal, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Button, Modal, ScrollView, TouchableOpacity} from 'react-native';
 
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
 import {updateScore, nextQuestion} from "../Actions/CounterAction";
@@ -32,7 +32,7 @@ class AnswerKeyComponent extends Component{
         super(props);
     };
     state = {
-        explanation: '',
+        explanation: this.props.answerKeyExplanation,
         readMoreClicked: false
     };
     render() {
@@ -65,9 +65,9 @@ class AnswerKeyComponent extends Component{
             })
         };
         const dontReadMore = ()=> {
-            this.setState({
+            /*this.setState({
                 explanation: ''
-            })
+            })*/
         };
         const dontGiveUp = ()=> {
             this.setState({
@@ -75,10 +75,18 @@ class AnswerKeyComponent extends Component{
             })
         };
         const displayExplanationButton = ()=> {
-            if (!this.state.readMoreClicked)
-                 return (<Button title={(this.props.isAnswerCorrect)? "Read more" : "Give up"} color="#841584" onPress={() => {
+            if (!this.state.readMoreClicked && !this.props.isAnswerCorrect)
+                 /*return (<Button title={(this.props.isAnswerCorrect)? "Read more" : "Give up"} color="#841584" onPress={() => {
                      readMore();
-                 }}/>);
+
+                 }}/>);*/
+                return (<TouchableOpacity
+                    style={styles.button}
+                    onPress={() => {
+                        readMore();
+                }}>
+                    <Text style={{fontSize:17, color:"#FFFFFF"}}>{(this.props.isAnswerCorrect)? "Read more" : "Learn more"}</Text>
+                </TouchableOpacity>);
 
         };
         return (
@@ -94,16 +102,25 @@ class AnswerKeyComponent extends Component{
                         <ScrollView>
                             <View style={styles.textContainer}>
                                 {setTitle()}
-                                <Text style={{fontSize: 18}}>{this.state.explanation}</Text>
+                                <Text style={{fontSize: 20}}>{(this.props.isAnswerCorrect || this.state.readMoreClicked) ? this.props.answerKeyExplanation : ""}</Text>
                             </View>
                             <View style={styles.buttonContainer}>
-
-                                <Button title={"Close"} color="#841584" onPress={() => {
+                                {/*<Button title={"Close"} color="#841584" onPress={() => {
                                     {updateScoreAndQuestion()}
                                     this.props.hideAnswerKey();
                                     {dontReadMore()}
                                     {dontGiveUp()}
-                                    }}/>
+                                    }}/>*/}
+                                <TouchableOpacity
+                                    style={styles.button}
+                                    onPress={() => {
+                                    {updateScoreAndQuestion()}
+                                    this.props.hideAnswerKey();
+                                    {dontReadMore()}
+                                    {dontGiveUp()}
+                                }}>
+                                    <Text style={{fontSize:17, color:"#FFFFFF"}}>{(this.props.isAnswerCorrect || this.state.readMoreClicked)? "Next" : "Try again"}</Text>
+                                </TouchableOpacity>
 
                                 {displayExplanationButton()}
                             </View>
@@ -119,7 +136,7 @@ const styles = StyleSheet.create({
     flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#000000AA"
+        backgroundColor: "#0d020dAA"
     },
     modalView: {
         width: '80%',
@@ -132,6 +149,13 @@ const styles = StyleSheet.create({
     textContainer: {
         backgroundColor: 'white',
         margin: 20,
+    },
+    button:{
+        height: 60,
+        justifyContent:"center",
+        backgroundColor:"#420a42",
+        padding:15,
+        borderRadius: 10
     },
     buttonContainer: {
         margin: 20,
