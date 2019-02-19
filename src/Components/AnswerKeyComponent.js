@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, Modal, ScrollView, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Modal, ScrollView, TouchableOpacity} from 'react-native';
 
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
 import {updateScore, nextQuestion} from "../Actions/CounterAction";

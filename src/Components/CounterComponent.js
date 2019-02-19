@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
-import { StyleSheet, Text, View, Button, ScrollView, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
 
 import AnswerKeyComponent from '../Components/AnswerKeyComponent';
 
@@ -112,8 +112,7 @@ class CounterComponent extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:"#f2e7f2"
-        ,
+        backgroundColor:"#f2e7f2",
         height:"100%"
     },
     textContainer: {

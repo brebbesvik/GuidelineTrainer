@@ -39,7 +39,7 @@ class MainMenuComponent extends Component{
             });
         };
         return (
-            <View>
+            <View style={styles.container}>
                 <View>
                     <Text style={{fontSize: 25, margin:10}}>Modules</Text>
                 </View>
@@ -56,13 +56,13 @@ class MainMenuComponent extends Component{
                         navigateTo();
                     }
                     }>
-                        <Text style={{fontSize: 18}}>Asthma</Text>
+                        <Text style={{fontSize:17, color:"#FFFFFF"}}>Asthma</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>Jaundice</Text>
+                        <Text style={{fontSize: 17}}>Jaundice</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
-                        <Text style={{fontSize: 18}}>Malaria</Text>
+                        <Text style={{fontSize: 17}}>Malaria</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -73,12 +73,16 @@ class MainMenuComponent extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        height:'100%',
+        backgroundColor:"#f2e7f2"
     },
     button: {
+        height: 60,
         alignItems: 'center',
-        backgroundColor: '#DDDDDD',
-        paddingTop: 20,
-        paddingBottom: 20,
+        backgroundColor: "#420a42",
+        paddingTop:17,
+        padding:10,
+        borderRadius: 10,
         marginTop: 10,
         marginBottom: 10,
         marginLeft: '3%',
@@ -86,10 +90,12 @@ const styles = StyleSheet.create({
         width: '27%'
     },
     buttonDisabled: {
+        height: 60,
         alignItems: 'center',
         backgroundColor: '#f5f5f5',
-        paddingTop: 20,
-        paddingBottom: 20,
+        paddingTop:17,
+        padding:10,
+        borderRadius: 10,
         marginTop: 10,
         marginBottom: 10,
         marginLeft: '3%',
