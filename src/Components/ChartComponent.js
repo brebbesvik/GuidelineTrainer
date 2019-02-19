@@ -32,8 +32,7 @@ class ChartComponent extends Component {
                           'Highcharts.chart(\'container\', {\n' +
                           '\n' +
                           'chart: {\n' +
-                          'polar: true,\n' +
-                          'type: \'line\'\n' +
+                          'type: \'column\'\n' +
                           '},\n' +
                           '\n' +
                           'title: {\n' +
