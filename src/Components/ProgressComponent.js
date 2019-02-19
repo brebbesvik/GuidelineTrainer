@@ -107,12 +107,13 @@ const styles = StyleSheet.create({
     },
     button: {
         height: 60,
-        justifyContent:"center",
+        alignItems: 'center',
         backgroundColor:"#420a42",
-        padding:15,
+        paddingTop:17,
+        padding:10,
         borderRadius: 10,
-        marginRight: '5%',
-        marginLeft: '5%'
+        marginRight: '3%',
+        marginLeft: '3%'
     },
     buttonView:{
         alignItems: 'center',
