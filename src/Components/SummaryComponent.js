@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Modal, StyleSheet, Text, View, ScrollView} from 'react-native';
+import {Modal, StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import { connect } from 'react-redux';
 import {Navigation} from "react-native-navigation";
 
@@ -41,10 +41,18 @@ class SummaryComponent extends Component{
                             <ChartComponent scores={this.props.scores}/>
 
                             <View style={styles.buttonContainer}>
-                                <Button title={"Back to menu"} color="#841584" onPress={() => {
+                                {/*<Button title={"Back to menu"} color="#841584" onPress={() => {
                                     this.props.resetQuiz();
                                     this.props.hideSummary();
-                                    Navigation.popToRoot(this.props.component);}}/>
+                                    Navigation.popToRoot(this.props.component);}}/>*/}
+                                <TouchableOpacity
+                                    style={styles.button}
+                                    onPress={() => {
+                                        this.props.resetQuiz();
+                                        this.props.hideSummary();
+                                        Navigation.popToRoot(this.props.component);}}>
+                                    <Text style={{fontSize:17, color:"#FFFFFF"}}>Back to menu</Text>
+                                </TouchableOpacity>
                             </View>
 
                         </ScrollView>
@@ -59,7 +67,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#000000AA"
+        backgroundColor: "#0d020dAA"
     },
     modalView: {
         width: '90%',
@@ -77,13 +85,18 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     buttonContainer: {
-        marginLeft: 20,
-        marginRight: 20,
+        alignItems: 'center',
         marginBottom: 20,
         marginTop: 20
     },
     button:{
-        width: '40%',
+        height: 60,
+        justifyContent:"center",
+        backgroundColor:"#420a42",
+        padding:15,
+        borderRadius: 10,
+        marginRight: '5%',
+        marginLeft: '5%'
     },
     scoreContainer: {
         backgroundColor: 'white',
