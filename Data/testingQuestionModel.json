@@ -22,9 +22,9 @@
       "guideline": "http://www.nice.org.uk"
     },
     "prednisolone": {
-      "narrative": "A patient which is <%Patient.hasAge.Age%> and weighs <%Patient.hasWeight.Weight%> is diagnosed with <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>. What dose of prednisolone should be administered?",
+      "narrative": "A patient who is <%Patient.hasAge.Age%> and weighs <%Patient.hasWeight.Weight%> is diagnosed with <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>. What dose of prednisolone should be administered?",
       "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Prednisolone.hasDose.Prednisolone-Dose%>",
-      "explanation": "A patient with a severe asthma should be given 2mg/kg. Max dose of 20mg/day for <2 years and 30mg/day for 2-5 years. Prednisolone should be administered for 3-5 days. \n\nDon't give prednisolone to patients with mild or moderate asthma.",
+      "explanation": "A patient with severe asthma should be given 2mg/kg of prednisolone. \n\nFor patients <2 years the max dose is 20mg/day. \nFor patients 2-5 years the max dose should be 30mg/day.\n\n Prednisolone should be administered for 3-5 days.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },

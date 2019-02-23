@@ -242,6 +242,177 @@
               }
 
             ]}
+        ]},
+      {
+        "discipline": "Medication",
+        "levels": [
+          {
+            "level": 1,
+            "passingCondition": 10,
+            "requiredMinSkill": -100,
+            "questions": [
+              {
+                "question": "prednisolone",
+                "entityInstance": "severe-asthma-1",
+                "answerAlternatives": [
+                  {
+                    "alternative": "30mg",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "25mg",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "19mg",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "15mg",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "28mg",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "40mg",
+                    "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "nebulizer",
+                "entityInstance": "severe-asthma-1",
+                "answerAlternatives": [
+                  {
+                    "alternative": "7.5mg every 20 minutes",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "4mg every 20 minutes",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "2.5mg every 20 minutes",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "10mg every 20 minutes",
+                    "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "ipratopium-bromide",
+                "entityInstance": "severe-asthma-1",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Ipratopium Bromide",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Nebulize salbutamol every 10 minutes",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Increase dosage of prednisolone",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Antibiotics",
+                    "reward": -15
+                  }
+                ]
+              },
+              {
+                "question": "ipratopium-bromide-2",
+                "entityInstance": "severe-asthma-1",
+                "answerAlternatives": [
+                  {
+                    "alternative": "250mcg every 20 minutes for 4 doses",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "250mcg every 20 minutes until better",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "250mcg every 20 minutes for 60 minutes",
+                    "reward": 10
+                  }
+                ]
+              },
+              {
+                "question": "antibiotics",
+                "entityInstance": "severe-asthma-1",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Antibiotics",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Ipratopium Bromide",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Increase dosage of prednisolone",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Monitor the patient",
+                    "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "basic-treatment",
+                "entityInstance": "severe-asthma-1",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Oxygen Salbutamol Ipratopium Bromide",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Oxygen Salbutamol",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Oxygen Salbutamol Prednisolone",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Oxygen Salbutamol Corticosteroid",
+                    "reward": -5
+                  }
+                ]
+              },
+              {
+                "question": "basic-treatment",
+                "entityInstance": "moderate-asthma-1",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Oxygen Salbutamol Ipratopium Bromide",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Oxygen Salbutamol ",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Oxygen Salbutamol Prednisolone",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "Oxygen Salbutamol Corticosteroid",
+                    "reward": -5
+                  }
+                ]
+              }
+
+
+
+            ]}
         ]}
     ]
 
