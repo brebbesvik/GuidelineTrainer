@@ -54,29 +54,9 @@ class CounterComponent extends Component {
                               numberOfLines={4}
                          style={{fontSize:17, color:"#FFFFFF"}}>{answerAlternative.getAlternative()}</Text>
                     </TouchableOpacity>
-                    {/*<Button
-                key={index}
-                title={line.getAlternative()}
-                color="#841584"
-                onPress={() => {
-                    this.props.setReward(line.getReward());
-                    if(index === this.props.correctAlternative) {
-                        this.props.setAnswerCorrect();
-                    }
-                    else {
-                        this.props.setAnswerWrong();
-                    }
-                    this.props.showAnswerKey();
-                }}
-                accessibilityLabel="Moderate asthma"
-                style={styles.button}
-            />*/}
             </View>
             )
         });
-        /*const scoresList = this.props.scores.map((score, index) => {
-            return <Text key={index} style={styles.score}>{score.getDiscipline()}: {score.getScore()}</Text>
-        });*/
         return (
             <View style={styles.container}>
                 <View style={{justifyContent:'center', height:"33%", margin: "5%", marginBottom: "10%", borderWidth: 1, borderRadius: 10, backgroundColor: 'white'}}>
@@ -87,18 +67,12 @@ class CounterComponent extends Component {
                 </ScrollView>
                 </View>
 
-                {/*<View style={styles.buttonContainer}>*/}
-
                 <ScrollView>
                 <View style={{alignItems: 'flex-start', flexDirection:'row', flexWrap: "wrap"}}>
                     {buttonList}
                 </View>
                 </ScrollView>
 
-
-                {/*<View style={styles.scoreContainer}>
-                    {scoresList}
-                </View>*/}
 
                 <AnswerKeyComponent component={this.props.componentId} />
                 <SummaryComponent component={this.props.componentId} />
@@ -139,16 +113,7 @@ const styles = StyleSheet.create({
         marginLeft: '5%',
         marginBottom: 10,
         width: '42.66%'
-    },
-    /*scoreContainer: {
-        backgroundColor: 'white',
-        marginTop: 10,
-        marginLeft: 20,
-        marginRight: 20,
-    },
-    score: {
-        fontSize: 18,
-    },*/
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CounterComponent);
