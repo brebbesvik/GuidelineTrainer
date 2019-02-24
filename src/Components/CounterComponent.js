@@ -34,13 +34,13 @@ class CounterComponent extends Component {
     };
     render() {
         var props = this.props;
-        const buttonList = this.props.alternatives.map((line, index) => {
+        const buttonList = this.props.alternatives.map((answerAlternative, index) => {
             return (
                 <View style={styles.singleButtonContainer} key={index}>
                     <TouchableOpacity style={styles.button}
                         key={index}
                         onPress={()=>{
-                            this.props.setReward(line.getReward());
+                            this.props.setReward(answerAlternative.getReward());
                             if(index === this.props.correctAlternative) {
                                 this.props.setAnswerCorrect();
                             }
@@ -52,7 +52,7 @@ class CounterComponent extends Component {
                         <Text
                             allowFontScaling={true}
                               numberOfLines={4}
-                         style={{fontSize:17, color:"#FFFFFF"}}>{line.getAlternative()}</Text>
+                         style={{fontSize:17, color:"#FFFFFF"}}>{answerAlternative.getAlternative()}</Text>
                     </TouchableOpacity>
                     {/*<Button
                 key={index}
@@ -74,9 +74,9 @@ class CounterComponent extends Component {
             </View>
             )
         });
-        const scoresList = this.props.scores.map((score, index) => {
+        /*const scoresList = this.props.scores.map((score, index) => {
             return <Text key={index} style={styles.score}>{score.getDiscipline()}: {score.getScore()}</Text>
-        });
+        });*/
         return (
             <View style={styles.container}>
                 <View style={{justifyContent:'center', height:"33%", margin: "5%", marginBottom: "10%", borderWidth: 1, borderRadius: 10, backgroundColor: 'white'}}>
