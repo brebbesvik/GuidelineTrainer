@@ -1,10 +1,12 @@
-import QuizDAO from '../DAO/QuizDAO';
-
+import Game from '../GameEngine/Game';
+import * as Actions from '../Actions/ActionTypes'
+import QuizDAO from "../DAO/QuizDAO";
 
 const initialState = {
-    disciplines: QuizDAO.getDisciplines("Asthma"),
+    disciplines: Game.getDisciplines(),
     lockedLevels: "",
     unlockedLevels: "",
+
 };
 const DisciplineReducer = (state, action) => {
     if (typeof state === 'undefined') {

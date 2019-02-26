@@ -10,3 +10,5 @@ export const SHOW_SUMMARY = 'show_summary';
 export const HIDE_SUMMARY = 'hide_summary';
 export const SHOW_PROGRESSION = 'show_progression';
 export const HIDE_PROGRESSION = 'hide_progression';
+export const GET_NEW_LEVELS = 'get_new_levels';
+export const NEXT_LEVEL_REQUIREMENTS = 'next_level_requirements';

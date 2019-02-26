@@ -17,18 +17,21 @@ export const getUnlockedLevels = ()=> {
                 let scores = JSON.parse(result);
                 Game.getDisciplines().map((discipline)=> {
                    if (scores.hasOwnProperty(discipline)) {
-                       scores[discipline] = QuizDAO.getAllowedLevels("Asthma", discipline, scores[discipline]);
+                       Game.getQuiz().getDiscipline(discipline).setAllowedLevels(QuizDAO.getAllowedLevels("Asthma", discipline, scores[discipline]));
+
                    }
                    else {
-                       scores[discipline] = QuizDAO.getAllowedLevels("Asthma", discipline, 0);
+                       Game.getQuiz().getDiscipline(discipline).setAllowedLevels(QuizDAO.getAllowedLevels(QuizDAO.getAllowedLevels("Asthma", discipline, 0)));
                    }
+                   scores[discipline] = Game.getAllowedLevels(discipline);
                 });
                 dispatch(GET_UNLOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
             })
             .catch(()=> {
                 let scores = {};
                 Game.getDisciplines().map((discipline)=> {
-                    scores[discipline] = QuizDAO.getAllowedLevels("Asthma", discipline, 0);
+                    Game.getQuiz().getDiscipline(discipline).setAllowedLevels(QuizDAO.getAllowedLevels("Asthma", discipline, 0));
+                    scores[discipline] = Game.getAllowedLevels(discipline);
                     dispatch(GET_UNLOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
                 });
 
@@ -50,19 +53,21 @@ export const getLockedLevels = ()=> {
                 let scores = JSON.parse(result);
                 Game.getDisciplines().map((discipline)=> {
                     if (scores.hasOwnProperty(discipline)) {
-                        scores[discipline] = QuizDAO.getUnallowedLevels("Asthma", discipline, scores[discipline]);
+                        Game.getQuiz().getDiscipline(discipline).setUnAllowedLevels(QuizDAO.getUnAllowedLevels("Asthma", discipline, scores[discipline]));
                     }
                     else {
-                        scores[discipline] = QuizDAO.getUnallowedLevels("Asthma", discipline, 0);
+                        Game.getQuiz().getDiscipline(discipline).setUnAllowedLevels(QuizDAO.getUnAllowedLevels("Asthma", discipline, 0));
                     }
+                    scores[discipline] = Game.getUnAllowedLevels(discipline);
                 });
                 dispatch(GET_LOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
             })
             .catch(()=> {
                 let scores = {};
                 Game.getDisciplines().map((discipline) => {
-                    scores[discipline] = QuizDAO.getUnallowedLevels("Asthma", discipline, 0);
-                    dispatch(GET_LOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
+                    Game.getQuiz().getDiscipline(discipline).setUnAllowedLevels(QuizDAO.getUnAllowedLevels("Asthma", discipline, 0));
+                    scores[discipline] = Game.getUnAllowedLevels(discipline);
+                        dispatch(GET_LOCKED_LEVELS(JSON.parse(JSON.stringify(scores))));
                 });
             });
     };

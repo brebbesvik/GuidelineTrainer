@@ -1,5 +1,10 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+
+const mapStateToProps = (state) => ({
+    newLevels: state.progressReducer.newLevels
+});
 
 class ProgressLevelComponent extends Component{
     constructor(props) {
@@ -7,7 +12,6 @@ class ProgressLevelComponent extends Component{
     };
     render() {
         const levelList = this.props.unlocked.map((level, index)=> {
-            console.log(this.props.newLevels)
             if (this.props.newLevels.includes(level))
                 return (
                     <View key={index}>
@@ -94,4 +98,4 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
 });
-export default ProgressLevelComponent;
+export default connect (mapStateToProps)(ProgressLevelComponent);

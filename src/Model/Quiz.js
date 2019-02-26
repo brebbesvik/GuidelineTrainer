@@ -20,6 +20,13 @@ class Quiz {
     getDisciplines() {
         return this._disciplines;
     }
+    getDiscipline(name) {
+        for (let i = 0; i < this._disciplines.length; i++) {
+            if (this._disciplines[i].getName() === name) {
+                return this._disciplines[i];
+            }
+        }
+    }
     getAllLevels() {
         return this._allLevels;
     }

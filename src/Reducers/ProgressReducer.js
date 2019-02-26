@@ -1,7 +1,11 @@
 import * as Actions from '../Actions/ActionTypes'
+import QuizDAO from "../DAO/QuizDAO";
+import Game from "../GameEngine/Game";
+import Skill from "../Model/Skill";
 
 const initialState = {
-    progression: false
+    progression: false,
+    newLevels: ''
 };
 const ProgressReducer = (state, action) => {
     if (typeof state === 'undefined') {
@@ -16,6 +20,34 @@ const ProgressReducer = (state, action) => {
             return Object.assign({}, state, {
                 progression: false
             });
+        case Actions.GET_NEW_LEVELS:
+            let levels = QuizDAO.getAllowedLevels("Asthma", action.discipline, action.score);
+            let allowedLevels = [];
+            levels.map((level)=>{allowedLevels.push(level.getLevel())});
+            return Object.assign({}, state, {
+                newLevels: allowedLevels
+            });
+        case Actions.NEXT_LEVEL_REQUIREMENTS:
+            let requirements = {};
+            Game.getQuiz().getDisciplines().map((discipline)=>{
+                let score= 0;
+                let index= 0;
+                console.log("Disiplin " + discipline);
+                console.log("Un Allowed Levels: " + discipline.getUnAllowedLevels());
+                for (let i=0; i<discipline.getUnAllowedLevels().length; i++ ) {
+                    console.log("One un allowed level: " + discipline.getUnAllowedLevels()[i]);
+                    if (score < discipline.getUnAllowedLevels()[i].getRequiredMinSkill()) {
+                        score = discipline.getUnAllowedLevels()[i].getRequiredMinSkill();
+                        index = i;
+                    }
+                }
+                requirements[discipline.getName()] = score;
+            });
+            return Object.assign({}, state, {
+                requirements: requirements
+            });
+
+
         default:
             return state;
     }

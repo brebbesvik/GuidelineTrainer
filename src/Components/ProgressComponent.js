@@ -5,24 +5,23 @@ import PropTypes from "prop-types";
 
 import ProgressLevelComponent from './ProgressLevelComponent';
 
-import {hideProgression} from "../Actions/ProgressAction";
+import {hideProgression, getNewLevels, nextLevelRequirements} from "../Actions/ProgressAction";
 import {showSummary} from "../Actions/SummaryAction";
 
-import QuizDAO from "../DAO/QuizDAO";
 
 const mapStateToProps = (state) => ({
     disciplines: state.disciplineReducer.disciplines,
     lockedLevels: state.disciplineReducer.lockedLevels,
     unlockedLevels: state.disciplineReducer.unlockedLevels,
     progression: state.progressReducer.progression,
-    scores: state.counterReducer.scores
+    scores: state.counterReducer.scores,
 });
-
-
 
 const mapDispatchToProps = {
     hideProgression,
-    showSummary
+    showSummary,
+    getNewLevels,
+    nextLevelRequirements
 };
 
 class ProgressComponent extends Component{
@@ -39,14 +38,16 @@ class ProgressComponent extends Component{
                 if (discipline === this.props.scores[i].getDiscipline())
                     score = this.props.scores[i].getScore();
             }
+            this.props.getNewLevels(discipline, score);
             return (
                 <View key={index}>
                     <Text key={index} style={{fontSize: 20, margin:10}}>{discipline}</Text>
-                    <ProgressLevelComponent unlocked={this.props.unlockedLevels[discipline]} locked={this.props.lockedLevels[discipline]} newLevels={QuizDAO.getAllowedLevels("Asthma", discipline, score)} component={this.props.componentId}/>
+                    <ProgressLevelComponent unlocked={this.props.unlockedLevels[discipline]} locked={this.props.lockedLevels[discipline]} component={this.props.componentId}/>
                 </View>
             );
         });
         const goToSummary = () => {
+            this.props.nextLevelRequirements();
             this.props.hideProgression();
             this.props.showSummary();
         };

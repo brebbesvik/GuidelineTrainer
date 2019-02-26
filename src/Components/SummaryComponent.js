@@ -16,11 +16,13 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
     resetQuiz,
     hideSummary,
+
 };
 
 class SummaryComponent extends Component{
     constructor(props) {
         super(props);
+
     };
     render() {
         return (
