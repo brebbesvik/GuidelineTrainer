@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Modal, ScrollView, TouchableOpacity} from 'reac
 import {hideAnswerKey} from "../Actions/AnswerKeyAction";
 import {updateScore, nextQuestion} from "../Actions/CounterAction";
 import {showSummary} from "../Actions/SummaryAction";
-import {showProgression} from "../Actions/ProgressAction";
+import {showProgression, getNewLevels} from "../Actions/ProgressAction";
 import store from "../Reducers";
 
 import {storeScores} from '../Actions/ActionThunks';
@@ -16,7 +16,8 @@ const mapStateToProps = (state) => ({
     discipline: state.counterReducer.discipline,
     questionNumber: state.counterReducer.questionNumber,
     numberOfQuestions: state.counterReducer.numberOfQuestions,
-    answerKeyExplanation: state.counterReducer.answerKeyExplanation
+    answerKeyExplanation: state.counterReducer.answerKeyExplanation,
+    scores: state.counterReducer.scores
 });
 
 const mapDispatchToProps = {
@@ -24,7 +25,8 @@ const mapDispatchToProps = {
     updateScore,
     nextQuestion,
     showSummary,
-    showProgression
+    showProgression,
+    getNewLevels
 };
 
 class AnswerKeyComponent extends Component{
@@ -55,6 +57,7 @@ class AnswerKeyComponent extends Component{
         };
         const goToSummary = () => {
             store.dispatch(storeScores());
+            this.props.getNewLevels(this.props.scores);
             this.props.hideAnswerKey();
             this.props.showProgression();
         };

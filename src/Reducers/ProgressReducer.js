@@ -21,11 +21,17 @@ const ProgressReducer = (state, action) => {
                 progression: false
             });
         case Actions.GET_NEW_LEVELS:
-            let levels = QuizDAO.getAllowedLevels("Asthma", action.discipline, action.score);
-            let allowedLevels = [];
-            levels.map((level)=>{allowedLevels.push(level.getLevel())});
+            let newLevels = [];
+            let score = 0;
+            action.scores.map((score)=>{
+                let allowedLevels = [];
+                QuizDAO.getAllowedLevels("Asthma", score.getDiscipline(), score.getScore()).map((level)=>{
+                    allowedLevels.push(level.getLevel());
+                });
+                newLevels[score.getDiscipline()] = allowedLevels;
+            });
             return Object.assign({}, state, {
-                newLevels: allowedLevels
+                newLevels: newLevels
             });
         case Actions.NEXT_LEVEL_REQUIREMENTS:
             let requirements = {};

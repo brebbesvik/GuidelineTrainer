@@ -5,10 +5,8 @@ import PropTypes from "prop-types";
 
 import ProgressLevelComponent from './ProgressLevelComponent';
 
-import {hideProgression, getNewLevels, nextLevelRequirements} from "../Actions/ProgressAction";
+import {hideProgression, nextLevelRequirements} from "../Actions/ProgressAction";
 import {showSummary} from "../Actions/SummaryAction";
-import QuizDAO from "../DAO/QuizDAO";
-
 
 const mapStateToProps = (state) => ({
     disciplines: state.disciplineReducer.disciplines,
@@ -16,6 +14,7 @@ const mapStateToProps = (state) => ({
     unlockedLevels: state.disciplineReducer.unlockedLevels,
     progression: state.progressReducer.progression,
     scores: state.counterReducer.scores,
+    newLevels: state.progressReducer.newLevels
 });
 
 const mapDispatchToProps = {
@@ -33,23 +32,10 @@ class ProgressComponent extends Component{
     };
     render() {
         const disciplineList = this.props.disciplines.map((discipline, index) => {
-            let score = 0;
-            for (let i = 0; i < this.props.scores.length; i++) {
-                if (discipline === this.props.scores[i].getDiscipline())
-                    score = this.props.scores[i].getScore();
-            }
-            let allowedLevels = [];
-            /* This code should be put into an action. API-calls shouldn't be called in a component.
-            * The intended action exists and needs to be rewritten to fit this purpose. Be careful as loop
-            * calls to redux can result in warings or errors.
-            * this.props.getNewLevels(discipline, score);
-            */
-            QuizDAO.getAllowedLevels("Asthma", discipline, score).map((level)=>{allowedLevels.push(level.getLevel())});
-            //this.props.getNewLevels(discipline, score);
             return (
                 <View key={index}>
                     <Text key={index} style={{fontSize: 20, margin:10}}>{discipline}</Text>
-                    <ProgressLevelComponent unlocked={this.props.unlockedLevels[discipline]} locked={this.props.lockedLevels[discipline]} newLevels={allowedLevels} component={this.props.componentId}/>
+                    <ProgressLevelComponent unlocked={this.props.unlockedLevels[discipline]} locked={this.props.lockedLevels[discipline]} newLevels={this.props.newLevels[discipline]} component={this.props.componentId}/>
                 </View>
             );
         });
@@ -72,9 +58,6 @@ class ProgressComponent extends Component{
                             </View>
                                 {disciplineList}
                                 <View style={styles.buttonView}>
-                                    {/*<Button title={"Next"} color="#841584" onPress={() => {
-                                        {goToSummary()}
-                                    }}/>*/}
                                     <TouchableOpacity
                                         style={styles.button}
                                         onPress={() => {goToSummary()}}>

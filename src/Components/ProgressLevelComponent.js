@@ -1,10 +1,5 @@
-//import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-
-/*const mapStateToProps = (state) => ({
-    newLevels: state.progressReducer.newLevels
-});*/
 
 class ProgressLevelComponent extends Component{
     constructor(props) {
