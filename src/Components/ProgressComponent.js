@@ -7,6 +7,7 @@ import ProgressLevelComponent from './ProgressLevelComponent';
 
 import {hideProgression, getNewLevels, nextLevelRequirements} from "../Actions/ProgressAction";
 import {showSummary} from "../Actions/SummaryAction";
+import QuizDAO from "../DAO/QuizDAO";
 
 
 const mapStateToProps = (state) => ({
@@ -20,7 +21,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
     hideProgression,
     showSummary,
-    getNewLevels,
     nextLevelRequirements
 };
 
@@ -38,11 +38,18 @@ class ProgressComponent extends Component{
                 if (discipline === this.props.scores[i].getDiscipline())
                     score = this.props.scores[i].getScore();
             }
-            this.props.getNewLevels(discipline, score);
+            let allowedLevels = [];
+            /* This code should be put into an action. API-calls shouldn't be called in a component.
+            * The intended action exists and needs to be rewritten to fit this purpose. Be careful as loop
+            * calls to redux can result in warings or errors.
+            * this.props.getNewLevels(discipline, score);
+            */
+            QuizDAO.getAllowedLevels("Asthma", discipline, score).map((level)=>{allowedLevels.push(level.getLevel())});
+            //this.props.getNewLevels(discipline, score);
             return (
                 <View key={index}>
                     <Text key={index} style={{fontSize: 20, margin:10}}>{discipline}</Text>
-                    <ProgressLevelComponent unlocked={this.props.unlockedLevels[discipline]} locked={this.props.lockedLevels[discipline]} component={this.props.componentId}/>
+                    <ProgressLevelComponent unlocked={this.props.unlockedLevels[discipline]} locked={this.props.lockedLevels[discipline]} newLevels={allowedLevels} component={this.props.componentId}/>
                 </View>
             );
         });
