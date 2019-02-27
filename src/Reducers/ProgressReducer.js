@@ -47,11 +47,8 @@ const ProgressReducer = (state, action) => {
             return Object.assign({}, state, {
                 requirements: requirements
             });
-
-
         default:
             return state;
     }
 };
-
 export default ProgressReducer;
