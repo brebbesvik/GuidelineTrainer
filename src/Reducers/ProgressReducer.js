@@ -1,7 +1,6 @@
 import * as Actions from '../Actions/ActionTypes'
 import QuizDAO from "../DAO/QuizDAO";
 import Game from "../GameEngine/Game";
-import Skill from "../Model/Skill";
 
 const initialState = {
     progression: false,
@@ -22,7 +21,6 @@ const ProgressReducer = (state, action) => {
             });
         case Actions.GET_NEW_LEVELS:
             let newLevels = [];
-            let score = 0;
             action.scores.map((score)=>{
                 let allowedLevels = [];
                 QuizDAO.getAllowedLevels("Asthma", score.getDiscipline(), score.getScore()).map((level)=>{
@@ -38,10 +36,7 @@ const ProgressReducer = (state, action) => {
             Game.getQuiz().getDisciplines().map((discipline)=>{
                 let score= 0;
                 let index= 0;
-                console.log("Disiplin " + discipline);
-                console.log("Un Allowed Levels: " + discipline.getUnAllowedLevels());
                 for (let i=0; i<discipline.getUnAllowedLevels().length; i++ ) {
-                    console.log("One un allowed level: " + discipline.getUnAllowedLevels()[i]);
                     if (score < discipline.getUnAllowedLevels()[i].getRequiredMinSkill()) {
                         score = discipline.getUnAllowedLevels()[i].getRequiredMinSkill();
                         index = i;
