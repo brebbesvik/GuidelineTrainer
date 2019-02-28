@@ -1,68 +1,25 @@
 {
   "questions" : {
-    "initial": {
-      "narrative": "A patient which is <%Patient.hasAge.Age%> presents with <%Patient.undergoesExamination.Wheeze%> <%Patient.undergoesExamination.Breathing-Condition%> <%Patient.givesHistory.Cough%>. What is the possible diagnosis?",
-      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>",
-      "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma.",
+    "assessment1": {
+      "narrative": "Which of the following combination of symptoms would most likely suggest a diagnosis of possible asthma?",
+      "answerKey": "Wheeze with cough or difficulty in breathing",
+      "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma. \n\n Likelihood of asthma much higher if age > 12m and recurrent wheeze",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
-    "severity": {
-      "narrative": "On examination of a patient with possible asthma, you find <%Patient.undergoesExamination.Oxygen-Saturation%> <%Patient.undergoesExamination.Central-Cyanosis%> <%Patient.undergoesExamination.Inability-To-Drink%> <%Patient.undergoesExamination.Consciousness%> <%Patient.undergoesExamination.Inability-To-Talk%> <%Patient.undergoesExamination.Pulse-Rate%> <%Patient.undergoesExamination.Lower-Chest-Wall-Indrawing%> <%Patient.undergoesExamination.Respiratory-Rate%>",
-      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%>",
-      "explanation": "SEVERE ASTHMA:\nOxygen saturation <90%,\ncentral cyanosis,\ninability to drink,\nAVPU = V, P or U,\ninability to talk,\npulse rate > 200 bpm (0-3 years) and >180 bpm (4-5 years).\n\nMILD or MODERATE ASTHMA: \nwheeze \nPLUS \nlower chest wall indrawing\nOR\nRR => 50/min (2-11months)\nRR =>40/min (12-59months)\nRR=>30/min (5-12years)",
+    "diagnosis1": {
+      "narrative": "In a patient with wheeze and cough or difficulty in breathing, presence of central cyanosis suggests which severity of asthma?",
+      "answerKey": "Severe",
+      "explanation": "There are six symptoms where either of them indicates severe asthma. Central cyanosis is one of them and means that the finger nails or lips get bluer in colour.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
-    "management": {
-      "narrative": "You make a diagnosis of <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>. What of the following is the correct to do?",
-      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.admit.Hospitalization%>",
-      "explanation": "A patient with a severe asthma should be admitted into the hospital. For mild or moderate, don't admit.",
-      "evidence": "http://www.forskning.no",
-      "guideline": "http://www.nice.org.uk"
-    },
-    "prednisolone": {
-      "narrative": "A patient who is <%Patient.hasAge.Age%> and weighs <%Patient.hasWeight.Weight%> is diagnosed with <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>. What dose of prednisolone should be administered?",
-      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Prednisolone.hasDose.Prednisolone-Dose%>",
-      "explanation": "A patient with severe asthma should be given 2mg/kg of prednisolone. \n\nFor patients <2 years the max dose is 20mg/day. \nFor patients 2-5 years the max dose should be 30mg/day.\n\n Prednisolone should be administered for 3-5 days.",
-      "evidence": "http://www.forskning.no",
-      "guideline": "http://www.nice.org.uk"
-    },
-    "nebulizer": {
-      "narrative": "What dose of <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol%> should be used in a <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol.hasRoute.Salbutamol-Route.hasMethod.Salbutamol-Method%>r?",
-      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol.hasRate.Salbutamol-Rate%>",
-      "explanation": "2.5mg salbutamol should be used in the nebulizer. It is is the same dose whether the asthma is severe, moderate or mild.",
-      "evidence": "http://www.forskning.no",
-      "guideline": "http://www.nice.org.uk"
-    },
-    "ipratopium-bromide": {
-      "narrative": "The patient you treat for <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%> responds poorly to salbutamol. What is the next step?",
-      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide%>",
-      "explanation": "Patients with severe asthma always gets administered with oxygen, salbutamol and prednisolone. If the response is poorly, administer ipratopium bromide.",
-      "evidence": "http://www.forskning.no",
-      "guideline": "http://www.nice.org.uk"
-    },
-    "ipratopium-bromide-2": {
-      "narrative": "What what is the right administration of <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide%>?",
-      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide.hasRate.Ipratopium-Bromide-Rate%> for <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Ipratopium-Bromide.hasDuration.Ipratopium-Bromide-Duration%>",
-      "explanation": "Correct administration of ipratopium bromide is 250mcg every 20 minutes for 60 minutes. Use only when patient responds poorly to basic treatment.",
-      "evidence": "http://www.forskning.no",
-      "guideline": "http://www.nice.org.uk"
-    },
-    "antibiotics": {
-      "narrative": "The patient you treat for <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%> is showing signs of severe pneumonia. What do you do?",
-      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Antibiotics%>",
-      "explanation": "For severe pneumonia administer antibiotics. Refer to the pneumonia guideline and antibiotic guideline.",
-      "evidence": "http://www.forskning.no",
-      "guideline": "http://www.nice.org.uk"
-    },
-    "basic-treatment": {
-      "narrative": "What is the right treatment to start with for <%Patient.hasDiagnosis.Diagnosis.hasSeverity.Severity%> <%Patient.hasDiagnosis.Diagnosis.hasDiagnosisName.DiagnosisName%>?",
-      "answerKey": "<%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Oxygen%> <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Salbutamol%> <%Patient.hasDiagnosis.Diagnosis.hasManagement.Management.involvesMedication.Prednisolone%>",
-      "explanation": "For all asthma treatment start with giving oxygen and salbutamol. Provide prednisolone for severe asthma.",
+    "management1": {
+      "narrative": "Which of the following class of drugs is not indicated in the initial management of severe asthma?",
+      "answerKey": "Short acting beta-agonists",
+      "explanation": "Short acting beta-agonists are used in initial management of severe asthma. \n\n Inhaled corticosteroids is used to treat severe asthma. \n Antibiotics are used in cases where severe pneumonia happen.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     }
-
   }
 }

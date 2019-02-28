@@ -1,3 +1,12 @@
+Prototyping for evaluation:
+
+- The first time the app is ever run. It seems to not display level 1 at Discipline Component, but level 1 is indeed
+playable.
+- We have to think more on the requirement line in ChartComponent. Right now it has some weird behaviour when
+you go up or (especially) down a level.
+
+
+--------------------------------------------------------------------------------
 Finishing work:
 
 - Model Diagnosis with inheritance. Asthma inherits Diagnosis and is connected to severity (This is a problem,

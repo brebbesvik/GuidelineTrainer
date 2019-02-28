@@ -2,7 +2,7 @@
   {
     "category": "Asthma",
     "disciplines": [{
-      "discipline": "Initial",
+      "discipline": "Assessment",
       "levels": [
         {
           "level": 1,
@@ -10,20 +10,20 @@
           "requiredMinSkill": -100,
           "questions": [
             {
-              "question": "initial",
+              "question": "assessment1",
               "entityInstance": "severe-asthma-1",
               "answerAlternatives": [
                 {
-                  "alternative": "Asthma",
+                  "alternative": "Cough and difficulty in breathing",
+                  "reward": -1
+                },
+                {
+                  "alternative": "Cough and fever",
+                  "reward": -2
+                },
+                {
+                  "alternative": "Wheeze with cough or difficulty in breathing",
                   "reward": 10
-                },
-                {
-                  "alternative": "Whooping cough",
-                  "reward": -5
-                },
-                {
-                  "alternative": "Tuberculosis",
-                  "reward": -10
                 }
               ]
             }]},
@@ -49,35 +49,13 @@
                   "reward": 10
                 }
               ]
-            },
-            {
-              "question": "initial",
-              "entityInstance": "undecided-asthma-1",
-              "answerAlternatives": [
-                {
-                  "alternative": "Undecided",
-                  "reward": 10
-                },
-                {
-                  "alternative": "Asthma",
-                  "reward": -5
-                },
-                {
-                  "alternative": "Whooping cough",
-                  "reward": -10
-                },
-                {
-                  "alternative": "Tuberculosis",
-                  "reward": -10
-                }
-              ]
             }
           ]
         }
       ]
     },
       {
-        "discipline": "Severity",
+        "discipline": "Diagnosis",
         "levels": [
           {
             "level": 1,
@@ -85,21 +63,21 @@
             "requiredMinSkill": -100,
             "questions": [
               {
-                "question": "severity",
+                "question": "diagnosis1",
                 "entityInstance": "severe-asthma-1",
                 "answerAlternatives": [
 
                   {
-                    "alternative": "Mild or moderate",
-                    "reward": -10
+                    "alternative": "Mild",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Moderate",
+                    "reward": -1
                   },
                   {
                     "alternative": "Severe",
                     "reward": 10
-                  },
-                  {
-                    "alternative": "No asthma",
-                    "reward": -5
                   }
                 ]}]},
           {
@@ -125,7 +103,47 @@
                     "reward": -10
                   }
                 ]
-              },
+              }
+
+
+            ]}
+        ]},
+      {
+        "discipline": "Management",
+        "levels": [
+          {
+            "level": 1,
+            "passingCondition": 20,
+            "requiredMinSkill": -100,
+            "questions": [
+              {
+                "question": "management1",
+                "entityInstance": "severe-asthma-1",
+                "answerAlternatives": [
+
+                  {
+                    "alternative": "Oral corticosteroids",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Inhaled corticosteroids",
+                    "reward": -1
+                  },
+                  {
+                    "alternative": "Antibiotics",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Short acting beta-agonists",
+                    "reward": 10
+                  }
+                ]}]},
+          {
+            "level": 2,
+            "passingCondition": 20,
+            "requiredMinSkill": 10,
+            "questions": [
+
               {
                 "question": "severity",
                 "entityInstance": "severe-asthma-2",
@@ -143,22 +161,35 @@
                     "reward": -10
                   }
                 ]
-              },
+              }
+
+
+            ]}
+        ]},
+      {
+        "discipline": "Follow-up",
+        "levels": [
+          {
+            "level": 2,
+            "passingCondition": 20,
+            "requiredMinSkill": 10,
+            "questions": [
+
               {
                 "question": "severity",
-                "entityInstance": "moderate-asthma-1",
+                "entityInstance": "severe-asthma-2",
                 "answerAlternatives": [
                   {
                     "alternative": "Severe",
-                    "reward": -10
+                    "reward": 10
                   },
                   {
                     "alternative": "No asthma",
-                    "reward": -10
+                    "reward": -5
                   },
                   {
                     "alternative": "Mild or moderate",
-                    "reward": 10
+                    "reward": -10
                   }
                 ]
               }
