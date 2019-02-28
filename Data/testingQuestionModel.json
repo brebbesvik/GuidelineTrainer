@@ -1,23 +1,51 @@
 {
   "questions" : {
-    "assessment1": {
+    "assessment11": {
       "narrative": "Which of the following combination of symptoms would most likely suggest a diagnosis of possible asthma?",
       "answerKey": "Wheeze with cough or difficulty in breathing",
       "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma. \n\n Likelihood of asthma much higher if age > 12m and recurrent wheeze",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
-    "diagnosis1": {
+    "diagnosis11": {
       "narrative": "In a patient with wheeze and cough or difficulty in breathing, presence of central cyanosis suggests which severity of asthma?",
       "answerKey": "Severe",
       "explanation": "There are six symptoms where either of them indicates severe asthma. Central cyanosis is one of them and means that the finger nails or lips get bluer in colour.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
-    "management1": {
+    "management11": {
       "narrative": "Which of the following class of drugs is not indicated in the initial management of severe asthma?",
       "answerKey": "Short acting beta-agonists",
       "explanation": "Short acting beta-agonists are used in initial management of severe asthma. \n\n Inhaled corticosteroids is used to treat severe asthma. \n Antibiotics are used in cases where severe pneumonia happen.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "assessment21": {
+      "narrative": "Karen is a 6 year old girl. She visits the hospital with her mother. Karen has difficulty breathing and a history of cough. What other symptoms should you look for?",
+      "answerKey": "Wheeze",
+      "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma. \n\n Likelihood of asthma much higher if age > 12m and recurrent wheeze",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "diagnosis21": {
+      "narrative": "Karen has a wheeze and difficulty breathing, and should be examined for asthma. The next step is to determine wether the asthma is severe or not. Which of the following tells that Karen is suffering from severe asthma?",
+      "answerKey": "Oxygen saturation <90%",
+      "explanation": "If the patient has an oxygen saturation <90%, the patient should be treated for severe asthma.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "management21": {
+      "narrative": "Karen is being treated for severe asthma. She is given beta-agonists. What other medications should se be given?",
+      "answerKey": "Corticosteroid and oxygen",
+      "explanation": "Oxygen saturation <90%",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "follow-up21": {
+      "narrative": "After treating Karen for an hour, she no longer shows signs of asthma. What do you do next?",
+      "answerKey": "Allow home on beta-agonists",
+      "explanation": "Allow home on beta-agonists. \n\nDemonstrate MDI and spacer use to the caregiver before discharge from the health facility. \n\nAdvise on regular follow up.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     }

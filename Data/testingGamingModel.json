@@ -10,7 +10,7 @@
           "requiredMinSkill": -100,
           "questions": [
             {
-              "question": "assessment1",
+              "question": "assessment11",
               "entityInstance": "",
               "answerAlternatives": [
                 {
@@ -33,7 +33,7 @@
           "requiredMinSkill": 10,
           "questions": [
             {
-              "question": "initial",
+              "question": "assessment21",
               "entityInstance": "",
               "answerAlternatives": [
                 {
@@ -63,7 +63,7 @@
             "requiredMinSkill": -100,
             "questions": [
               {
-                "question": "diagnosis1",
+                "question": "diagnosis11",
                 "entityInstance": "",
                 "answerAlternatives": [
 
@@ -87,7 +87,7 @@
             "questions": [
 
               {
-                "question": "severity",
+                "question": "diagnosis21",
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
@@ -117,7 +117,7 @@
             "requiredMinSkill": -100,
             "questions": [
               {
-                "question": "management1",
+                "question": "management11",
                 "entityInstance": "",
                 "answerAlternatives": [
 
@@ -145,7 +145,7 @@
             "questions": [
 
               {
-                "question": "severity",
+                "question": "management21",
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
@@ -176,7 +176,7 @@
             "questions": [
 
               {
-                "question": "severity",
+                "question": "follow-up21",
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
