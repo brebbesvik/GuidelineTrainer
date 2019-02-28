@@ -11,7 +11,7 @@
           "questions": [
             {
               "question": "assessment1",
-              "entityInstance": "severe-asthma-1",
+              "entityInstance": "",
               "answerAlternatives": [
                 {
                   "alternative": "Cough and difficulty in breathing",
@@ -34,7 +34,7 @@
           "questions": [
             {
               "question": "initial",
-              "entityInstance": "no-asthma-1",
+              "entityInstance": "",
               "answerAlternatives": [
                 {
                   "alternative": "Undecided",
@@ -64,7 +64,7 @@
             "questions": [
               {
                 "question": "diagnosis1",
-                "entityInstance": "severe-asthma-1",
+                "entityInstance": "",
                 "answerAlternatives": [
 
                   {
@@ -88,7 +88,7 @@
 
               {
                 "question": "severity",
-                "entityInstance": "severe-asthma-2",
+                "entityInstance": "",
                 "answerAlternatives": [
                   {
                     "alternative": "Severe",
@@ -118,7 +118,7 @@
             "questions": [
               {
                 "question": "management1",
-                "entityInstance": "severe-asthma-1",
+                "entityInstance": "",
                 "answerAlternatives": [
 
                   {
@@ -146,7 +146,7 @@
 
               {
                 "question": "severity",
-                "entityInstance": "severe-asthma-2",
+                "entityInstance": "",
                 "answerAlternatives": [
                   {
                     "alternative": "Severe",
@@ -177,7 +177,7 @@
 
               {
                 "question": "severity",
-                "entityInstance": "severe-asthma-2",
+                "entityInstance": "",
                 "answerAlternatives": [
                   {
                     "alternative": "Severe",

@@ -97,25 +97,27 @@ export const initializeQuiz = ()=> {
                    let skill = new Skill();
                    skill.setDiscipline(discipline);
                    if (element.hasOwnProperty(discipline)) {
-                       Game.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, element[discipline]));
+                       //Game.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, element[discipline]));
                        skill.setScore(element[discipline]);
                    }
                    else {
-                       Game.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 0));
+                       //Game.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 0));
                        skill.setScore(0);
                    }
                    Game.addSkill(skill);
                 });
+                Game.addQuestions();
                 dispatch(INITIALIZE_QUIZ())
             })
             .catch(()=>{
                 Game.getDisciplines().map((discipline) => {
                     let skill = new Skill();
                     skill.setDiscipline(discipline);
-                    Game.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 0));
+                    //Game.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 0));
                     skill.setScore(0);
                     Game.addSkill(skill);
                 });
+                Game.addQuestions();
                 dispatch(INITIALIZE_QUIZ());
             });
     }

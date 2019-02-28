@@ -11,19 +11,15 @@ class Discipline {
         this._name = name;
     }
     setAllowedLevels(levels) {
-        console.log("SETTER ALLLOWED!!!!!");
         this._allowedLevels = levels;
     }
     getAllowedLevels() {
-        console.log("GETTER ALLLOWED!!!!!");
         return this._allowedLevels;
     }
     setUnAllowedLevels(levels) {
-        console.log("SETTER UNALLLOWED!!!!!");
         this._unallowedLevels = levels;
     }
     getUnAllowedLevels() {
-        console.log("GETTER UNALLLOWED!!!!!");
         return this._unallowedLevels;
     }
 

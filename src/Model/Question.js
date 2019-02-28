@@ -3,6 +3,7 @@ class Question {
         this._level = 0;
         this._discipline = "";
         this._requiredMinSkill = 0;
+        this._passingCondition = 0;
 
 
         this._narrative = "";
@@ -27,6 +28,12 @@ class Question {
     }
     getRequiredMinSkill() {
         return this._requiredMinSkill;
+    }
+    setPassingCondition(passingCondition) {
+        this._passingCondition = passingCondition;
+    }
+    getPassingCondition() {
+        return this._passingCondition;
     }
     setNarrative(narrative) {
         this._narrative = narrative;

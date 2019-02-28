@@ -1,5 +1,6 @@
 import Quiz from '../Model/Quiz';
 import QuizDAO from "../DAO/QuizDAO";
+import QuestionDAO from "../DAO/QuestionDAO";
 import Skill from "../Model/Skill";
 import Discipline from "../Model/Discipline";
 import Level from "../Model/Level";
@@ -32,8 +33,14 @@ class Game {
         this._quiz.getDisciplines().map((discipline) => disciplines.push(discipline.getName()));
         return disciplines;
     }
-    static addQuestions(questions) {
-        this._quiz.addQuestions(questions);
+    static addQuestions() {
+        this.getDisciplines().map((discipline)=>{
+            console.log("DISCIPLINE", discipline);
+            this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 1));
+        });
+
+
+        //this._quiz.addQuestions(questions);
     }
 
     static getAllowedLevels(discipline) {

@@ -7,7 +7,38 @@ const Template = require('../Graph/Template');
 class QuestionDAO {
     constructor() {
     }
-    static getQuestions(category, discipline, skill, ) {
+
+    static getQuestions(category, discipline, level) {
+        console.log("CATEGORY", category, "DISCIPLINE", discipline, "LEVEL", level);
+        let questions = [];
+        let guideline = json;
+        guideline.categories.map((c)=>{
+            if (c.category === category)
+                c.disciplines.map((d)=>{
+                    if (d.discipline === discipline)
+                        d.levels.map((l)=>{
+                           if(l.level === level)
+                               l.questions.map((q)=>{
+                                   let question = new Question();
+                                   question.setLevel(l.level);
+                                   question.setDiscipline(d.discipline);
+                                   question.setRequiredMinSkill(l.requiredMinSkill);
+                                   question.setPassingCondition(l.passingCondition);
+
+                                   question.setNarrative(jsonQuestion.questions[q.question].narrative);
+                                   question.setAnswerKey(jsonQuestion.questions[q.question].answerKey);
+
+                                   question.setAnswerAlternatives(this._getAnswerKeys(q));
+                                   question.setAnswerExplanation(jsonQuestion.questions[q.question].explanation);
+
+                                   questions.push(question);
+                               })
+                        });
+                })
+        });
+        return questions;
+    }
+    static getQuestionsOLD(category, discipline, skill, ) {
         let questions = [];
         for (let i = 0; i < json.categories.length; i++)
             if (json.categories[i].category === category)
