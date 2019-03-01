@@ -1,5 +1,7 @@
 Prototyping for evaluation:
 
+- Need to keep in mind of initializeQuiz in ActionThunk.js. It thinks that the score is still in the database, which
+ it isn't. Need to figure out how to select which questions should be in the quiz at which state.
 - The first time the app is ever run. It seems to not display level 1 at Discipline Component, but level 1 is indeed
 playable.
 - We have to think more on the requirement line in ChartComponent. Right now it has some weird behaviour when

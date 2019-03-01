@@ -55,6 +55,46 @@ class QuizDAO {
         return levels;
     }
 
+    static getUnlockedLevels(category, discipline, level) {
+        let levels = [];
+        json.categories.map((c)=> {
+            if (c.category === category)
+                c.disciplines.map((d)=>{
+                    if(d.discipline === discipline)
+                        d.levels.map((l)=> {
+                           if (l.level <= level) {
+                               let lev = new Level();
+                               lev.setLevel(l.level);
+                               lev.setPassingCondition(l.passingCondition);
+                               lev.setRequiredMinSkill(l.requiredMinSkill);
+                               levels.push(lev);
+                           }
+                        });
+                })
+        });
+        return levels;
+    }
+
+    static getLockedLevels(category, discipline, level) {
+        let levels = [];
+        json.categories.map((c)=> {
+            if (c.category === category)
+                c.disciplines.map((d)=>{
+                    if(d.discipline === discipline)
+                        d.levels.map((l)=> {
+                            if (l.level > level) {
+                                let lev = new Level();
+                                lev.setLevel(l.level);
+                                lev.setPassingCondition(l.passingCondition);
+                                lev.setRequiredMinSkill(l.requiredMinSkill);
+                                levels.push(lev);
+                            }
+                        });
+                })
+        });
+        return levels;
+    }
+
 
 
 

@@ -16,6 +16,22 @@ class Discipline {
     getAllowedLevels() {
         return this._allowedLevels;
     }
+    getAllowedLevel(level) {
+        return this._allowedLevels.map((allowedLevel)=>{
+           if (allowedLevel.getLevel() === level)
+               return allowedLevel;
+        })();
+    }
+    getLastAllowedLevel() {
+        let lastAllowedLevel = -1;
+        this._allowedLevels.map((allowedLevel, index) => {
+            if (allowedLevel.getLevel() > lastAllowedLevel)
+                lastAllowedLevel = index;
+        });
+        if (lastAllowedLevel > -1) return this._allowedLevels[lastAllowedLevel];
+        else return null;
+    }
+
     setUnAllowedLevels(levels) {
         this._unallowedLevels = levels;
     }

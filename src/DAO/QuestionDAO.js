@@ -9,7 +9,6 @@ class QuestionDAO {
     }
 
     static getQuestions(category, discipline, level) {
-        console.log("CATEGORY", category, "DISCIPLINE", discipline, "LEVEL", level);
         let questions = [];
         let guideline = json;
         guideline.categories.map((c)=>{

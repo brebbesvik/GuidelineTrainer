@@ -59,7 +59,7 @@
         "levels": [
           {
             "level": 1,
-            "passingCondition": 20,
+            "passingCondition": 10,
             "requiredMinSkill": -100,
             "questions": [
               {
@@ -113,7 +113,7 @@
         "levels": [
           {
             "level": 1,
-            "passingCondition": 20,
+            "passingCondition": 10,
             "requiredMinSkill": -100,
             "questions": [
               {

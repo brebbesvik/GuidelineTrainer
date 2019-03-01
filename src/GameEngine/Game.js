@@ -33,25 +33,27 @@ class Game {
         this._quiz.getDisciplines().map((discipline) => disciplines.push(discipline.getName()));
         return disciplines;
     }
+
     static addQuestions() {
+        console.log("SKILLS AT ADD QUESTION!", this._skills);
         this.getDisciplines().map((discipline)=>{
-            console.log("DISCIPLINE", discipline);
             this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 1));
         });
-
-
-        //this._quiz.addQuestions(questions);
     }
 
     static getAllowedLevels(discipline) {
         let allowedLevels = [];
-        this._quiz.getDiscipline(discipline).getAllowedLevels().map((level)=> {allowedLevels.push(level.getLevel());});
+        this._quiz.getDiscipline(discipline).getAllowedLevels().map((level)=> {
+            allowedLevels.push(level.getLevel());
+        });
         return allowedLevels;
     }
 
     static getUnAllowedLevels(discipline) {
         let unAllowedLevel = [];
-        this._quiz.getDiscipline(discipline).getUnAllowedLevels().map((level)=> {unAllowedLevel.push(level.getLevel())});
+        this._quiz.getDiscipline(discipline).getUnAllowedLevels().map((level)=> {
+            unAllowedLevel.push(level.getLevel());
+        });
         return unAllowedLevel;
     }
 
