@@ -30,9 +30,6 @@ class ChartComponent extends Component {
             labels+="']";
             numbers+="]";
             requirements+="]";
-            console.log("Labels" + labels);
-            console.log("Numbers" + numbers);
-            console.log("Requirements" + requirements);
           return (<WebView
                   originWhitelist={['*']}
                   source={{html: '<script src="https://code.highcharts.com/highcharts.js"></script>\n' +
