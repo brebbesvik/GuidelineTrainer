@@ -21,12 +21,12 @@ class Game {
             score.setDiscipline(discipline.getName());
             this._scores.push(score);
         });
-        this._skills = [];
+        this._skills = {};
     }
 
-    static addSkill(skill) {
+    /*static addSkill(skill) {
         this._skills.push(skill);
-    }
+    }*/
 
     static getDisciplines() {
         let disciplines = [];
@@ -34,11 +34,30 @@ class Game {
         return disciplines;
     }
 
+    static setInitialScore() {
+        let level;
+        this._scores.map((score=>{
+            level = this._quiz.getDiscipline(score.getDiscipline()).getAllowedLevel(this._skills[score.getDiscipline()]+1);
+            if(level && level.getRequiredMinSkill()>0) {score.setScore((level.getRequiredMinSkill()));}
+            else score.setScore(0);
+        }));
+    }
+
+    // TODO: ADD LEVEL 3 in the JSON. NEED THE DATABASE TO NOT OVERWRITE COMPLETED LEVELS. WEIRD STUFF IS HAPPENING BECAUSE OF THE OVERWRITING
     static addQuestions() {
         console.log("SKILLS AT ADD QUESTION!", this._skills);
-        this.getDisciplines().map((discipline)=>{
-            this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 1));
-        });
+        if(this._skills["Assessment"] === 1 && this._skills["Diagnosis"] === 1 && this._skills["Management"] === 1) {
+            this.getDisciplines().map((discipline)=>{
+                if (this._skills[discipline] !== 2)
+                    this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 2));
+            });
+        }
+        else {
+            this.getDisciplines().map((discipline)=>{
+                if (this._skills[discipline] !== 1)
+                    this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 1));
+            });
+        }
     }
 
     static getAllowedLevels(discipline) {
@@ -59,6 +78,9 @@ class Game {
 
     static getSkills() {
         return this._skills;
+    }
+    static setSkills(skills) {
+        this._skills = skills;
     }
 
     static getScores() {

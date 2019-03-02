@@ -17,10 +17,12 @@ class Discipline {
         return this._allowedLevels;
     }
     getAllowedLevel(level) {
-        return this._allowedLevels.map((allowedLevel)=>{
+        let value;
+        this._allowedLevels.map((allowedLevel)=>{
            if (allowedLevel.getLevel() === level)
-               return allowedLevel;
-        })();
+               value = allowedLevel;
+        });
+        return value;
     }
     getLastAllowedLevel() {
         let lastAllowedLevel = -1;

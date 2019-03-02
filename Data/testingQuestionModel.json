@@ -48,6 +48,34 @@
       "explanation": "Allow home on beta-agonists. \n\nDemonstrate MDI and spacer use to the caregiver before discharge from the health facility. \n\nAdvise on regular follow up.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
+    },
+    "assessment31": {
+      "narrative": "Assessment story",
+      "answerKey": "True",
+      "explanation": "Assessment explanation",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "diagnosis31": {
+      "narrative": "Diagnosis story",
+      "answerKey": "True",
+      "explanation": "Diagnosis explanation",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "management31": {
+      "narrative": "Management story",
+      "answerKey": "True",
+      "explanation": "Management explanation",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "follow-up31": {
+      "narrative": "Follow-up story",
+      "answerKey": "True",
+      "explanation": "Follow-up explanation",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
     }
   }
 }

@@ -37,15 +37,40 @@
               "entityInstance": "",
               "answerAlternatives": [
                 {
-                  "alternative": "Undecided",
+                  "alternative": "Lower Chest Wall Indrawing",
                   "reward": -5
                 },
                 {
-                  "alternative": "Asthma",
+                  "alternative": "Fever",
                   "reward": -10
                 },
                 {
-                  "alternative": "No asthma",
+                  "alternative": "Wheeze",
+                  "reward": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "passingCondition": 30,
+          "requiredMinSkill": 20,
+          "questions": [
+            {
+              "question": "assessment31",
+              "entityInstance": "",
+              "answerAlternatives": [
+                {
+                  "alternative": "False",
+                  "reward": -5
+                },
+                {
+                  "alternative": "False",
+                  "reward": -10
+                },
+                {
+                  "alternative": "True",
                   "reward": 10
                 }
               ]
@@ -91,15 +116,40 @@
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
-                    "alternative": "Severe",
+                    "alternative": "Oxygen saturation <90%",
                     "reward": 10
                   },
                   {
-                    "alternative": "No asthma",
+                    "alternative": "Lower Chest Wall Indrawing",
                     "reward": -5
                   },
                   {
-                    "alternative": "Mild or moderate",
+                    "alternative": "Respiratory Rate > 50 bpm",
+                    "reward": -10
+                  }
+                ]
+              }
+            ]},
+          {
+            "level": 3,
+            "passingCondition": 30,
+            "requiredMinSkill": 20,
+            "questions": [
+
+              {
+                "question": "diagnosis31",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "True",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "False",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "False",
                     "reward": -10
                   }
                 ]
@@ -149,15 +199,40 @@
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
-                    "alternative": "Severe",
+                    "alternative": "Corticosteroid and oxygen",
                     "reward": 10
                   },
                   {
-                    "alternative": "No asthma",
+                    "alternative": "Oxygen",
                     "reward": -5
                   },
                   {
-                    "alternative": "Mild or moderate",
+                    "alternative": "Corticosteroid",
+                    "reward": -10
+                  }
+                ]
+              }
+            ]},
+          {
+            "level": 3,
+            "passingCondition": 30,
+            "requiredMinSkill": 20,
+            "questions": [
+
+              {
+                "question": "management31",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "True",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "False",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "False",
                     "reward": -10
                   }
                 ]
@@ -180,15 +255,42 @@
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
-                    "alternative": "Severe",
+                    "alternative": "Allow home on beta-agonists",
                     "reward": 10
                   },
                   {
-                    "alternative": "No asthma",
+                    "alternative": "Give oxygen",
                     "reward": -5
                   },
                   {
-                    "alternative": "Mild or moderate",
+                    "alternative": "Admit to hospital",
+                    "reward": -10
+                  }
+                ]
+              }
+
+
+            ]},
+          {
+            "level": 3,
+            "passingCondition": 30,
+            "requiredMinSkill": 20,
+            "questions": [
+
+              {
+                "question": "follow-up31",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "True",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "False",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "False",
                     "reward": -10
                   }
                 ]
@@ -196,6 +298,7 @@
 
 
             ]}
+
         ]}
     ]
 

@@ -4,7 +4,7 @@ import Game from '../GameEngine/Game';
 Game.createQuiz("Asthma");
 
 const initialState = {
-    scores: Game.getScores(),
+    scores: "",
     discipline: "",
     problem: "",
     alternatives: "",
@@ -22,6 +22,7 @@ const CounterReducer = (state, action) => {
     switch (action.type) {
         case 'INITIALIZE_QUIZ':
             return Object.assign({}, state, {
+                scores: action.scores,
                 discipline: action.discipline,
                 problem: action.problem,
                 alternatives: action.alternatives,
