@@ -46,12 +46,22 @@ class Game {
     // TODO: ADD LEVEL 3 in the JSON. NEED THE DATABASE TO NOT OVERWRITE COMPLETED LEVELS. WEIRD STUFF IS HAPPENING BECAUSE OF THE OVERWRITING
     static addQuestions() {
         console.log("SKILLS AT ADD QUESTION!", this._skills);
-        if(this._skills["Assessment"] === 1 && this._skills["Diagnosis"] === 1 && this._skills["Management"] === 1) {
+
+        // LEVEL 3
+        if(this._skills["Assessment"] === 2 && this._skills["Diagnosis"] === 2 && this._skills["Management"] === 2) {
+            this.getDisciplines().map((discipline)=>{
+                if (this._skills[discipline] !== 3)
+                    this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 3));
+            });
+        }
+        // LEVEL 2
+        else if(this._skills["Assessment"] === 1 && this._skills["Diagnosis"] === 1 && this._skills["Management"] === 1) {
             this.getDisciplines().map((discipline)=>{
                 if (this._skills[discipline] !== 2)
                     this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 2));
             });
         }
+        // LEVEL 1
         else {
             this.getDisciplines().map((discipline)=>{
                 if (this._skills[discipline] !== 1)

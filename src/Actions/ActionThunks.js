@@ -224,6 +224,7 @@ export const storeScores = ()=> {
               dict[score.getDiscipline()] = 0;
           }
       });
+      // TODO return a new state instead of changing the object
       if (dict["Assessment"] === 1 && dict["Diagnosis"] === 1 && dict["Management"] === 1) {
           dict["Follow-up"] = 1;
           scores[followUpIndex].setScore(10);
