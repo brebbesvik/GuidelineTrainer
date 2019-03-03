@@ -39,6 +39,8 @@ class Game {
         this._scores.map((score=>{
             level = this._quiz.getDiscipline(score.getDiscipline()).getAllowedLevel(this._skills[score.getDiscipline()]+1);
             if(level && level.getRequiredMinSkill()>0) {score.setScore((level.getRequiredMinSkill()));}
+            else if (this._quiz.getDiscipline(score.getDiscipline()).getAllowedLevels().length > 2 || this._quiz.getDiscipline("Follow-up").getAllowedLevels().length > 1)
+                score.setScore(30);
             else score.setScore(0);
         }));
     }
@@ -47,24 +49,30 @@ class Game {
     static addQuestions() {
         console.log("SKILLS AT ADD QUESTION!", this._skills);
 
+        // COMPLETED start over again
+        if(this._skills["Assessment"] === 3 && this._skills["Diagnosis"] === 3 && this._skills["Management"] === 3 && this._skills["Follow-up"] === 3) {
+            this.getDisciplines().map((discipline)=>{
+                    this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 1));
+            });
+        }
         // LEVEL 3
-        if(this._skills["Assessment"] === 2 && this._skills["Diagnosis"] === 2 && this._skills["Management"] === 2) {
+        else if(this._skills["Assessment"] >= 2 && this._skills["Diagnosis"] >= 2 && this._skills["Management"] >= 2 && this._skills["Follow-up"] >= 2) {
             this.getDisciplines().map((discipline)=>{
                 if (this._skills[discipline] !== 3)
                     this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 3));
             });
         }
         // LEVEL 2
-        else if(this._skills["Assessment"] === 1 && this._skills["Diagnosis"] === 1 && this._skills["Management"] === 1) {
+        else if(this._skills["Assessment"] >= 1 && this._skills["Diagnosis"] >= 1 && this._skills["Management"] >= 1 && this._skills["Follow-up"] >= 1) {
             this.getDisciplines().map((discipline)=>{
-                if (this._skills[discipline] !== 2)
+                if (this._skills[discipline] !== 2 && this._skills[discipline] !== 3)
                     this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 2));
             });
         }
         // LEVEL 1
         else {
             this.getDisciplines().map((discipline)=>{
-                if (this._skills[discipline] !== 1)
+                if (this._skills[discipline] === 0)
                     this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 1));
             });
         }

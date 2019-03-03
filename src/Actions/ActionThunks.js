@@ -225,14 +225,14 @@ export const storeScores = ()=> {
           }
       });
       // TODO return a new state instead of changing the object
-      if (dict["Assessment"] === 1 && dict["Diagnosis"] === 1 && dict["Management"] === 1) {
+      if (dict["Assessment"] >= 1 && dict["Diagnosis"] >= 1 && dict["Management"] >= 1 && dict["Follow-up"] === 0) {
           dict["Follow-up"] = 1;
           scores[followUpIndex].setScore(10);
       }
-      else if (dict["Assessment"] === 0 || dict["Diagnosis"] === 0 || dict["Management"] === 0) {
+      /*else if (dict["Assessment"] === 0 || dict["Diagnosis"] === 0 || dict["Management"] === 0) {
           dict["Follow-up"] = 0;
           scores[followUpIndex].setScore(0);
-      }
+      }*/
       console.log("DICT:", dict);
       AsyncStorage.setItem("Asthma", JSON.stringify(dict))
           .catch(()=>console.log("Something went wrong when storing the results"));
