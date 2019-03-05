@@ -34,15 +34,14 @@ const ProgressReducer = (state, action) => {
         case Actions.NEXT_LEVEL_REQUIREMENTS:
             let requirements = {};
             Game.getQuiz().getDisciplines().map((discipline)=>{
-                let score= 0;
-                let index= 0;
-                for (let i=0; i<discipline.getUnAllowedLevels().length; i++ ) {
+                //let index= 0;
+                /*for (let i=0; i<discipline.getUnAllowedLevels().length; i++ ) {
                     if (score < discipline.getUnAllowedLevels()[i].getRequiredMinSkill()) {
                         score = discipline.getUnAllowedLevels()[i].getRequiredMinSkill();
-                        index = i;
+                        //index = i;
                     }
-                }
-                requirements[discipline.getName()] = score;
+                }*/
+                requirements[discipline.getName()] = discipline.getLastAllowedLevel().getPassingCondition();
             });
             return Object.assign({}, state, {
                 requirements: requirements

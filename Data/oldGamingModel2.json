@@ -1,0 +1,306 @@
+{"categories":[
+  {
+    "category": "Asthma",
+    "disciplines": [{
+      "discipline": "Assessment",
+      "levels": [
+        {
+          "level": 1,
+          "passingCondition": 10,
+          "requiredMinSkill": -100,
+          "questions": [
+            {
+              "question": "assessment11",
+              "entityInstance": "",
+              "answerAlternatives": [
+                {
+                  "alternative": "Cough and difficulty in breathing",
+                  "reward": -1
+                },
+                {
+                  "alternative": "Cough and fever",
+                  "reward": -2
+                },
+                {
+                  "alternative": "Wheeze with cough or difficulty in breathing",
+                  "reward": 10
+                }
+              ]
+            }]},
+        {
+          "level": 2,
+          "passingCondition": 20,
+          "requiredMinSkill": 10,
+          "questions": [
+            {
+              "question": "assessment21",
+              "entityInstance": "",
+              "answerAlternatives": [
+                {
+                  "alternative": "Lower Chest Wall Indrawing",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Fever",
+                  "reward": -10
+                },
+                {
+                  "alternative": "Wheeze",
+                  "reward": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "passingCondition": 30,
+          "requiredMinSkill": 20,
+          "questions": [
+            {
+              "question": "assessment31",
+              "entityInstance": "",
+              "answerAlternatives": [
+                {
+                  "alternative": "False",
+                  "reward": -5
+                },
+                {
+                  "alternative": "False",
+                  "reward": -10
+                },
+                {
+                  "alternative": "True",
+                  "reward": 10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+      {
+        "discipline": "Diagnosis",
+        "levels": [
+          {
+            "level": 1,
+            "passingCondition": 10,
+            "requiredMinSkill": -100,
+            "questions": [
+              {
+                "question": "diagnosis11",
+                "entityInstance": "",
+                "answerAlternatives": [
+
+                  {
+                    "alternative": "Mild",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Moderate",
+                    "reward": -1
+                  },
+                  {
+                    "alternative": "Severe",
+                    "reward": 10
+                  }
+                ]}]},
+          {
+            "level": 2,
+            "passingCondition": 20,
+            "requiredMinSkill": 10,
+            "questions": [
+
+              {
+                "question": "diagnosis21",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Oxygen saturation <90%",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Lower Chest Wall Indrawing",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Respiratory Rate > 50 bpm",
+                    "reward": -10
+                  }
+                ]
+              }
+            ]},
+          {
+            "level": 3,
+            "passingCondition": 30,
+            "requiredMinSkill": 20,
+            "questions": [
+
+              {
+                "question": "diagnosis31",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "True",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "False",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "False",
+                    "reward": -10
+                  }
+                ]
+              }
+
+
+            ]}
+        ]},
+      {
+        "discipline": "Management",
+        "levels": [
+          {
+            "level": 1,
+            "passingCondition": 10,
+            "requiredMinSkill": -100,
+            "questions": [
+              {
+                "question": "management11",
+                "entityInstance": "",
+                "answerAlternatives": [
+
+                  {
+                    "alternative": "Oral corticosteroids",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Inhaled corticosteroids",
+                    "reward": -1
+                  },
+                  {
+                    "alternative": "Antibiotics",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Short acting beta-agonists",
+                    "reward": 10
+                  }
+                ]}]},
+          {
+            "level": 2,
+            "passingCondition": 20,
+            "requiredMinSkill": 10,
+            "questions": [
+
+              {
+                "question": "management21",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Corticosteroid and oxygen",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Oxygen",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Corticosteroid",
+                    "reward": -10
+                  }
+                ]
+              }
+            ]},
+          {
+            "level": 3,
+            "passingCondition": 30,
+            "requiredMinSkill": 20,
+            "questions": [
+
+              {
+                "question": "management31",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "True",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "False",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "False",
+                    "reward": -10
+                  }
+                ]
+              }
+
+
+            ]}
+        ]},
+      {
+        "discipline": "Follow-up",
+        "levels": [
+          {
+            "level": 2,
+            "passingCondition": 20,
+            "requiredMinSkill": 10,
+            "questions": [
+
+              {
+                "question": "follow-up21",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Allow home on beta-agonists",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Give oxygen",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Admit to hospital",
+                    "reward": -10
+                  }
+                ]
+              }
+
+
+            ]},
+          {
+            "level": 3,
+            "passingCondition": 30,
+            "requiredMinSkill": 20,
+            "questions": [
+
+              {
+                "question": "follow-up31",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "True",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "False",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "False",
+                    "reward": -10
+                  }
+                ]
+              }
+
+
+            ]}
+
+        ]}
+    ]
+
+  }
+]}
