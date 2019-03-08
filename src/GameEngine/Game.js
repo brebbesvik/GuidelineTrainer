@@ -38,11 +38,65 @@ class Game {
         let level;
         this._scores.map((score=>{
             level = this._quiz.getDiscipline(score.getDiscipline()).getAllowedLevel(this._skills[score.getDiscipline()]+1);
-            if(level && level.getRequiredMinSkill()>0) {score.setScore((level.getRequiredMinSkill()));}
-            else if (this._quiz.getDiscipline(score.getDiscipline()).getAllowedLevels().length > 2 || this._quiz.getDiscipline("Follow-up").getAllowedLevels().length > 1)
-                score.setScore(30);
-            else score.setScore(0);
+            if(level && level.getRequiredMinSkill()>0) {
+                score.setScore((level.getRequiredMinSkill()));
+            }
+            else if (this._skills["Assessment"] === 3 && this._skills["Diagnosis"] === 3 && this._skills["Management"] === 3 && this._skills["Follow-up"] === 3) {
+                score.setScore(0);
+            }
+            else if (this._quiz.getDiscipline(score.getDiscipline()).getAllowedLevels().length > 2  && score.getDiscipline() === "Assessment") {
+                score.setScore(80);
+
+            }
+            else if (this._quiz.getDiscipline(score.getDiscipline()).getAllowedLevels().length > 2  && score.getDiscipline() === "Diagnosis") {
+                score.setScore(90);
+
+            }
+            else if (this._quiz.getDiscipline(score.getDiscipline()).getAllowedLevels().length > 2  && score.getDiscipline() === "Management") {
+                score.setScore(70);
+
+            }
+            else if(this._quiz.getDiscipline("Follow-up").getAllowedLevels().length > 1 && score.getDiscipline() === 'Follow-up') {
+                score.setScore(60);
+            }
+            else {
+                score.setScore(0);
+            }
         }));
+        console.log("SCORES:", this._scores);
+    }
+
+    static orderQuestions() {
+        let assessment = [];
+        let diagnosis = [];
+        let management = [];
+        let followup = [];
+        this._quiz.getQuestions().map((question)=>{
+            if (question.getDiscipline() === 'Assessment')
+                assessment.push(question);
+            else if (question.getDiscipline() === 'Diagnosis')
+                diagnosis.push(question);
+            else if (question.getDiscipline() === 'Management')
+                management.push(question);
+            else if (question.getDiscipline() === 'Follow-up')
+                followup.push(question);
+        });
+        let length = Math.max(assessment.length, diagnosis.length, management.length, followup.length);
+        let questions = [];
+        for (let i=0; i<length; i++) {
+            if(assessment[i])
+                questions.push(assessment[i]);
+            if(diagnosis[i])
+                questions.push(diagnosis[i]);
+            if(management[i])
+                questions.push(management[i]);
+            if(followup[i])
+                questions.push(followup[i]);
+        }
+
+        //console.log(questions);
+        this._quiz.setQuestions(questions);
+
     }
 
     // TODO: ADD LEVEL 3 in the JSON. NEED THE DATABASE TO NOT OVERWRITE COMPLETED LEVELS. WEIRD STUFF IS HAPPENING BECAUSE OF THE OVERWRITING
@@ -76,7 +130,9 @@ class Game {
                     this._quiz.addQuestions(QuestionDAO.getQuestions("Asthma", discipline, 1));
             });
         }
+        this.orderQuestions();
     }
+    
 
     static getAllowedLevels(discipline) {
         let allowedLevels = [];

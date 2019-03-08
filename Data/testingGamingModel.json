@@ -6,7 +6,7 @@
       "levels": [
         {
           "level": 1,
-          "passingCondition": 10,
+          "passingCondition": 30,
           "requiredMinSkill": -100,
           "questions": [
             {
@@ -14,38 +14,92 @@
               "entityInstance": "",
               "answerAlternatives": [
                 {
-                  "alternative": "Cough and difficulty in breathing",
+                  "alternative": "Difficulty breathing and cough",
                   "reward": -1
                 },
                 {
-                  "alternative": "Cough and fever",
+                  "alternative": "Difficulty breathing",
                   "reward": -2
                 },
                 {
-                  "alternative": "Wheeze with cough or difficulty in breathing",
+                  "alternative": "Wheeze with a history of cough",
+                  "reward": 10
+                }
+              ]
+            },
+            {
+              "question": "assessment12",
+              "entityInstance": "",
+              "answerAlternatives": [
+                {
+                  "alternative": "Wheeze",
+                  "reward": -1
+                },
+                {
+                  "alternative": "Recurrent cough",
+                  "reward": -2
+                },
+                {
+                  "alternative": "Wheeze and difficulty breathing",
+                  "reward": 10
+                }
+              ]
+            },
+            {
+              "question": "assessment13",
+              "entityInstance": "",
+              "answerAlternatives": [
+                {
+                  "alternative": "History of cough and difficulty breathing",
+                  "reward": -1
+                },
+                {
+                  "alternative": "History of cough and fever",
+                  "reward": -2
+                },
+                {
+                  "alternative": "Recurrent wheeze and age > 12m",
                   "reward": 10
                 }
               ]
             }]},
         {
           "level": 2,
-          "passingCondition": 20,
-          "requiredMinSkill": 10,
+          "passingCondition": 50,
+          "requiredMinSkill": 30,
           "questions": [
             {
               "question": "assessment21",
               "entityInstance": "",
               "answerAlternatives": [
                 {
-                  "alternative": "Lower Chest Wall Indrawing",
+                  "alternative": "Difficulty breathing",
                   "reward": -5
                 },
                 {
-                  "alternative": "Fever",
+                  "alternative": "Cough",
                   "reward": -10
                 },
                 {
                   "alternative": "Wheeze",
+                  "reward": 10
+                }
+              ]
+            },
+            {
+              "question": "assessment22",
+              "entityInstance": "",
+              "answerAlternatives": [
+                {
+                  "alternative": "Recurrent cough",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Lower Chest Wall Indrawing",
+                  "reward": -10
+                },
+                {
+                  "alternative": "Difficulty breathing or history of cough",
                   "reward": 10
                 }
               ]
@@ -54,23 +108,59 @@
         },
         {
           "level": 3,
-          "passingCondition": 30,
-          "requiredMinSkill": 20,
+          "passingCondition": 80,
+          "requiredMinSkill": 50,
           "questions": [
             {
               "question": "assessment31",
               "entityInstance": "",
               "answerAlternatives": [
                 {
-                  "alternative": "False",
+                  "alternative": "Wheeze",
                   "reward": -5
                 },
                 {
-                  "alternative": "False",
+                  "alternative": "Difficulty breathing",
                   "reward": -10
                 },
                 {
-                  "alternative": "True",
+                  "alternative": "Recurrent wheeze",
+                  "reward": 10
+                }
+              ]
+            },
+            {
+              "question": "assessment32",
+              "entityInstance": "",
+              "answerAlternatives": [
+                {
+                  "alternative": "Wheeze",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Difficulty breathing and recurrent cough",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Wheeze and difficulty breathing",
+                  "reward": 10
+                }
+              ]
+            },
+            {
+              "question": "assessment33",
+              "entityInstance": "",
+              "answerAlternatives": [
+                {
+                  "alternative": "Recurrent wheeze",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Difficulty breathing and recurrent cough",
+                  "reward": -5
+                },
+                {
+                  "alternative": "Wheeze and history of cough",
                   "reward": 10
                 }
               ]
@@ -84,14 +174,13 @@
         "levels": [
           {
             "level": 1,
-            "passingCondition": 10,
+            "passingCondition": 40,
             "requiredMinSkill": -100,
             "questions": [
               {
                 "question": "diagnosis11",
                 "entityInstance": "",
                 "answerAlternatives": [
-
                   {
                     "alternative": "Mild",
                     "reward": -2
@@ -104,13 +193,67 @@
                     "alternative": "Severe",
                     "reward": 10
                   }
+                ]
+              },
+              {
+                "question": "diagnosis12",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Mild",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Moderate",
+                    "reward": -1
+                  },
+                  {
+                    "alternative": "Severe",
+                    "reward": 10
+                  }
+                ]
+              },
+              {
+                "question": "diagnosis13",
+                "entityInstance": "",
+                "answerAlternatives": [
+
+                  {
+                    "alternative": "Mild",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Severe",
+                    "reward": -1
+                  },
+                  {
+                    "alternative": "Moderate or mild",
+                    "reward": 10
+                  }]
+              },
+              {
+                "question": "diagnosis14",
+                "entityInstance": "",
+                "answerAlternatives": [
+
+                  {
+                    "alternative": "Mild",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Severe",
+                    "reward": -1
+                  },
+                  {
+                    "alternative": "Moderate or mild",
+                    "reward": 10
+                  }
                 ]}]},
           {
             "level": 2,
-            "passingCondition": 20,
-            "requiredMinSkill": 10,
+            "passingCondition": 60,
+            "requiredMinSkill": 40,
             "questions": [
-
               {
                 "question": "diagnosis21",
                 "entityInstance": "",
@@ -124,7 +267,25 @@
                     "reward": -5
                   },
                   {
-                    "alternative": "Respiratory Rate > 50 bpm",
+                    "alternative": "Recurrent Wheeze",
+                    "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "diagnosis22",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Lower chest wall indrawing",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Wheeze",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "History of cough",
                     "reward": -10
                   }
                 ]
@@ -132,8 +293,8 @@
             ]},
           {
             "level": 3,
-            "passingCondition": 30,
-            "requiredMinSkill": 20,
+            "passingCondition": 90,
+            "requiredMinSkill": 60,
             "questions": [
 
               {
@@ -141,15 +302,51 @@
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
-                    "alternative": "True",
+                    "alternative": "Severe",
                     "reward": 10
                   },
                   {
-                    "alternative": "False",
+                    "alternative": "Moderate",
                     "reward": -5
                   },
                   {
-                    "alternative": "False",
+                    "alternative": "Mild",
+                    "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "diagnosis32",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Mild or moderate",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Severe",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Mild",
+                    "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "diagnosis33",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Mild or moderate",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Severe",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Mild",
                     "reward": -10
                   }
                 ]
@@ -163,77 +360,157 @@
         "levels": [
           {
             "level": 1,
-            "passingCondition": 10,
+            "passingCondition": 20,
             "requiredMinSkill": -100,
             "questions": [
               {
                 "question": "management11",
                 "entityInstance": "",
                 "answerAlternatives": [
-
+                  {
+                    "alternative": "Short acting beta agonists",
+                    "reward": -1
+                  },
                   {
                     "alternative": "Oral corticosteroids",
                     "reward": -2
                   },
                   {
-                    "alternative": "Inhaled corticosteroids",
-                    "reward": -1
-                  },
-                  {
-                    "alternative": "Antibiotics",
+                    "alternative": "Anti-cholinergics",
                     "reward": -2
                   },
                   {
-                    "alternative": "Short acting beta-agonists",
+                    "alternative": "Inhaled corticosteroids",
+                    "reward": 10
+                  }
+                ]
+              },
+              {
+                "question": "management12",
+                "entityInstance": "",
+                "answerAlternatives": [
+
+                  {
+                    "alternative": "Short acting beta agonists",
+                    "reward": -1
+                  },
+                  {
+                    "alternative": "Oral corticosteroids",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Oxygen",
+                    "reward": -2
+                  },
+                  {
+                    "alternative": "Inhaled corticosteroids",
                     "reward": 10
                   }
                 ]}]},
           {
             "level": 2,
-            "passingCondition": 20,
-            "requiredMinSkill": 10,
+            "passingCondition": 40,
+            "requiredMinSkill": 20,
             "questions": [
-
               {
                 "question": "management21",
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
-                    "alternative": "Corticosteroid and oxygen",
+                    "alternative": "Prednisolone and oxygen",
                     "reward": 10
+                  },
+                  {
+                    "alternative": "Ipratropium bromide",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Formoterol",
+                    "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "management22",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Prednisolone",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Salbutamol",
+                    "reward": -5
                   },
                   {
                     "alternative": "Oxygen",
                     "reward": -5
-                  },
-                  {
-                    "alternative": "Corticosteroid",
-                    "reward": -10
                   }
                 ]
               }
             ]},
           {
             "level": 3,
-            "passingCondition": 30,
-            "requiredMinSkill": 20,
+            "passingCondition": 70,
+            "requiredMinSkill": 40,
             "questions": [
+
 
               {
                 "question": "management31",
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
-                    "alternative": "True",
+                    "alternative": "2.5mg",
                     "reward": 10
                   },
                   {
-                    "alternative": "False",
+                    "alternative": "3.5mg",
                     "reward": -5
                   },
                   {
-                    "alternative": "False",
+                    "alternative": "4.5mg",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "5.5mg",
                     "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "management32",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "20 minutes",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "30 minutes",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "40 minutes",
+                    "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "management33",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Oral",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Nebulization",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Inhaler with spacer and mask",
+                    "reward": -5
                   }
                 ]
               }
@@ -246,7 +523,7 @@
         "levels": [
           {
             "level": 2,
-            "passingCondition": 20,
+            "passingCondition": 30,
             "requiredMinSkill": 10,
             "questions": [
 
@@ -255,15 +532,37 @@
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
-                    "alternative": "Allow home on beta-agonists",
+                    "alternative": "5 days",
                     "reward": 10
                   },
                   {
-                    "alternative": "Give oxygen",
+                    "alternative": "3 days",
                     "reward": -5
                   },
                   {
-                    "alternative": "Admit to hospital",
+                    "alternative": "14 days",
+                    "reward": -10
+                  },
+                  {
+                    "alternative": "30 days",
+                    "reward": -10
+                  }
+                ]
+              },
+              {
+                "question": "follow-up22",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Treat as severe asthma",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Administer inhaled corticosteroids",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Allow home on salbutamol",
                     "reward": -10
                   }
                 ]
@@ -273,8 +572,8 @@
             ]},
           {
             "level": 3,
-            "passingCondition": 30,
-            "requiredMinSkill": 20,
+            "passingCondition": 60,
+            "requiredMinSkill": 30,
             "questions": [
 
               {
@@ -282,17 +581,66 @@
                 "entityInstance": "",
                 "answerAlternatives": [
                   {
-                    "alternative": "True",
+                    "alternative": "Inhaled corticosteroids",
                     "reward": 10
                   },
                   {
-                    "alternative": "False",
+                    "alternative": "Salbutamol",
                     "reward": -5
                   },
                   {
-                    "alternative": "False",
+                    "alternative": "Prednisolone",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Long-term antibiotics",
                     "reward": -10
                   }
+                ]
+              },
+              {
+                "question": "follow-up32",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "Allow home on salbutamol MDI",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Admit and monitor overnight",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Prednisolone",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Administer inhaled corticosteroids and monitor",
+                    "reward": -5
+                  }
+                ]
+              },
+              {
+                "question": "follow-up33",
+                "entityInstance": "",
+                "answerAlternatives": [
+                  {
+                    "alternative": "All alternatives",
+                    "reward": 10
+                  },
+                  {
+                    "alternative": "Demonstrate how to use spacer and mask",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Counsel caregiver on signs of deterioration",
+                    "reward": -5
+                  },
+                  {
+                    "alternative": "Return to hospital incase of signs of worsening",
+                    "reward": -5
+                  }
+
                 ]
               }
 

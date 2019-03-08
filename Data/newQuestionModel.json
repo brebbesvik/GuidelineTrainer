@@ -100,8 +100,8 @@
 
 
     "assessment22": {
-      "narrative": "Ole is brought to the emergency clinic by his parents. Hei just 6 months old. What other symptoms than wheeze should you look for when determining possible asthma?",
-      "answerKey": "Difficulty breathing and history of cough",
+      "narrative": "Ole is brought to the emergency clinic by his parents. He is just 6 months old. What other symptoms than wheeze should you look for when determining possible asthma?",
+      "answerKey": "Difficulty breathing or history of cough",
       "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma. \n\n Likelihood of asthma much higher if age > 12m and recurrent wheeze",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
@@ -184,6 +184,35 @@
       "narrative": "Ben has been treated for moderate or mild asthma at the emergency clinic. He is now symptom free. After monitoring for 2 hours, which of the following is the recommended next step?",
       "answerKey": "Allow home on salbutamol MDI",
       "explanation": "Follow-up explanation",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+
+    "assessment33": {
+      "narrative": "Arthur has arrived at the emergency clinic. He is 2 months old. What of these symptoms will convince you that he has possible asthma?",
+      "answerKey": "Wheeze and history of cough",
+      "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma. \n\n Likelihood of asthma much higher if age > 12m and recurrent wheeze",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "diagnosis33": {
+      "narrative": "To determine the severity level of Arthurs asthma, you found an oxygen saturation of 92% and respiratory rate of 55bpm. What is the severity level?",
+      "answerKey": "Mild or moderate",
+      "explanation": "Oxygen saturation is one of the symptoms we examine in regards of severe asthma. However 92% doesn't indicate severe asthma. \n\nRespiratory rate of 55bpm is a symptom which indicates mild or moderate asthma for children 2-11 months old.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "management33": {
+      "narrative": "For Arthur you make a diagnosis of mild or moderate asthma and initiate a treatment plan. Which of the following is not a preferred method of administration of the salbutamol?",
+      "answerKey": "Oral",
+      "explanation": "Salbutamol should either be given with a nebulizer or inhaler with spacer and mask.",
+      "evidence": "http://www.forskning.no",
+      "guideline": "http://www.nice.org.uk"
+    },
+    "follow-up33": {
+      "narrative": "Arthur has been treated for moderate or mild asthma at the emergency clinic. He is now symptom free. Which of the following pieces of advice will you give the care-giver on discharge of the patient?",
+      "answerKey": "All alternatives",
+      "explanation": "The advice to the councils caregiver should be given as follows: \n\n-Demonstrate how to use spacer and mask \n-Counsel caregiver on signs of deterioration and to return to hospital incase of signs of worsening \nPlan to return for review after 48 hours.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     }

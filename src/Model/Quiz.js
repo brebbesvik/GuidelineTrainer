@@ -51,6 +51,9 @@ class Quiz {
     getQuestion() {
         return this._questions[this._questionNumber];
     }
+    getQuestions() {
+        return this._questions;
+    }
     getNumberOfQuestions() {
         return this._questions.length;
     }

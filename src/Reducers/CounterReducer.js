@@ -48,6 +48,7 @@ const CounterReducer = (state, action) => {
             });
         case Actions.NEXT_QUESTION:
             Game.getQuiz().increaseQuestionNumber();
+            console.log("SCORE AFTER QUESTION: ", state.scores);
             return Object.assign({}, state, {
                 discipline: Game.getQuiz().getQuestion().getDiscipline(),
                 problem: Game.getQuiz().getQuestion().getNarrative(),
