@@ -45,13 +45,6 @@ class DisciplineComponent extends Component{
             });
         };
         const disciplineList = this.props.disciplines.map((discipline, index) => {
-            /*if (this.props.allLevels[index].length === 0)
-                return (
-                    <View key={index}>
-                        <Text key={index} style={{fontSize: 30, margin:10}}>{discipline}</Text>
-                    </View>
-                );
-            else*/
                 return (
                     <View key={index}>
                         <Text key={index} style={{fontSize: 20, margin:10}}>{discipline}</Text>
@@ -64,9 +57,7 @@ class DisciplineComponent extends Component{
         return (
             <ScrollView style={{backgroundColor:"#f2e7f2"}}>
                 {disciplineList}
-                {/*<Text>Tester en tekst: {this.props.allLevels}</Text>*/}
                 <View style={styles.buttonView}>
-                    {/*<Button title={"Start quiz"} color="#841584" onPress={() => {navigateTo()}}/>*/}
                     <TouchableOpacity
                         style={styles.button}
                         onPress={() => {navigateTo()}}>

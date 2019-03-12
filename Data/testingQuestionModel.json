@@ -24,28 +24,28 @@
 
 
     "diagnosis11": {
-      "narrative": "In a patient with wheeze and cough or difficulty in breathing, presence of central cyanosis suggests which severity of asthma?",
+      "narrative": "In a patient with wheeze and cough or difficulty in breathing, presence of central cyanosis suggests which level of severity of asthma?",
       "answerKey": "Severe",
-      "explanation": "There are six symptoms where either of them indicates severe asthma. Central cyanosis is one of them and means that the finger nails or lips get bluer in colour.",
+      "explanation": "The symptoms that indicate severe asthma include: Central cyanosis, tachycardia, tachypnea, inability to feed, inability to talk in complete sentences .",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "diagnosis12": {
-      "narrative": "In a patient with wheeze and cough or difficulty in breathing, and an inability to talk in complete sentences suggests which severity of asthma?",
+      "narrative": "In a patient with wheeze and cough or difficulty in breathing, an inability to talk in complete sentences suggests which severity of asthma?",
       "answerKey": "Severe",
-      "explanation": "There are six symptoms where either of them indicates severe asthma. An inability to talk in complete sentences is one of them.",
+      "explanation": "The symptoms that indicate severe asthma include: Central cyanosis, tachycardia, tachypnea, inability to feed, inability to talk in complete sentences.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "diagnosis13": {
       "narrative": "What asthma severity level is associated with lower chest wall indrawing?",
-      "answerKey": "Moderate or mild",
-      "explanation": "Two symptoms are associated with mild or moderate asthma. \n\nOne of them is lower chest wall indrawing. The other one is respiratory rate, which has thresholds depending on the age of the patient.",
+      "answerKey": "Mild or Moderate",
+      "explanation": "The symptoms associated with mild or moderate asthma are: \n\nLower chest wall indrawing. Increased respiratory rate, which has thresholds depending on the age of the patient.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "diagnosis14": {
-      "narrative": "A one year old child is having a fast breathing. More than 40 breaths per minute. What asthma severity level is this a sign for?",
+      "narrative": "A one year old child has a wheeze, cough and an increased respiratory rate. More than 40 breaths per minute. What asthma severity level does this suggest?",
       "answerKey": "Moderate or mild",
       "explanation": "Rapid breath is a symptom we use to determine mild or moderate asthma, when we know that the asthma is not severe. \n\nThe thresholds of respiratory rate is depending on the age of the patient: \n•RR ≥ 50/min (Age 2 -11 mo)\n• RR ≥ 40/min (Age 12- 59 mo)\n• RR ≥ 30/min (Age 5 -12 yrs)",
       "evidence": "http://www.forskning.no",

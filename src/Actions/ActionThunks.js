@@ -158,12 +158,15 @@ export const storeScores = ()=> {
           dict["Follow-up"] = 1;
           scores[followUpIndex].setScore(10);
       }
-      /*else if (dict["Assessment"] === 0 || dict["Diagnosis"] === 0 || dict["Management"] === 0) {
-          dict["Follow-up"] = 0;
-          scores[followUpIndex].setScore(0);
-      }*/
       console.log("DICT:", dict);
-      AsyncStorage.setItem("Asthma", JSON.stringify(dict))
+      if(dict["Assessment"] === 3 && dict["Diagnosis"] === 3 && dict["Management"] === 3 && dict["Follow-up"] === 3) {
+          let resetDict = {"Assessment": 0, "Diagnosis": 0, "Management": 0, "Follow-up": 0};
+          console.log("RESETDICT", resetDict);
+          AsyncStorage.setItem("Asthma", JSON.stringify(resetDict))
+              .catch(() => console.log("Something went wrong when storing the reset results"));
+      }
+      else
+          AsyncStorage.setItem("Asthma", JSON.stringify(dict))
           .catch(()=>console.log("Something went wrong when storing the results"));
   };
 };

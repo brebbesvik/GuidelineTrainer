@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Navigation} from "react-native-navigation";
 
-/*const mapStateToProps = (state) => ({
-    allLevels: state.disciplineReducer.allLevels,
-});*/
-
 class LevelComponent extends Component{
     constructor(props) {
         super(props);
@@ -35,25 +31,10 @@ class LevelComponent extends Component{
                 }
             });
         };
-        /*const getLevels = (category, discipline) => {
-            console.log("Levels: " + this.props.allLevels[discipline]);
-            return this.props.allLevels[discipline];
-
-        };
-        const levelList = getLevels("Asthma", this.props.discipline).map((level, index) => {
+        const levelList = this.props.levels.map((level, index, arr)=> {
             return (
                 <View key={index}>
-                    <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}}>
-                        <Text key={index} style={{fontSize: 18}}>{level}</Text>
-                    </TouchableOpacity>
-                </View>
-            )
-        });*/
-        const levelList = this.props.levels.map((level, index)=> {
-            return (
-                <View key={index}>
-                {/*<Text style={{fontSize: 18, marginRight: 10, backgroundColor: '#158415'}} key={index}>{level}</Text>*/}
-            <TouchableOpacity style={styles.button} onPress={() => {navigateTo()}} disabled={true}>
+            <TouchableOpacity style={(arr.length-1 === index)? styles.button : styles.buttonCompleted} onPress={() => {navigateTo()}} disabled={true}>
                 <Text key={index} style={{color: '#FFFFFF', fontSize: 18}}>{level}</Text>
             </TouchableOpacity>
                 </View>
@@ -62,7 +43,6 @@ class LevelComponent extends Component{
         const lockedLevelList = this.props.locked.map((level, index)=> {
             return (
                 <View key={index}>
-                    {/*<Text style={{fontSize: 18, marginRight: 10, backgroundColor: '#158415'}} key={index}>{level}</Text>*/}
                     <TouchableOpacity style={styles.buttonDisabled} onPress={() => {navigateTo()}} disabled={true}>
                         <Text key={index} style={{color: '#FFFFFF', fontSize: 18}}>{level}</Text>
                     </TouchableOpacity>
@@ -84,8 +64,15 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center',
-        //backgroundColor: '#EFCC00',
         backgroundColor: '#848415',
+        padding: 10,
+        marginLeft: 10,
+        marginTop: 5,
+        marginBottom: 5
+    },
+    buttonCompleted: {
+        alignItems: 'center',
+        backgroundColor: '#dadab8',
         padding: 10,
         marginLeft: 10,
         marginTop: 5,

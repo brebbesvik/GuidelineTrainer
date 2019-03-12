@@ -32,7 +32,7 @@
               "entityInstance": "",
               "answerAlternatives": [
                 {
-                  "alternative": "Wheeze",
+                  "alternative": "Difficulty breathing",
                   "reward": -1
                 },
                 {
@@ -227,7 +227,7 @@
                     "reward": -1
                   },
                   {
-                    "alternative": "Moderate or mild",
+                    "alternative": "Mild or Moderate",
                     "reward": 10
                   }]
               },
