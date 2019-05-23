@@ -41,7 +41,15 @@ const ProgressReducer = (state, action) => {
                         //index = i;
                     }
                 }*/
-                requirements[discipline.getName()] = discipline.getLastAllowedLevel().getPassingCondition();
+                console.log("**************************************************************");
+                console.log("DISCIPLINE: " + discipline.getName());
+                console.log("LAST ALLOWED LEVEL" + discipline.getLastAllowedLevel());
+                //console.log("PASSING CONDITION"); + discipline.getLastAllowedLevel().getPassingCondition();
+                console.log("**************************************************************");
+                if (discipline.getLastAllowedLevel() != null) {
+                    console.log("What? " + discipline.getName());
+                    requirements[discipline.getName()] = discipline.getLastAllowedLevel().getPassingCondition();
+                }
             });
             return Object.assign({}, state, {
                 requirements: requirements

@@ -24,7 +24,7 @@
 
 
     "diagnosis11": {
-      "narrative": "In a patient with wheeze and cough or difficulty in breathing, presence of central cyanosis suggests which level of severity of asthma?",
+      "narrative": "In a patient with wheeze and cough or difficulty in breathing, presence of central cyanosis would suggest which level of severity of asthma?",
       "answerKey": "Severe",
       "explanation": "The symptoms that indicate severe asthma include: Central cyanosis, tachycardia, tachypnea, inability to feed, inability to talk in complete sentences .",
       "evidence": "http://www.forskning.no",
@@ -56,42 +56,42 @@
     "management11": {
       "narrative": "Which of the following class of drugs is NOT indicated in the immediate management of severe asthma?",
       "answerKey": "Inhaled corticosteroids",
-      "explanation": "...",
+      "explanation": "Inhaled corticosteroids are not indicated for acute management of asthma, they're indicated for long term control of symptoms",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "management12": {
       "narrative": "Which of the following class of drugs is NOT indicated in the immediate management of mild or moderate asthma?",
       "answerKey": "Inhaled corticosteroids",
-      "explanation": "...",
+      "explanation": "Inhaled corticosteroids are not indicated for acute management of asthma, they're indicated for long term control of symptoms",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
 
 
     "assessment21": {
-      "narrative": "Karen visits the hospital with her mother. What is the most important symptom to look for when you expect asthma?",
+      "narrative": "Karen visits the hospital with her mother. Which  of the following is the most important symptom to look for when suspecting possible asthma?",
       "answerKey": "Wheeze",
       "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma. \n\n Likelihood of asthma much higher if age > 12m and recurrent wheeze",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "diagnosis21": {
-      "narrative": "Karen has a wheeze and difficulty breathing, and should be examined for asthma. The next step is to determine whether the asthma is severe or not. Which of the following tells that Karen is suffering from severe asthma?",
+      "narrative": "Karen is found to have a wheeze and is experiencing difficulty in breathing, which of the following would suggest severe asthma?",
       "answerKey": "Oxygen saturation <90%",
       "explanation": "If the patient has an oxygen saturation <90%, the patient should be treated for severe asthma.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "management21": {
-      "narrative": "Karen is being treated for severe asthma. She is given salbutamol. What other medications should she be given?",
+      "narrative": "Karen is found to be experiencing severe asthma and is given salbutamol. What other medications should she be given?",
       "answerKey": "Prednisolone and oxygen",
       "explanation": "When  treating a patient with severe asthma, always start with oxygen, salbutamol and prednisolone. The evaluation of how the patient responds, will determine the next step of the treatment.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "follow-up21": {
-      "narrative": "For Karen you have no administered the treatment plan for severe asthma. She is now symptom free. What is the recommended maximum days she should be on prednisolone?",
+      "narrative": "You have treated Karen for severe asthma according to the recommended guidelines and she is now symptom free. What is the maximum number of days  should she  be on the prednisolone?",
       "answerKey": "5 days",
       "explanation": "The patient should be maximum 5 days on prednisolone.",
       "evidence": "http://www.forskning.no",
@@ -100,28 +100,28 @@
 
 
     "assessment22": {
-      "narrative": "Ole is brought to the emergency clinic by his parents. He is just 6 months old. What other symptoms than wheeze should you look for when determining possible asthma?",
+      "narrative": "Ole, a 6 months old child, is brought to the emergency clinic by his parents. What symptoms other than wheeze should you look for when considering possible asthma?",
       "answerKey": "Difficulty breathing or history of cough",
       "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma. \n\n Likelihood of asthma much higher if age > 12m and recurrent wheeze",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "diagnosis22": {
-      "narrative": "Ole is being examined for asthma. You find that the asthma is not severe. Which of the following tells that Ole is suffering from mild or moderate asthma?",
+      "narrative": "Ole is suspected to suffer from possible asthma. Which of the following would suggest a severity of mild to moderate asthma?",
       "answerKey": "Lower chest wall indrawing",
       "explanation": "Lower chest wall indrawing or rapid breath tells that the asthma is mild or moderate, if the patient doesn't show any signs of severe asthma.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "management22": {
-      "narrative": "Ole is now being treated for mild or moderate asthma. Which of the following medicament should NOT be administered to Ole?",
+      "narrative": "You diagnos Ole with mild to moderate asthma. Which of the following medicament should NOT be administered to Ole?",
       "answerKey": "Prednisolone",
       "explanation": "Prednisolone should only be administered to patients suffering from severe asthma. \n\nOle should be given salbutamol and oxygen.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "follow-up22": {
-      "narrative": "You have initiated your treatment plan mild and moderate asthma. Ole has received the medication. However, after monitoring for 2 hours the Ole's symptoms are worsening with an increase in respiratory rate and central cyanosis what is the recommended next step?",
+      "narrative": "You have initiated a treatment plan of mild to moderate asthma for Ole. However, after monitoring for 2 hours the Ole's symptoms are worsening with an increase in respiratory rate and central cyanosis what is the recommended next step?",
       "answerKey": "Treat as severe asthma",
       "explanation": "If the symptoms are worsening after receiving treatment for mild or moderate asthma, the patient should be treated for severe asthma. ",
       "evidence": "http://www.forskning.no",
@@ -130,21 +130,21 @@
 
 
     "assessment31": {
-      "narrative": "Malin arrives at the emergency clinic with her father. She is 10 years old. What of these symptoms will convince you that she has possible asthma?",
+      "narrative": "Malin, a 10 year old girl, arrives at the emergency clinic with her father. Which of the following symptoms will suggest a possible diagnosis asthma?",
       "answerKey": "Recurrent wheeze",
       "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma. \n\n Likelihood of asthma much higher if age > 12m and recurrent wheeze",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "diagnosis31": {
-      "narrative": "To determine the severity level of Malins asthma, you find that she has an oxygen saturation  of 85% and a respiratory rate of 35 breaths per minute. What is the severity level?",
+      "narrative": "You suspect that Malin is suffering from an asthmatic attack and find that she has an oxygen saturation  of 85% and a respiratory rate of 35 breaths per minute. What is the severity level of asthma?",
       "answerKey": "Severe",
       "explanation": "Oxygen saturation < 90% is one of the six symptoms which indicates that the asthma is severe. Only one of the symptoms need to be present. \n\nRespiratory rate is used to determine whether the asthma is mild or moderate when you know it is not severe.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "management31": {
-      "narrative": "You conclude with that Malin has severe asthma and initiate a treatment plan. What dose of salbutamol will you administer with the nebulizer?",
+      "narrative": "You diagnos Malin with severe asthma and initiate a treatment plan. What dose of salbutamol will you administer with the nebulizer?",
       "answerKey": "2.5mg",
       "explanation": "In the scenario of severe asthma, nebulize 2.5mg of salbutamol",
       "evidence": "http://www.forskning.no",
@@ -160,28 +160,28 @@
 
 
     "assessment32": {
-      "narrative": "Ben is brought to the emergency clinic by his grandfather. He is 2 years old. What of these symptoms will convince you that he has possible asthma?",
+      "narrative": "Ben is brought to the emergency clinic by his grandfather. He is 2 years old. Which of the following symptoms will suggest a diagnosis of possible asthma?",
       "answerKey": "Wheeze and difficulty breathing",
       "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma. \n\n Likelihood of asthma much higher if age > 12m and recurrent wheeze",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "diagnosis32": {
-      "narrative": "To determine the severity level of Bens asthma, you found a pulse rate of 180bpm and lower chest wall indrawing. You have considered other symptoms to be normal. What is the severity level? Ben is 2 years old.",
+      "narrative": "You suspect that Ben is suffering from possible asthma. On examination, you find that he has a pulse rate of 180bpm and lower chest wall indrawing. What is the severity level of asthma?.",
       "answerKey": "Mild or moderate",
       "explanation": "Pulse-rate is one of the symptoms we examine in regards of severe asthma. However 180bpm doesn't indicate severe asthma for a child which is 2 years old. \n\nLower chest wall indrawing is a symptom which indicates mild or moderate asthma.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "management32": {
-      "narrative": "For Ben you make a diagnosis of mild or moderate asthma and initiate a treatment plan. What is the duration between repeated administration of salbutamol?",
+      "narrative": "You diagnose Ben with mild to moderate asthma and initiate a treatment plan. What is the recommended duration between repeated administration of salbutamol?",
       "answerKey": "20 minutes",
       "explanation": "For all severities of asthma, salbutamol should be given every 20 minutes.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "follow-up32": {
-      "narrative": "Ben has been treated for moderate or mild asthma at the emergency clinic. He is now symptom free. After monitoring for 2 hours, which of the following is the recommended next step?",
+      "narrative": "You have treated Ben for mild to moderate asthma at the emergency clinic. He is now symptom free. After monitoring for 2 hours, which of the following is the recommended next step?",
       "answerKey": "Allow home on salbutamol MDI",
       "explanation": "Follow-up explanation",
       "evidence": "http://www.forskning.no",
@@ -189,28 +189,28 @@
     },
 
     "assessment33": {
-      "narrative": "Arthur has arrived at the emergency clinic. He is 2 months old. What of these symptoms will convince you that he has possible asthma?",
+      "narrative": "Arthur, a 10 month old infant, has been brought to the emergency clinic. What of these symptoms will suggest a diagnosis of possible asthma?",
       "answerKey": "Wheeze and history of cough",
       "explanation": "Wheeze together with either difficulty breathing or history of cough are symptoms of asthma. \n\n Likelihood of asthma much higher if age > 12m and recurrent wheeze",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "diagnosis33": {
-      "narrative": "To determine the severity level of Arthurs asthma, you found an oxygen saturation of 92% and respiratory rate of 55bpm. What is the severity level?",
+      "narrative": "You suspect that Arthur is suffering from possible asthma and on further examination, you find an oxygen saturation of 92% and respiratory rate of 55bpm. What is the severity level of asthma?",
       "answerKey": "Mild or moderate",
       "explanation": "Oxygen saturation is one of the symptoms we examine in regards of severe asthma. However 92% doesn't indicate severe asthma. \n\nRespiratory rate of 55bpm is a symptom which indicates mild or moderate asthma for children 2-11 months old.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "management33": {
-      "narrative": "For Arthur you make a diagnosis of mild or moderate asthma and initiate a treatment plan. Which of the following is not a preferred method of administration of the salbutamol?",
+      "narrative": "You diagnose Arthur with mild to moderate asthma and initiate a treatment plan. Which of the following is not a preferred method of administration for salbutamol?",
       "answerKey": "Oral",
       "explanation": "Salbutamol should either be given with a nebulizer or inhaler with spacer and mask.",
       "evidence": "http://www.forskning.no",
       "guideline": "http://www.nice.org.uk"
     },
     "follow-up33": {
-      "narrative": "Arthur has been treated for moderate or mild asthma at the emergency clinic. He is now symptom free. Which of the following pieces of advice will you give the care-giver on discharge of the patient?",
+      "narrative": "Arthur has been treated for mild to moderate asthma at the emergency clinic and he is now symptom free. Which of the following pieces of advice will you give the care-giver on discharge of the patient?",
       "answerKey": "All alternatives",
       "explanation": "The advice to the councils caregiver should be given as follows: \n\n-Demonstrate how to use spacer and mask \n-Counsel caregiver on signs of deterioration and to return to hospital incase of signs of worsening \nPlan to return for review after 48 hours.",
       "evidence": "http://www.forskning.no",
